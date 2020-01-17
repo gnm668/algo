@@ -67,3 +67,21 @@ module.exports = {
     lucasNumberMemo,
     minChange
 };
+
+
+// You are given coins of different denominations and a total amount of money.
+// Write a function to compute the number of combinations that make up that amount.
+// You may assume that you have infinite number of each kind of coin.
+
+var change = function (amount, coins) {
+    if (amount === 0) return 1;
+
+    let currentCoin = coins[coins.length - 1];
+    let total = 0;
+
+    for (let qty = 0; qty * currentCoin <= amount; ++qty) {
+        total += change(amount - qty * currentCoin, coins.slice(0, -1));
+    };
+
+    return total;
+}
