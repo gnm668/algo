@@ -39,9 +39,29 @@ function lucasNumberMemo(n, memo = {}) {
 // minChange([1, 5, 10, 25], 15)    // => 2, because 10 + 5 = 15
 // minChange([1, 5, 10, 25], 100)   // => 4, because 25 + 25 + 25 + 25 = 100
 function minChange(coins, amount, memo = {}) {
-    
+    if (memo[amount]) return memo[amount];
+    if (amount === 0) return 0;
+
+    let numCoins = [];
+
+    // for (let coin in coins) {
+    //     if (coins[coin] <= amount) {
+    //         numCoins.push(minChange(coins, amount - coins[coin]) + 1);
+    //     };
+    // };
+
+    coins.forEach(coin => {
+        if (coin <= amount) {
+            numCoins.push(minChange(coins, amount - coin, memo) + 1);
+        };
+    });
+
+    memo[amount] = Math.min(...numCoins);
+    return memo[amount];
 }
 
+//why does return numCoins show that the 1's are being added as strings?
+//memoization with multi args use one that doesn't change as key
 
 module.exports = {
     lucasNumberMemo,
