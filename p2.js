@@ -54,3 +54,17 @@ function bubbleSort(arr) {
     return arr;
 
 }
+
+//selection sort 
+
+function minumumValueIndex(arr) {
+    let minIndex = 0;
+
+    for (let j = 0; j < arr.length; j++) {
+        if (arr[minIndex] > arr[j]) {
+            minIndex = j;
+        }
+    }
+
+    return minIndex;
+}
