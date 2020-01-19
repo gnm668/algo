@@ -114,4 +114,24 @@ function insertionSort(arr) {
 
 
 //does the --j still decrement j at the end of inner loop before line 110?
+//YES
+
+function transpose(arr) {
+    let rows = arr.length;
+    let cols = arr[0].length;
+    let grid = [];
+
+    for (let i = 0; i < cols; ++i) {
+        grid[i] = new Array(rows);
+    };
+
+    for (let i = 0; i < rows; ++i) {
+        for (let j = 0; j < cols; ++j) {
+            grid[j][i] = arr[i][j];
+        };
+    };
+
+    return grid;
+}
+
 
