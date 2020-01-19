@@ -198,4 +198,4 @@ function isPalindrome(string) {
 
     return true;
     // Write your code here.
-}
+} 
