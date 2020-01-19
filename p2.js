@@ -110,6 +110,7 @@ function insertionSort(arr) {
         arr[j + 1] = currElement;
     }
     return arr;
+    
 }
 
 

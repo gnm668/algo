@@ -28,16 +28,28 @@
 #space O(n) with memoize
 #if using memoize with base cases, can store base cases in memo hash
 
-def getNthFib(n):
-	lastTwo = [0, 1]
-	counter = 3
+# def getNthFib(n):
+# 	lastTwo = [0, 1]
+# 	counter = 3
 
-	while counter <= n:
-		nextFib = lastTwo[0] + lastTwo[1]
-		lastTwo[0] = lastTwo[1]
-		lastTwo[1] = nextFib
-		counter += 1
+# 	while counter <= n:
+# 		nextFib = lastTwo[0] + lastTwo[1]
+# 		lastTwo[0] = lastTwo[1]
+# 		lastTwo[1] = nextFib
+# 		counter += 1
 
-	return lastTwo[1] if n > 1 else lastTwo[0]
+# 	return lastTwo[1] if n > 1 else lastTwo[0]
 
-print(getNthFib(50))
+# print(getNthFib(50))
+
+#time O(n)
+#space O(1)
+
+str = 'hello'
+length = len(str)
+print(length)
+print(str[0])
+
+
+
+
