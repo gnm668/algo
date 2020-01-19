@@ -147,3 +147,23 @@ function revStr(str) {
 
     return str;
 };
+
+let revStr = str => {
+
+    for (let i = 0, j = str.length - 1; i < j; ++i, --j) {
+        let temp = str[j];
+        str[j] = str[i];
+        str[i] = temp;
+    };
+};
+
+function twoNumberSum(array, targetSum) {
+    let diff = {};
+
+    for (let i = 0; i < array.length; ++i) {
+        if (targetSum - array[i] in diff) return [targetSum - array[i], diff[targetSum - array[i]]];
+        diff[array[i]] = targetSum - array[i];
+    };
+    // Write your code here.
+    return [];
+};
