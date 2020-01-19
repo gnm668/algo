@@ -132,6 +132,18 @@ function transpose(arr) {
     };
 
     return grid;
-}
+};
 
+function revStr(str) {
+    let i = 0, j = str.length - 1;
 
+    for(let n = 0; n < str.length/2; ++n) {
+        let temp = str[j];
+        str[j] = str[i];
+        str[i] = temp;
+        ++ i;
+        -- j;
+    };
+
+    return str;
+};
