@@ -160,7 +160,7 @@
 
 #     def containsNodeWithValue(self, value):
 # 		node = self.head
-# 		while self.head is not None and node.value != value
+# 		while node is not None and node.value != value:
 # 			node = node.next
 # 		return node is not None   
 
@@ -179,15 +179,7 @@
 # 		node.next = None
 # 		node.prev = None
 
-#     def removeNodesWithValue(self, value):
-# 		# test my version
-# 		# node = self.head
-# 		# while node is not None:
-# 		# 	if node.value == value:
-# 		# 		temp = node
-# 		# 	node = node.next
-# 		# 	self.remove(temp)
-		
+#     def removeNodesWithValue(self, value):		
 # 		node = self.head
 # 		while node is not None:
 # 			temp = node
@@ -208,7 +200,7 @@
 # 		node.prev = nodeToInsert	
 		
 #     def insertAfter(self, node, nodeToInsert):
-# 		if self.head = nodeToInsert and self.tail = nodeToInsert:
+# 		if self.head == nodeToInsert and self.tail == nodeToInsert:
 # 			return
 # 		self.remove(nodeToInsert)
 # 		nodeToInsert.prev = node
