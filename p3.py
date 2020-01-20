@@ -170,3 +170,11 @@ class DoublyLinkedList:
 		if node = self.tail:
 			self.tail = self.tail.prev
 		self.removeNodeBindings(node)
+
+	def removeNodeBindings(node):
+		if node.prev is not None:
+			node.prev.next = node.next
+		if node.next is not None:
+			node.next.prev = node.prev
+		node.next = None
+		node.prev = None		
