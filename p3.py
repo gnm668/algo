@@ -238,3 +238,6 @@
 # 			self.insertBefore(node, nodeToInsert)
 # 		else: 
 # 			self.setTail(nodeToInsert)	
+
+
+print(5 // 2)

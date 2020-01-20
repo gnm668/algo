@@ -97,7 +97,7 @@ def twoSum(arr, tar):
 		elif currSum > tar:
 			right -= 1
 
-print(twoSum([4,3,2,1], 5))
+# print(twoSum([4,3,2,1], 5))
 
 
 
