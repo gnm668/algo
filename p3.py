@@ -147,102 +147,102 @@
 # space O(1)
 # time O(n)
 
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.prev = None
-        self.next = None
+# class Node:
+#     def __init__(self, value):
+#         self.value = value
+#         self.prev = None
+#         self.next = None
 
-class DoublyLinkedList:
-    def __init__(self):
-        self.head = None
-        self.tail = None
+# class DoublyLinkedList:
+#     def __init__(self):
+#         self.head = None
+#         self.tail = None
 
-    def containsNodeWithValue(self, value):
-		node = self.head
-		while self.head is not None and node.value != value
-			node = node.next
-		return node is not None   
+#     def containsNodeWithValue(self, value):
+# 		node = self.head
+# 		while self.head is not None and node.value != value
+# 			node = node.next
+# 		return node is not None   
 
-    def remove(self, node):
-		if node = self.head:
-			self.head = self.head.next
-		if node = self.tail:
-			self.tail = self.tail.prev
-		self.removeNodeBindings(node)
+#     def remove(self, node):
+# 		if node = self.head:
+# 			self.head = self.head.next
+# 		if node = self.tail:
+# 			self.tail = self.tail.prev
+# 		self.removeNodeBindings(node)
 
-	def removeNodeBindings(node):
-		if node.prev is not None:
-			node.prev.next = node.next
-		if node.next is not None:
-			node.next.prev = node.prev
-		node.next = None
-		node.prev = None
+# 	def removeNodeBindings(node):
+# 		if node.prev is not None:
+# 			node.prev.next = node.next
+# 		if node.next is not None:
+# 			node.next.prev = node.prev
+# 		node.next = None
+# 		node.prev = None
 
-    def removeNodesWithValue(self, value):
-		# test my version
-		# node = self.head
-		# while node is not None:
-		# 	if node.value == value:
-		# 		temp = node
-		# 	node = node.next
-		# 	self.remove(temp)
+#     def removeNodesWithValue(self, value):
+# 		# test my version
+# 		# node = self.head
+# 		# while node is not None:
+# 		# 	if node.value == value:
+# 		# 		temp = node
+# 		# 	node = node.next
+# 		# 	self.remove(temp)
 		
-		node = self.head
-		while node is not None:
-			temp = node
-			node = node.next
-			if temp.value == value:
-				self.remove(temp)		
+# 		node = self.head
+# 		while node is not None:
+# 			temp = node
+# 			node = node.next
+# 			if temp.value == value:
+# 				self.remove(temp)		
 
-	def insertNodeBefore(self, node, nodeToInsert):
-		if self.head == nodeToInsert and self.tail == nodeToInsert:
-			return
-		self.remove(nodeToInsert)
-		nodeToInsert.next = node
-		nodeToInsert.prev = node.prev
-		if node.prev is None:
-			self.head = nodeToInsert
-		else:
-			node.prev.next = nodeToInsert
-		node.prev = nodeToInsert	
+# 	def insertNodeBefore(self, node, nodeToInsert):
+# 		if self.head == nodeToInsert and self.tail == nodeToInsert:
+# 			return
+# 		self.remove(nodeToInsert)
+# 		nodeToInsert.next = node
+# 		nodeToInsert.prev = node.prev
+# 		if node.prev is None:
+# 			self.head = nodeToInsert
+# 		else:
+# 			node.prev.next = nodeToInsert
+# 		node.prev = nodeToInsert	
 		
-    def insertAfter(self, node, nodeToInsert):
-		if self.head = nodeToInsert and self.tail = nodeToInsert:
-			return
-		self.remove(nodeToInsert)
-		nodeToInsert.prev = node
-		nodeToInsert.next = node.next
-		if node.next is None:
-			self.tail = nodeToInsert
-		else:
-			node.next.prev = nodeToInsert
-		node.next = nodeToInsert
+#     def insertAfter(self, node, nodeToInsert):
+# 		if self.head = nodeToInsert and self.tail = nodeToInsert:
+# 			return
+# 		self.remove(nodeToInsert)
+# 		nodeToInsert.prev = node
+# 		nodeToInsert.next = node.next
+# 		if node.next is None:
+# 			self.tail = nodeToInsert
+# 		else:
+# 			node.next.prev = nodeToInsert
+# 		node.next = nodeToInsert
 
-    def setHead(self, node):
-		if self.head is None:
-			self.head = node
-			self.tail = node
-			return
-		self.insertBefore(self.head, node)
+#     def setHead(self, node):
+# 		if self.head is None:
+# 			self.head = node
+# 			self.tail = node
+# 			return
+# 		self.insertBefore(self.head, node)
 
-    def setTail(self, node):
-		if self.head is None:
-			self.setHead(node)
-		self.insertAfter(self.tail, node)
+#     def setTail(self, node):
+# 		if self.head is None:
+# 			self.setHead(node)
+# 		self.insertAfter(self.tail, node)
 
-	    def insertAtPosition(self, position, nodeToInsert):
-		if position == 1:
-			self.setHead(nodeToInsert)
-			return
+# 	    def insertAtPosition(self, position, nodeToInsert):
+# 		if position == 1:
+# 			self.setHead(nodeToInsert)
+# 			return
 			
-		node = self.head
-		currentNode = 1
+# 		node = self.head
+# 		currentNode = 1
 		
-		while node is not None and currentNode != position:
-			node = node.next
-			currentNode += 1
-		if node is not None:
-			self.insertBefore(node, nodeToInsert)
-		else: 
-			self.setTail(nodeToInsert)	
+# 		while node is not None and currentNode != position:
+# 			node = node.next
+# 			currentNode += 1
+# 		if node is not None:
+# 			self.insertBefore(node, nodeToInsert)
+# 		else: 
+# 			self.setTail(nodeToInsert)	
