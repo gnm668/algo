@@ -158,4 +158,10 @@ class DoublyLinkedList:
         self.head = None
         self.tail = None
 
+    def containsNodeWithValue(self, value):
+		node = self.head
+		while self.head is not None and node.value != value
+			node = node.next
+		return node is not None   
+
 
