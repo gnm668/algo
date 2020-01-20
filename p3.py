@@ -240,4 +240,41 @@
 # 			self.setTail(nodeToInsert)	
 
 
-print(5 // 2)
+# def bSearch(arr, tar):
+# 	return bSearchHelper(arr, tar, 0, len(arr) - 1)
+
+# def bSearchHelper(arr, tar, left, right):
+# 	if left > right:
+# 		return -1
+
+# 	mid = (left + right) // 2
+# 	pMatch = arr[mid]
+
+# 	if tar == pMatch:
+# 		return mid
+# 	elif tar < pMatch:
+# 		return bSearchHelper(arr, tar, 0, mid - 1)
+# 	elif tar > pMatch:
+# 		return bSearchHelper(arr, tar, mid + 1, right)
+
+# def bSearch(arr, tar):
+# 	left = 0
+# 	right = len(arr) - 1
+
+# 	while left <= right:
+# 		mid = (left + right) // 2
+# 		pMatch = arr[mid]
+# 		if tar == pMatch:
+# 			return mid
+# 		elif tar < pMatch:
+# 			right = mid - 1
+# 		elif tar > pMatch:
+# 			left = mid - 1
+
+# 	return -1
+
+
+
+# print(bSearch([1,2,3,4,5,7,7,10], 3))
+
+print('hi')
