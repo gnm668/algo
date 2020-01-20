@@ -121,28 +121,35 @@
 # 	arr[i], arr[j] = arr[j], arr[i]
 
 
-def findThreeLargestNumbers(array):
-	large = [None, None, None]
-	for n in array:
-		update(large, n)
-	return large
+# def findThreeLargestNumbers(array):
+# 	large = [None, None, None]
+# 	for n in array:
+# 		update(large, n)
+# 	return large
 
-def update(large, num):
-	if large[2] is None or large[2] < num:
-		shift(large, num, 2) 
-	elif large[1] is None or large[1] < num:
-		shift(large, num, 1)
-	elif large(0) is None or large[0] < num:
-		shift(large, num , 0)
+# def update(large, num):
+# 	if large[2] is None or large[2] < num:
+# 		shift(large, num, 2) 
+# 	elif large[1] is None or large[1] < num:
+# 		shift(large, num, 1)
+# 	elif large(0) is None or large[0] < num:
+# 		shift(large, num , 0)
 
-def shift(large, num , idx):
-	for i in range(idx +1):
-		if i == idx:
-			array[i] = num
-		else
-			array[i] = array[i + 1]
+# def shift(large, num , idx):
+# 	for i in range(idx +1):
+# 		if i == idx:
+# 			array[i] = num
+# 		else
+# 			array[i] = array[i + 1]
 			
 
 
 # space O(1)
 # time O(n)
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+        
