@@ -67,4 +67,18 @@ def shift(largeArr, num, idx):
 		else:
 			largeArr[i] = largeArr[i + 1]
 
-print(threeLargest([4,2,1,5,6,4,3,3]))
+# print(threeLargest([4,2,1,5,6,4,3,3]))
+
+def nthFib(num):
+	lastTwo = [0, 1]
+	counter = 3
+
+	while counter <= num:
+		temp = lastTwo[0] + lastTwo[1]
+		lastTwo[0] = lastTwo[1]
+		lastTwo[1] = temp
+		counter += 1
+
+	return lastTwo[1] if num > 1 else lastTwo[0]
+
+print(nthFib(4))
