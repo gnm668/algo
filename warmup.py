@@ -81,4 +81,29 @@ def nthFib(num):
 
 	return lastTwo[1] if num > 1 else lastTwo[0]
 
-print(nthFib(4))
+# print(nthFib(4))
+
+def twoSum(arr, tar):
+	arr.sort()
+	left = 0
+	right = len(arr) - 1
+
+	while left < right:
+		currSum = arr[left] + arr[right]
+		if currSum == tar:
+			return [arr[left], arr[right]]
+		elif currSum < tar:
+			left += 1
+		elif currSum > tar:
+			right -= 1
+
+print(twoSum([4,3,2,1], 5))
+
+
+
+
+
+
+
+
+
