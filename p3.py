@@ -257,24 +257,22 @@
 # 	elif tar > pMatch:
 # 		return bSearchHelper(arr, tar, mid + 1, right)
 
-# def bSearch(arr, tar):
-# 	left = 0
-# 	right = len(arr) - 1
-
-# 	while left <= right:
-# 		mid = (left + right) // 2
-# 		pMatch = arr[mid]
-# 		if tar == pMatch:
-# 			return mid
-# 		elif tar < pMatch:
-# 			right = mid - 1
-# 		elif tar > pMatch:
-# 			left = mid - 1
-
-# 	return -1
-
+def binarySearch(array, target):
+	left = 0
+	right = len(array) - 1
+	
+	while left <= right:
+		mid = (left + right) // 2
+		pMatch = array[mid]
+		if target == pMatch:
+			return mid
+		elif target < pMatch:
+			right = mid - 1
+		elif target > pMatch:
+			left = mid + 1
+	return -1
 
 
-# print(bSearch([1,2,3,4,5,7,7,10], 3))
+print(binarySearch([1,2,3,4,5,7,7,10], 11))
 
-print('hi')
+# print('hi')
