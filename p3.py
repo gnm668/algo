@@ -229,4 +229,20 @@ class DoublyLinkedList:
     def setTail(self, node):
 		if self.head is None:
 			self.setHead(node)
-		self.insertAfter(self.tail, node)	
+		self.insertAfter(self.tail, node)
+
+	    def insertAtPosition(self, position, nodeToInsert):
+		if position == 1:
+			self.setHead(nodeToInsert)
+			return
+			
+		node = self.head
+		currentNode = 1
+		
+		while node is not None and currentNode != position:
+			node = node.next
+			currentNode += 1
+		if node is not None:
+			self.insertBefore(node, nodeToInsert)
+		else: 
+			self.setTail(nodeToInsert)	
