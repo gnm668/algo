@@ -177,4 +177,20 @@ class DoublyLinkedList:
 		if node.next is not None:
 			node.next.prev = node.prev
 		node.next = None
-		node.prev = None		
+		node.prev = None
+
+    def removeNodesWithValue(self, value):
+		# test my version
+		# node = self.head
+		# while node is not None:
+		# 	if node.value == value:
+		# 		temp = node
+		# 	node = node.next
+		# 	self.remove(temp)
+		
+		node = self.head
+		while node is not None:
+			temp = node
+			node = node.next
+			if temp.value == value:
+				self.remove(temp)				
