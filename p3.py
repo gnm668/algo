@@ -257,22 +257,39 @@
 # 	elif tar > pMatch:
 # 		return bSearchHelper(arr, tar, mid + 1, right)
 
-def binarySearch(array, target):
-	left = 0
-	right = len(array) - 1
+# def binarySearch(array, target):
+# 	left = 0
+# 	right = len(array) - 1
 	
-	while left <= right:
-		mid = (left + right) // 2
-		pMatch = array[mid]
-		if target == pMatch:
-			return mid
-		elif target < pMatch:
-			right = mid - 1
-		elif target > pMatch:
-			left = mid + 1
-	return -1
+# 	while left <= right:
+# 		mid = (left + right) // 2
+# 		pMatch = array[mid]
+# 		if target == pMatch:
+# 			return mid
+# 		elif target < pMatch:
+# 			right = mid - 1
+# 		elif target > pMatch:
+# 			left = mid + 1
+# 	return -1
 
 
-print(binarySearch([1,2,3,4,5,7,7,10], 11))
+# print(binarySearch([1,2,3,4,5,7,7,10], 11))
 
 # print('hi')
+
+
+class Node:
+	def __init__(self, name):
+		self.children = []
+		self.name = name
+
+	def addChild(self, name):
+		self.children.append(Node(name))
+		return self
+
+	def depthFirstSearch(self, array):
+		array.append(self.name)
+		for child in self.children:
+			child.depthFirstSearch(array)
+		return array
+
