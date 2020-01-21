@@ -278,18 +278,33 @@
 # print('hi')
 
 
-class Node:
-	def __init__(self, name):
-		self.children = []
-		self.name = name
+# class Node:
+# 	def __init__(self, name):
+# 		self.children = []
+# 		self.name = name
 
-	def addChild(self, name):
-		self.children.append(Node(name))
-		return self
+# 	def addChild(self, name):
+# 		self.children.append(Node(name))
+# 		return self
 
-	def depthFirstSearch(self, array):
-		array.append(self.name)
-		for child in self.children:
-			child.depthFirstSearch(array)
-		return array
+# 	def depthFirstSearch(self, array):
+# 		array.append(self.name)
+# 		for child in self.children:
+# 			child.depthFirstSearch(array)
+# 		return array
 
+def findClosestValueInBst(tree, target):
+	return helper(tree, target, float("inf"))
+
+def helper(tree, target, closest):
+	if tree is None:
+		return closest
+	if abs(target - closest) > abs(target - tree.value):
+		closest = tree.value
+	if target < tree.value
+		return helper(tree.left, target, closest)
+	elif target > tree.value
+		return helper(tree.right, target, closest)
+	else:
+		return closest
+		
