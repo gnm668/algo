@@ -293,6 +293,10 @@
 # 			child.depthFirstSearch(array)
 # 		return array
 
+# O(logn) n is # of nodes in tree
+# O(n) worst case if tree is one branch
+# space O(d) depth of recursion 
+
 def findClosestValueInBst(tree, target):
 	return helper(tree, target, float("inf"))
 
@@ -301,10 +305,24 @@ def helper(tree, target, closest):
 		return closest
 	if abs(target - closest) > abs(target - tree.value):
 		closest = tree.value
-	if target < tree.value
+	if target < tree.value:
 		return helper(tree.left, target, closest)
-	elif target > tree.value
+	elif target > tree.value:
 		return helper(tree.right, target, closest)
 	else:
 		return closest
-		
+
+def findClosestValueInBst(tree, target, closest = float("inf")):
+	currNode = tree
+	while currNode is not None:
+		if abs(target - closest) > abs(target - currNode.value):
+			closest = currNode.value
+		if target < currNode.value:
+			currNode = currNode.left
+		elif target > currNode.value:
+			currNode = currNode.right
+		else:
+			break
+	return closest
+
+# iterative is O(1) space 
