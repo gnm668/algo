@@ -101,8 +101,21 @@ def twoSum(arr, tar):
 
 
 
-x = sum([x*x for x in [1,2,3]])
-print(x)
+def binarySearch(arr, tar):
+	left = 0
+	right = len(arr) - 1
 
-print(int(2/2))
+	while left <= right:
+		mid = (left + right) // 2
+
+		if arr[mid] == tar:
+			return mid
+		elif arr[mid] > tar:
+			right = mid - 1
+		elif arr[mid] < tar:
+			left = mid + 1
+		else:
+			return -1
+
+print(binarySearch([1,2,3,4,5,6], 3))
 
