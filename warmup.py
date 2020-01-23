@@ -140,4 +140,25 @@ def elementCount(arr):
 			count[el] = 1
 	return count
 
-print(elementCount(['e', 'a', 'f', 'c', 'w', 'c']))
+# print(elementCount(['e', 'a', 'f', 'c', 'w', 'c']))
+
+
+def anagrams(str1, str2):
+	count = {}
+
+	for char in str1:
+		if char in count:
+			count[char] += 1
+		else:
+			count[char] = 1
+
+	for char in str2:
+		if char in count:
+			count[char] -= 1
+		else:
+			count[char] = -1
+
+	return all(value == 0 for value in count.values())
+
+print(anagrams("hello", "ello"))
+
