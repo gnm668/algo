@@ -117,5 +117,15 @@ def binarySearch(arr, tar):
 		else:
 			return -1
 
-print(binarySearch([1,2,3,4,5,6], 3))
+# print(binarySearch([1,2,3,4,5,6], 3))
 
+def productSum(arr, multi = 1):
+	sum = 0
+	for el in arr:
+		if type(el) is list:
+			sum += productSum(el, multi + 1)
+		else:
+			sum += el
+	return sum * multi
+
+print(productSum([1,2,[2,4]]))
