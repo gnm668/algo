@@ -128,4 +128,16 @@ def productSum(arr, multi = 1):
 			sum += el
 	return sum * multi
 
-print(productSum([1,2,[2,4]]))
+# print(productSum([1,2,[2,4]])) 
+
+def elementCount(arr):
+	count = {}
+
+	for el in arr:
+		if el in count:
+			count[el] += 1
+		else:
+			count[el] = 1
+	return count
+
+print(elementCount(['e', 'a', 'f', 'c', 'w', 'c']))
