@@ -186,3 +186,15 @@ def twoSum(arr, tar):
 			store[el] = True
 
 # print(twoSum([4,3,2,1], 5))
+
+def substrings(string):
+	strArr = list(string)
+	subs = []
+	
+	for i in range(len(strArr)):
+		for j in range(i + 1, len(strArr)):
+			sub = ''.join(strArr[i:j + 1])
+			subs.append(sub)
+	return subs
+
+print(substrings('hello'))
