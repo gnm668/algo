@@ -197,4 +197,12 @@ def substrings(string):
 			subs.append(sub)
 	return subs
 
-print(substrings('hello'))
+# print(substrings('hello'))
+
+def revStr(str):
+	newStr = []
+	for i in range(len(str) - 1, -1, -1):
+		newStr.append(str[i])
+	return ''.join(newStr)
+
+print(revStr('hello'))
