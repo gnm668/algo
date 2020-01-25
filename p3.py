@@ -297,49 +297,49 @@
 # O(n) worst case if tree is one branch
 # space O(d) depth of recursion 
 
-def findClosestValueInBst(tree, target):
-	return helper(tree, target, float("inf"))
+# def findClosestValueInBst(tree, target):
+# 	return helper(tree, target, float("inf"))
 
-def helper(tree, target, closest):
-	if tree is None:
-		return closest
-	if abs(target - closest) > abs(target - tree.value):
-		closest = tree.value
-	if target < tree.value:
-		return helper(tree.left, target, closest)
-	elif target > tree.value:
-		return helper(tree.right, target, closest)
-	else:
-		return closest
+# def helper(tree, target, closest):
+# 	if tree is None:
+# 		return closest
+# 	if abs(target - closest) > abs(target - tree.value):
+# 		closest = tree.value
+# 	if target < tree.value:
+# 		return helper(tree.left, target, closest)
+# 	elif target > tree.value:
+# 		return helper(tree.right, target, closest)
+# 	else:
+# 		return closest
 
-def findClosestValueInBst(tree, target, closest = float("inf")):
-	currNode = tree
-	while currNode is not None:
-		if abs(target - closest) > abs(target - currNode.value):
-			closest = currNode.value
-		if target < currNode.value:
-			currNode = currNode.left
-		elif target > currNode.value:
-			currNode = currNode.right
-		else:
-			break
-	return closest
+# def findClosestValueInBst(tree, target, closest = float("inf")):
+# 	currNode = tree
+# 	while currNode is not None:
+# 		if abs(target - closest) > abs(target - currNode.value):
+# 			closest = currNode.value
+# 		if target < currNode.value:
+# 			currNode = currNode.left
+# 		elif target > currNode.value:
+# 			currNode = currNode.right
+# 		else:
+# 			break
+# 	return closest
 
-# iterative is O(1) space 
+# # iterative is O(1) space 
 
-def branchSums(root):
-	sums = []
-	calculateBranchSums(root, 0, sums)
-	return sums
+# def branchSums(root):
+# 	sums = []
+# 	calculateBranchSums(root, 0, sums)
+# 	return sums
 
-def calculateBranchSums(node, runningSum, sums):
-	if node is None:
-		return
+# def calculateBranchSums(node, runningSum, sums):
+# 	if node is None:
+# 		return
 	
-	newRunningSum = runningSum + node.value
-	if node.left is None and node.right is None:
-		sums.append(newRunningSum)
-		return
+# 	newRunningSum = runningSum + node.value
+# 	if node.left is None and node.right is None:
+# 		sums.append(newRunningSum)
+# 		return
 		
-	calculateBranchSums(node.left, newRunningSum, sums)
-	calculateBranchSums(node.right, newRunningSum, sums)	
+# 	calculateBranchSums(node.left, newRunningSum, sums)
+# 	calculateBranchSums(node.right, newRunningSum, sums)	

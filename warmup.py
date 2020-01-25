@@ -83,19 +83,19 @@ def nthFib(num):
 
 # print(nthFib(4))
 
-def twoSum(arr, tar):
-	arr.sort()
-	left = 0
-	right = len(arr) - 1
+# def twoSum(arr, tar):
+# 	arr.sort()
+# 	left = 0
+# 	right = len(arr) - 1
 
-	while left < right:
-		currSum = arr[left] + arr[right]
-		if currSum == tar:
-			return [arr[left], arr[right]]
-		elif currSum < tar:
-			left += 1
-		elif currSum > tar:
-			right -= 1
+# 	while left < right:
+# 		currSum = arr[left] + arr[right]
+# 		if currSum == tar:
+# 			return [arr[left], arr[right]]
+# 		elif currSum < tar:
+# 			left += 1
+# 		elif currSum > tar:
+# 			right -= 1
 
 # print(twoSum([4,3,2,1], 5))
 
@@ -162,6 +162,29 @@ def anagrams(str1, str2):
 
 # print(anagrams("hello", "ello"))
 
-x = 'hello there'
-print(list(x))
+# def twoSum(arr, tar):
+# 	arr.sort()
+# 	right = 0
+# 	left = len(arr) - 1
 
+# 	for el in arr:
+# 		sum = arr[right] + arr[left]
+# 		if sum == tar:
+# 			return [arr[right], arr[left]]
+# 		elif sum > tar:
+# 			right -= 1
+# 		elif sum < tar:
+# 			left += 1
+
+
+
+def twoSum(arr, tar):
+	store = {}
+	for el in arr:
+		otherNum = tar - el
+		if otherNum in store:
+			return [otherNum, el]
+		else:
+			store[el] = True
+
+print(twoSum([4,3,2,1], 5))
