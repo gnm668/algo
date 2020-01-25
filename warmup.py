@@ -176,8 +176,6 @@ def anagrams(str1, str2):
 # 		elif sum < tar:
 # 			left += 1
 
-
-
 def twoSum(arr, tar):
 	store = {}
 	for el in arr:
@@ -187,4 +185,4 @@ def twoSum(arr, tar):
 		else:
 			store[el] = True
 
-print(twoSum([4,3,2,1], 5))
+# print(twoSum([4,3,2,1], 5))
