@@ -160,5 +160,8 @@ def anagrams(str1, str2):
 
 	return all(value == 0 for value in count.values())
 
-print(anagrams("hello", "ello"))
+# print(anagrams("hello", "ello"))
+
+x = 'hello there'
+print(list(x))
 
