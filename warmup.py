@@ -193,11 +193,15 @@ def substrings(string):
 	
 	for i in range(len(strArr)):
 		for j in range(i + 1, len(strArr)):
-			sub = ''.join(strArr[i:j + 1])
+			sub = (strArr[i:j + 1])
 			subs.append(sub)
+
+	for i in range(len(subs)):
+		subs[i] = ''.join(subs[i])
+		
 	return subs
 
-# print(substrings('hello'))
+print(substrings('hello'))
 
 def revStr(str):
 	newStr = []
@@ -205,4 +209,14 @@ def revStr(str):
 		newStr.append(str[i])
 	return ''.join(newStr)
 
-print(revStr('hello'))
+# print(revStr('hello'))
+
+def palindrome(strings):
+	pals = []
+	for str in strings:
+		if str == revStr(str):
+			pals.append(str)
+	return pals
+
+# x = ['hello', 'hi', 'loo']
+# print(max(x, key=len))
