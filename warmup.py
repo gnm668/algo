@@ -176,47 +176,98 @@ def anagrams(str1, str2):
 # 		elif sum < tar:
 # 			left += 1
 
-def twoSum(arr, tar):
-	store = {}
-	for el in arr:
-		otherNum = tar - el
-		if otherNum in store:
-			return [otherNum, el]
-		else:
-			store[el] = True
+# def twoSum(arr, tar):
+# 	store = {}
+# 	for el in arr:
+# 		otherNum = tar - el
+# 		if otherNum in store:
+# 			return [otherNum, el]
+# 		else:
+# 			store[el] = True
 
 # print(twoSum([4,3,2,1], 5))
 
-def substrings(string):
-	strArr = list(string)
-	subs = []
+# def substrings(string):
+# 	strArr = list(string)
+# 	subs = []
 	
-	for i in range(len(strArr)):
-		for j in range(i + 1, len(strArr)):
-			sub = (strArr[i:j + 1])
-			subs.append(sub)
+# 	for i in range(len(strArr)):
+# 		for j in range(i + 1, len(strArr)):
+# 			sub = (strArr[i:j + 1])
+# 			subs.append(sub)
 
-	for i in range(len(subs)):
-		subs[i] = ''.join(subs[i])
+# 	for i in range(len(subs)):
+# 		subs[i] = ''.join(subs[i])
 		
-	return subs
+# 	return subs
 
-print(substrings('hello'))
+# print(substrings('hello'))
 
-def revStr(str):
-	newStr = []
-	for i in range(len(str) - 1, -1, -1):
-		newStr.append(str[i])
-	return ''.join(newStr)
+# def revStr(str):
+# 	newStr = []
+# 	for i in range(len(str) - 1, -1, -1):
+# 		newStr.append(str[i])
+# 	return ''.join(newStr)
 
 # print(revStr('hello'))
 
-def palindrome(strings):
-	pals = []
-	for str in strings:
-		if str == revStr(str):
-			pals.append(str)
-	return pals
+# def palindrome(strings):
+# 	pals = []
+# 	for str in strings:
+# 		if str == revStr(str):
+# 			pals.append(str)
+# 	return pals
+
+# def longestPalindromicSubstring(string):
+# 	if len(string) == 1:
+# 		return string
+	
+# 	subs = substrings(string)
+# 	pals = palindrome(subs)
+	
+# 	if len(pals) > 0:
+# 		return max(pals, key=len)
+# 	else: 
+# 		return	
 
 # x = ['hello', 'hi', 'loo']
 # print(max(x, key=len))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
