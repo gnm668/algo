@@ -233,7 +233,42 @@ def anagrams(str1, str2):
 # x = ['hello', 'hi', 'loo']
 # print(max(x, key=len))
 
+def longestPalindromicSubstring(string):
+	currLongest = [0, 1]
+	# will always be first string length of 1
 
+	for i in range(1, len(string)):
+		#exclusive end
+
+		odd = getLongestPalidrome(string, i - 1, i + 1)
+		#with i as center of palindrome
+
+		even = getLongestPalidrome(string, i - 1, i)
+		#with i and i -1 as center of even palidrome
+
+		longest = max(odd, even, key = lambda x: x[1] - x[0])
+		#grab longer palindrome between odd and even
+		#review key = lambda python
+
+		currLongest = max(longest, currLongest, key = lambda x: x[1] - x[0])
+		#grab longer palindrome between currLongest and longest
+
+	return string[currLongest[0]: currLongest[1]]
+
+def getLongestPalidrome(string, leftIdx, rightIdx):
+	while leftIdx >= 0 and rightIdx < len(string):
+		#until one of the indices doesn't work
+
+		if string[leftIdx] != string[rightIdx]:
+			#break if not pal
+
+			break
+
+		leftIdx -= 1
+		rightIdx += 1
+		#increment
+	
+	return [leftIdx + 1, rightIdx]
 
 
 
