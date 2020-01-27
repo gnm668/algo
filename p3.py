@@ -343,3 +343,16 @@
 		
 # 	calculateBranchSums(node.left, newRunningSum, sums)
 # 	calculateBranchSums(node.right, newRunningSum, sums)	
+
+
+def groupAnagrams(words):	
+	groups = {} #O(WN) Space
+	
+	for word in words:  #O(N) Time
+		sortedWord = "".join(sorted(word)) #O(Wlog(W) Time
+		if sortedWord in groups:
+			groups[sortedWord].append(word)
+		else:
+			groups[sortedWord] = [word]
+			
+	return groups.values() 
