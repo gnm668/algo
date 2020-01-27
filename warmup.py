@@ -280,10 +280,11 @@ def getLongestPalidrome(string, leftIdx, rightIdx):
 
 a = ['hi', 'look']
 def foo(words):
-	return max(words[0], words[1], key= lambda a: a[0] + a[1])
+	return max(words[0], words[1], key= lambda a: a[0] > a[1])
 
 a = foo(a)
-print(a)
+print(a) 
+
 
 
 

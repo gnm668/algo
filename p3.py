@@ -345,14 +345,40 @@
 # 	calculateBranchSums(node.right, newRunningSum, sums)	
 
 
-def groupAnagrams(words):	
-	groups = {} #O(WN) Space
+# def groupAnagrams(words):	
+# 	groups = {} #O(WN) Space
 	
-	for word in words:  #O(N) Time
-		sortedWord = "".join(sorted(word)) #O(Wlog(W) Time
-		if sortedWord in groups:
-			groups[sortedWord].append(word)
-		else:
-			groups[sortedWord] = [word]
+# 	for word in words:  #O(N) Time
+# 		sortedWord = "".join(sorted(word)) #O(Wlog(W) Time
+# 		if sortedWord in groups:
+# 			groups[sortedWord].append(word)
+# 		else:
+# 			groups[sortedWord] = [word]
 			
-	return groups.values() 
+# 	return groups.values() 
+
+
+# def foo(arr, tar): 
+# 	return sorted(arr, key = lambda x: x == tar)
+
+# x = [1,2,3,4,5,6]
+
+# x[0], x[1] = x[1], x[0]
+
+# print(x)
+
+
+
+# MoveElementToEnd
+
+def moveElementToEnd(array, toMove):
+	swapIdx = None
+	for i in range(len(array)):
+		if toMove == array[i]:
+			swapIdx = i
+		else:
+			if swapIdx is not None:
+				array[swapIdx], array[i] = array[i], array[swapIdx]
+				swapIdx = i
+	return array
+    
