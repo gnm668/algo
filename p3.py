@@ -406,30 +406,45 @@ y = len(x) - 1
 
 # print(moveElementToEnd([2,1,2,2,3,4,2], 2))
 
-def maxSubsetSumNoAdjacent(array):
-	if len(array) == 0:
-		return 0
+# def maxSubsetSumNoAdjacent(array):
+# 	if len(array) == 0:
+# 		return 0
 
-	first = array[0]
-	second = array[1]
+# 	first = array[0]
+# 	second = array[1]
 	
 
-	if len(array) % 2 == 0:
-		lastIdx = len(array) - 1
-		if array[lastIdx] > array[lastIdx - 1]:
-			swap(lastIdx, lastIdx - 1, array)
-			array.pop()
+# 	if len(array) % 2 == 0:
+# 		lastIdx = len(array) - 1
+# 		if array[lastIdx] > array[lastIdx - 1]:
+# 			swap(lastIdx, lastIdx - 1, array)
+# 			array.pop()
+
+# 	for i in range(2, len(array)):
+# 		if i % 2 == 0:
+# 			first += array[i]
+# 		else:
+# 			second += array[i]
+
+# 	return max(first, second)
+
+# def swap(i, j, array):
+# 	array[i], array[j] = array[j], array[i]
+
+def maxSubsetSumNoAdjacent(array):
+	if not len(array):
+		return 0
+	elif len(array) == 1:
+		return array[0]
+
+	second = array[0]
+	first = max(array[0], array[1])
 
 	for i in range(2, len(array)):
-		if i % 2 == 0:
-			first += array[i]
-		else:
-			second += array[i]
-
-	return max(first, second)
-
-def swap(i, j, array):
-	array[i], array[j] = array[j], array[i]
+		current = max(first, second + array[i])
+		second = first 
+		first = current
+	return first
 
 x = [75, 105, 120, 75, 90, 135]
 
