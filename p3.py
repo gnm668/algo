@@ -388,23 +388,51 @@ y = len(x) - 1
 
 # DOESN'T WORK FOR SOME EDGE CASES
 
-def moveElementToEnd(array, toMove):
-	left = 0
-	right = len(array) - 1
+# def moveElementToEnd(array, toMove):
+# 	left = 0
+# 	right = len(array) - 1
 
-	while left < right:
-		if array[left] == toMove:
-			if array[right] != toMove:
-				array[left], array[right] = array[right], array[left]
-			else: 
-				right -= 1
+# 	while left < right:
+# 		if array[left] == toMove:
+# 			if array[right] != toMove:
+# 				array[left], array[right] = array[right], array[left]
+# 			else: 
+# 				right -= 1
+# 		else:
+# 			left += 1
+
+# 	return array
+
+
+# print(moveElementToEnd([2,1,2,2,3,4,2], 2))
+
+def maxSubsetSumNoAdjacent(array):
+	if len(array) == 0:
+		return 0
+
+	first = array[0]
+	second = array[1]
+	
+
+	if len(array) % 2 == 0:
+		lastIdx = len(array) - 1
+		if array[lastIdx] > array[lastIdx - 1]:
+			swap(lastIdx, lastIdx - 1, array)
+			array.pop()
+
+	for i in range(2, len(array)):
+		if i % 2 == 0:
+			first += array[i]
 		else:
-			left += 1
+			second += array[i]
 
-	return array
+	return max(first, second)
 
-print(moveElementToEnd([2,1,2,2,3,4,2], 2))
+def swap(i, j, array):
+	array[i], array[j] = array[j], array[i]
 
+x = [75, 105, 120, 75, 90, 135]
 
+print(maxSubsetSumNoAdjacent(x))
 
     
