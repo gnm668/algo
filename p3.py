@@ -467,24 +467,211 @@ y = len(x) - 1
 
 # print(moveElementToEnd([2,1,2,2,3,4,2], 2))
 
-def maxAdjSum(array):
-	if not len(array):
-		return 0
-	elif len(array) == 1:
-		return array[0]
+# def maxAdjSum(array):
+# 	if not len(array):
+# 		return 0
+# 	elif len(array) == 1:
+# 		return array[0]
 
-	first = array[0]
-	second = max(array[0], array[1])
+# 	first = array[0]
+# 	second = max(array[0], array[1])
 
-	for i in range(2, len(array)):
-		current = max(second, first + array[i])
-		first = second
-		second = current
-	return second
+# 	for i in range(2, len(array)):
+# 		current = max(second, first + array[i])
+# 		first = second
+# 		second = current
+# 	return second
 
-x = []
+# x = []
 
-print(maxAdjSum(x))
+# print(maxAdjSum(x))
+
+# def smallestDifference(arrayOne, arrayTwo):
+	# idxOne = 0
+	# idxTwo = 0
+	# arrayOne.sort()
+	# arrayTwo.sort()
+	# diff = float('inf')
+	# curr = float('inf')
+	# pair = []
+	
+	# while idxOne < len(arrayOne) and idxTwo < len(arrayTwo):
+	# 	firstNum = arrayOne[idxOne]
+	# 	secondNum = arrayTwo[idxTwo]
+		
+	# 	if firstNum < secondNum:
+	# 		curr = secondNum - firstNum
+	# 		idxOne += 1
+	# 	elif firstNum > secondNum:
+	# 		curr = firstNum - secondNum
+	# 		idxTwo +=1
+	# 	else:
+	# 		return [firstNum, secondNum]
+	# 	if diff > curr:
+	# 		diff = curr
+	# 		pair =[firstNum, secondNum]
+			
+	# return pair
+
+garden = [
+		[5, 7, 8, 6, 3],
+		[0, 0, 7, 0, 4], 
+		[4, 6, 3, 4, 9], 
+		[3, 1, 0, 5, 8]
+	]
+
+
+def hungryRabbit(array):
+	rabbit = start(array) # [row, col]
+	monch(array, rabbit)
+
+
+
+
+	# START
+	#grab greatest center value 
+	#if length or height are even
+	#key into array at int(len(array) / 2)
+	#compare 2 or 4 values for starting point
+
+# def start(array):
+
+	# row1, col1, row2, col2 = None, None, None, None
+
+	# if len(array) % 2 == 1:
+	# 	row1 = int(len(array) / 2)
+	# else:
+	# 	row1 = int(len(array) / 2)
+	# 	row2 = int((len(array) / 2) - 1)
+
+	# if len(array[0]) % 2 == 1:
+	# 	col1 = int(len(array[0]) / 2)
+	# else:
+	# 	col1 = int(len(array[0]) / 2)
+	# 	col2 = int((len(array[0]) / 2) - 1)
+
+
+	# square1, square2, square3, square4 = array[row1][col1], array[row1][col2], array[row2][col1], array[row2][col2]
+	# greatest = max(square1, square2, square3, square4)
+	# if square1 == greatest:
+	# 	return [row1, col1]
+	# elif square2 == greatest:
+	# 	return [row1, col2]
+	# elif square3 == greatest:
+	# 	return [row2, col1]
+	# elif square4 == greatest:
+	# 	return [row2, col2]
+
+
+def monch(array, start):  #start is also an array
+	hungry = True
+	startRow = start[0]
+	startCol = start[1]
+	carrotSum = array[startRow][startCol]
+	currentSquare = start
+	directions = [[0, 1], [1, 0], [-1, 0], [0, -1]]
+	
+	while hungry == True:
+		nextSquareVal = float("-inf")
+		for direction in directions:
+			row = currentSquare[0] + direction[0]
+			col = currentSquare[1] + direction[1]
+
+			if row >= 0 and row < len(array) and col >= 0 and col < len(array[0]):
+				if array[row][col] > nextSquareVal:
+					nextSquareVal = array[row][col]
+					currentSquare = [row, col]
+			elif nextSquareVal == 0:
+				hungry = False
+		carrotSum += nextSquareVal
+	return carrotSum
+
+
+	# TRAVERSE
+	#create direction array 
+	#interate through direction array and check 
+	#values of surrounding squares, save highest value and direction unless index num is less than 0
+	#update running sum and current position
+	#if all surrounding values are NULL or 0 return final sum
+
+def start(array):
+	row_options = [len(garden) // 2, len(garden) // 2]
+	col_options = [len(garden[0]) // 2, len(garden[0]) // 2]
+
+    # If even, 1st option is one less than half the length
+	if len(garden) % 2 == 0:
+		row_options[0] -= 1
+
+	if len(garden[0]) % 2 == 0:
+		col_options[0] -= 1
+
+	max = 0
+	row = None
+	col = None
+
+	for r_option in row_options:
+		for c_option in col_options:
+			if garden[r_option][c_option] > max:
+				max = garden[r_option][c_option]
+				row = r_option
+				col = c_option
+
+	return row, col
+
+def hungry_rabbit_util(garden, row, col):
+	max = 0
+	next_row = None
+	next_col = None
+
+	for r, c in [[-1, 0], [1, 0], [0, -1], [0, 1]]:
+		if row + r >= 0 and row + r < len(garden) and \
+				col + c >= 0 and col + c < len(garden[row]):
+			if garden[row + r][col + c] > max:
+				max = garden[row + r][col + c]
+				next_row = row + r
+				next_col = col + c
+
+	carrots = garden[row][col]
+	garden[row][col] = 0
+
+	if max > 0 and next_row is not None and next_col is not None:
+		carrots += hungry_rabbit_util(garden, next_row, next_col)
+
+	return carrots
+
+def hungry_rabbit(garden):
+    if len(garden) == 0 or len(garden[0]) == 0:
+        return 0
+
+    # create a copy of the garden so we can mutate it
+    copy = [g_row[:] for g_row in garden]
+    row, col = start(copy)
+
+    if row is None or col is None:
+        return 0
+
+    return hungry_rabbit_util(copy, row, col)
+
+# print(hungry_rabbit(garden))
+
+for x in [[-1, 0], [1, 0], [0, -1], [0, 1]]:
+	print(x)
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
