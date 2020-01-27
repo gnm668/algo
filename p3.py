@@ -361,7 +361,11 @@
 # def foo(arr, tar): 
 # 	return sorted(arr, key = lambda x: x == tar)
 
-# x = [1,2,3,4,5,6]
+x = [1,2,3,4,5,6]
+y = len(x) - 1
+# print(y)
+
+
 
 # x[0], x[1] = x[1], x[0]
 
@@ -371,14 +375,36 @@
 
 # MoveElementToEnd
 
+# def moveElementToEnd(array, toMove):
+# 	swapIdx = None
+# 	for i in range(len(array)):
+# 		if toMove == array[i]:
+# 			swapIdx = i
+# 		else:
+# 			if swapIdx is not None:
+# 				array[swapIdx], array[i] = array[i], array[swapIdx]
+# 				swapIdx = i
+# 	return array
+
+# DOESN'T WORK FOR SOME EDGE CASES
+
 def moveElementToEnd(array, toMove):
-	swapIdx = None
-	for i in range(len(array)):
-		if toMove == array[i]:
-			swapIdx = i
+	left = 0
+	right = len(array) - 1
+
+	while left < right:
+		if array[left] == toMove:
+			if array[right] != toMove:
+				array[left], array[right] = array[right], array[left]
+			else: 
+				right -= 1
 		else:
-			if swapIdx is not None:
-				array[swapIdx], array[i] = array[i], array[swapIdx]
-				swapIdx = i
+			left += 1
+
 	return array
+
+print(moveElementToEnd([2,1,2,2,3,4,2], 2))
+
+
+
     
