@@ -273,15 +273,22 @@ def getLongestPalidrome(string, leftIdx, rightIdx):
 
 # print(longestPalindromicSubstring('abaxxyyzzyyxxb'))
 
-a = {1: 'a', 2: 'b'}
+# a = 'hello'
+# a = sorted(a)
+# a = ''.join(a)
+# print(a)
 
-def foo(a):
-	if 'b' in a.values():
-		return True
-	else:
-		return False
+a = ['hi', 'look']
+def foo(words):
+	return max(words[0], words[1], key= lambda a: a[0] + a[1])
 
-print(foo(a))
+a = foo(a)
+print(a)
+
+
+
+
+
 
 
 
