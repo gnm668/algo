@@ -23,24 +23,70 @@ def searchInSortedMatrix(matrix, target):
     # O(1) Space
 
 
-def threeNumberSum(array, targetSum):
-	array.sort()
-	results = []
+# def threeNumberSum(array, targetSum):
+	# array.sort()
+	# results = []
 	
-	anchor = 0
-	left = 1
-	right = len(array) - 1
+	# anchor = 0
+	# left = 1
+	# right = len(array) - 1
 	
-	while left == len(array)/2 :
-		currentSum = array[anchor] + array[left] + array[right]
-		if currentSum < targetSum:
-			left += 1
-		elif currentSum > targetSum:
-			right -= 1
-		elif currentSum == targetSum:
-			results.append([array[anchor], array[left], array[right]])
-		elif left >= right:
-			anchor += 1
-			left = anchor + 1
-			right = len(array) - 1
-	return results
+	# while left == len(array)/2 :
+	# 	currentSum = array[anchor] + array[left] + array[right]
+	# 	if currentSum < targetSum:
+	# 		left += 1
+	# 	elif currentSum > targetSum:
+	# 		right -= 1
+	# 	elif currentSum == targetSum:
+	# 		results.append([array[anchor], array[left], array[right]])
+	# 	elif left >= right:
+	# 		anchor += 1
+	# 		left = anchor + 1
+	# 		right = len(array) - 1
+	# return results
+
+    # def threeNumberSum(array, targetSum):
+    #     array.sort()
+    #     results = []
+
+    #     for i in range(len(array) - 2):
+    #         left = i + 1
+    #         right = len(array) - 1
+    #         while left < right:
+    #             currentSum = array[i] + array[left] + array[right]
+    #             if currentSum < targetSum:
+    #                 left += 1
+    #             elif currentSum > targetSum:
+    #                 right -= 1 
+    #             else: 
+    #                 results.append([array[i], array[left], array[right]])
+    #                 left += 1
+    #                 right -= 1
+    #     return results
+
+    def smallestDifference(arrayOne, arrayTwo):
+	idxOne = 0
+	idxTwo = 0
+	arrayOne.sort()
+	arrayTwo.sort()
+	diff = float('inf')
+	curr = float('inf')
+	pair = []
+	
+	while idxOne < len(arrayOne) and idxTwo < len(arrayTwo):
+		firstNum = arrayOne[idxOne]
+		secondNum = arrayTwo[idxTwo]
+		
+		if firstNum < secondNum:
+			curr = secondNum - firstNum
+			idxOne += 1
+		elif firstNum > secondNum:
+			curr = firstNum - secondNum
+			idxTwo +=1
+		else:
+			return [firstNum, secondNum]
+		if diff > curr:
+			diff = curr
+			pair =[firstNum, secondNum]
+			
+	return pair
