@@ -92,20 +92,44 @@ def smallestDifference(arrayOne, arrayTwo):
     return pair
 
 x = {1: None, 2: 2, 3: 3}
-print(x.values())
+# print(x.values())
 
+
+# def hasSingleCycle(array):
+#     pos = 0
+#     visit = {}
+#     count = 0
+
+#     while count < len(array) + 1:
+#         visit[pos] = True
+#         if count == 0:
+#             visit.pop(0)
+#         pos = (pos + array[pos]) % len(array)
+#         count += 1
+#     if len(visit.values()) == len(array):
+#         return True
+#     return False
+
+# Below has better space complexity but same time complexity
 
 def hasSingleCycle(array):
-    pos = 0
-    visit = {}
-    count = 0
+    visitedCount = 0
+    currentPos = 0
 
-    while count < len(array) + 1:
-        visit[pos] = True
-        if count == 0:
-            visit.pop(0)
-        pos = (pos + array[pos]) % len(array)
-        count += 1
-    if len(visit.values()) == len(array):
-        return True
-    return False
+    while visitedCount < len(array):
+        if visitedCount > 0 and currentPos == 0:
+            return False
+        visitedCount += 1
+        currentPos = getNextPos(currentPos, array)
+    return currentPos == 0
+
+def getNextPos(currentPos, array):
+    move = array[currentPos]
+    nextPos = (currentPos + move) % len(array)
+    return nextPos if nextPos >= 0 else nextPos + len(array)
+
+target = '00000'
+
+a = '0' * len(target)
+
+print(a)
