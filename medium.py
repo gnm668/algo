@@ -128,8 +128,26 @@ def getNextPos(currentPos, array):
     nextPos = (currentPos + move) % len(array)
     return nextPos if nextPos >= 0 else nextPos + len(array)
 
-target = '00000'
+def balancedBrackets(string):
+    opening = '({['
+	closing = ')}]'
+	stack = []
+	
+	if len(string) == 0:
+		return False
 
-a = '0' * len(target)
-
-print(a)
+	for bracket in string:
+		if bracket in closing:
+			if len(stack) != 0:
+				if opening.index(stack[-1]) == closing.index(bracket):
+					stack.pop()
+				else:
+					return False
+			else:
+				return False
+		elif bracket in opening:
+			stack.append(bracket)
+	if len(stack) == 0:
+		return True
+	else:
+		return False
