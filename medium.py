@@ -128,26 +128,44 @@ def getNextPos(currentPos, array):
     nextPos = (currentPos + move) % len(array)
     return nextPos if nextPos >= 0 else nextPos + len(array)
 
+# def balancedBrackets(string):
+#     opening = '({['
+# 	closing = ')}]'
+# 	stack = []
+	
+# 	if len(string) == 0:
+# 		return False
+
+# 	for bracket in string:
+# 		if bracket in closing:
+# 			if len(stack) != 0:
+# 				if opening.index(stack[-1]) == closing.index(bracket):
+# 					stack.pop()
+# 				else:
+# 					return False
+# 			else:
+# 				return False
+# 		elif bracket in opening:
+# 			stack.append(bracket)
+# 	if len(stack) == 0:
+# 		return True
+# 	else:
+# 		return False
+
 def balancedBrackets(string):
     opening = '({['
-	closing = ')}]'
-	stack = []
-	
-	if len(string) == 0:
-		return False
+    closing = ')}]'
+    matching = {')':'(', '}':'{', ']':'[' }
+    stack = []
 
-	for bracket in string:
-		if bracket in closing:
-			if len(stack) != 0:
-				if opening.index(stack[-1]) == closing.index(bracket):
-					stack.pop()
-				else:
-					return False
-			else:
-				return False
-		elif bracket in opening:
-			stack.append(bracket)
-	if len(stack) == 0:
-		return True
-	else:
-		return False
+    for char in string:
+        if char in opening:
+            stack.append(char)
+        elif char in closing:
+            if len(stack) == 0:
+                return False
+            elif stack[-1] == matching[char]:
+                stack.pop()
+            else:
+                return False
+    return len(stack) == 0
