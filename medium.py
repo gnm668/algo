@@ -180,3 +180,10 @@ class Solution:
             else:
                 newAddress.append(char)
         return ''.join(newAddress)
+
+
+class Solution:
+    def customSortString(self, S: str, T: str) -> str:
+        T = list(T)
+        T.sort(key=lambda a: S.index(a) if a in S else 0)
+        return ''.join(T)
