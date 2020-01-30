@@ -169,3 +169,14 @@ def balancedBrackets(string):
             else:
                 return False
     return len(stack) == 0
+
+
+class Solution:
+    def defangIPaddr(self, address: str) -> str:
+        newAddress = []
+        for char in address:
+            if char == '.':
+                newAddress.append('[.]')
+            else:
+                newAddress.append(char)
+        return ''.join(newAddress)
