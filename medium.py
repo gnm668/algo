@@ -21,3 +21,26 @@ def searchInSortedMatrix(matrix, target):
     # If sorted check possible coparisons
     # O(n + m) Time
     # O(1) Space
+
+
+def threeNumberSum(array, targetSum):
+	array.sort()
+	results = []
+	
+	anchor = 0
+	left = 1
+	right = len(array) - 1
+	
+	while left == len(array)/2 :
+		currentSum = array[anchor] + array[left] + array[right]
+		if currentSum < targetSum:
+			left += 1
+		elif currentSum > targetSum:
+			right -= 1
+		elif currentSum == targetSum:
+			results.append([array[anchor], array[left], array[right]])
+		elif left >= right:
+			anchor += 1
+			left = anchor + 1
+			right = len(array) - 1
+	return results
