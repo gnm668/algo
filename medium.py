@@ -17,3 +17,7 @@ def searchInSortedMatrix(matrix, target):
 		else:
 			return [row, col]
 	return [-1, -1]
+
+    # If sorted check possible coparisons
+    # O(n + m) Time
+    # O(1) Space
