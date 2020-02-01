@@ -171,19 +171,58 @@ def balancedBrackets(string):
     return len(stack) == 0
 
 
-class Solution:
-    def defangIPaddr(self, address: str) -> str:
-        newAddress = []
-        for char in address:
-            if char == '.':
-                newAddress.append('[.]')
-            else:
-                newAddress.append(char)
-        return ''.join(newAddress)
+# class Solution:
+#     def defangIPaddr(self, address: str) -> str:
+#         newAddress = []
+#         for char in address:
+#             if char == '.':
+#                 newAddress.append('[.]')
+#             else:
+#                 newAddress.append(char)
+#         return ''.join(newAddress)
+
+#     def customSortString(self, S: str, T: str) -> str:
+#         T = list(T)
+#         T.sort(key=lambda a: S.index(a) if a in S else 0)
+#         return ''.join(T)
 
 
-class Solution:
-    def customSortString(self, S: str, T: str) -> str:
-        T = list(T)
-        T.sort(key=lambda a: S.index(a) if a in S else 0)
-        return ''.join(T)
+
+def quickSort(array):
+
+    if len(array) < 2:
+        return array 
+
+    pivot = array[0]
+    left = [el for el in array[1:] if el < pivot]
+    right = [el for el in array[1:] if el >= pivot]
+    return quickSort(left) + [pivot] + quickSort(right)
+    
+a = [4, 4,3,2,1]
+b = 'hello'
+
+# print(quickSort(a))
+
+
+# x = lambda x: x + 2
+# def isOdd(num):
+#     if num % 2 != 0:
+#         return True
+#     else:
+#         return False
+
+# print(x(2))
+
+
+
+# print(map(x, a))
+# print([x(el) for el in a if el % 2 == 0])
+# print(filter(isOdd, a))
+# print([el for el in a if el % 2 == 0])
+# print(b)
+
+x = { 1:'a', 2:'b'}
+# print(a[:])
+# a[0] = 100
+# print(a)
+
