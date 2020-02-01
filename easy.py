@@ -24,10 +24,23 @@ def twoNumberSum(array, targetSum):
 print(twoNumberSum([1,2,3,9], 5))
 
 
-def getNthFib(n):
-    if n == 1:
-	    return 0
-    if n == 2:
-	    return 1
-	return getNthFib(n - 1) + getNthFib(n - 2)
+# def getNthFib(n):
+#     if n == 1:
+# 	    return 0
+#     if n == 2:
+# 	    return 1
+# 	return getNthFib(n - 1) + getNthFib(n - 2)
+# O(2^n) Time
+# O(n) space
 
+def getNthFib(n):
+	lastTwo = [0, 1]
+	if n == 1:
+		return lastTwo[0]
+	if n == 2:
+		return lastTwo[1]
+	for i in range(2, n):
+		nextNum = lastTwo[0] + lastTwo[1]
+		lastTwo[0] = lastTwo[1]
+		lastTwo[1] = nextNum
+	return lastTwo[1]
