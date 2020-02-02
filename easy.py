@@ -57,3 +57,18 @@ def getNthFib(n, memo = {1: 0, 2: 1}):
 # 	return lastTwo[1]
 # O(n) time
 # O(1) space
+
+def productSum(array, multi=1):
+    sum = 0
+    for el in array:
+        if type(el) is list:
+            sum += productSum(el, multi + 1)
+        else:
+            sum += el
+    return sum * multi
+
+a = [5,2,[7, -1], 3, [6, [-13, 8], 4]]
+
+print(productSum(a))
+
+
