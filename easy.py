@@ -96,15 +96,15 @@ def shift(largest, num, idx):
 
 
 def bubbleSort(array):
-	isSorted = False
-	while not isSorted:
-	isSorted = True
+    isSorted = False
+    while not isSorted:
+        isSorted = True
 
-	for i in range(len(array) - 1):
-	if array[i] > array[i + 1]:
-	swap(array, i, i + 1)
-	isSorted = False
-	return array
+        for i in range(len(array) - 1):
+            if array[i] > array[i + 1]:
+                swap(array, i, i + 1)
+                isSorted = False
+    return array
 
 
 def swap(array, i, j):
@@ -112,13 +112,41 @@ def swap(array, i, j):
 
 
 def insertionSort(array):
-	for i in range(1, len(array)):
-	j = i
-	while j > 0 and array[j] < array[j - 1]:
-	swap(array, j, j - 1)
-	j -= 1
-	return array
+    for i in range(1, len(array)):
+        j = i
+        while j > 0 and array[j] < array[j - 1]:
+            swap(array, j, j - 1)
+            j -= 1
+    return array
 
 
 def swap(array, i, j):
 	array[i], array[j] = array[j], array[i]
+
+def selectionSort(array):
+    currentIdx = 0
+    while currentIdx < len(array) - 1:
+        smallestIdx = currentIdx
+        for i in range(currentIdx + 1, len(array)):
+            if array[smallestIdx] > array[i]:
+                smallestIdx = i
+        swap(array, smallestIdx, currentIdx)
+        currentIdx += 1
+    return array
+
+a = [5,4,3,2,1]
+
+# print(selectionSort(a))
+
+def palidromeCheck(string):
+    left = 0
+    right = len(string) - 1
+
+    while left < right:
+        if string[left] != string[right]:
+            return False
+        left += 1
+        right -= 1
+    return True
+
+print(palidromeCheck('elle'))
