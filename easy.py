@@ -67,8 +67,29 @@ def productSum(array, multi=1):
             sum += el
     return sum * multi
 
-a = [5,2,[7, -1], 3, [6, [-13, 8], 4]]
+# print(productSum(a))
 
-print(productSum(a))
+def threeLargest(array):
+    largest = [None, None, None]
+    for num in array:
+        update(largest, num)
+    return largest
 
+def update(largest, num):
+    if largest[2] is None or num > largest[2]:
+        shift(largest, num, 2)
+    elif largest[1] is None or num > largest[1]:
+        shift(largest, num, 1)
+    elif largest[0] is None or num > largest[0]:
+        shift(largest, num, 1)
 
+def shift(largest, num, idx):
+    for i in range(idx + 1):
+        if i == idx:
+            largest[i] = num
+        else:
+            largest[i] = largest[i + 1]
+
+a = [10,5,9,10,12]
+
+print(threeLargest(a))
