@@ -90,6 +90,22 @@ def shift(largest, num, idx):
         else:
             largest[i] = largest[i + 1]
 
-a = [10,5,9,10,12]
+# a = [10,5,9,10,12]
 
-print(threeLargest(a))
+# print(threeLargest(a))
+
+
+def bubbleSort(array):
+	isSorted = False
+	while not isSorted:
+	isSorted = True
+
+	for i in range(len(array) - 1):
+	if array[i] > array[i + 1]:
+	swap(array, i, i + 1)
+	isSorted = False
+	return array
+
+
+def swap(array, i, j):
+	array[i], array[j] = array[j], array[i]
