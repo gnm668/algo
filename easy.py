@@ -149,4 +149,4 @@ def palidromeCheck(string):
         right -= 1
     return True
 
-print(palidromeCheck('elle'))
+# print(palidromeCheck('elle'))
