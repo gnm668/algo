@@ -150,3 +150,22 @@ def palidromeCheck(string):
     return True
 
 # print(palidromeCheck('elle'))
+
+
+def caesarCipherEncryptor(string, key):
+    alpha = list("abcdefghijklmnopqrstuvwxyz")
+    stringList = list(string)
+    newStr = []
+
+    for char in stringList:
+        if char in alpha:
+            oldIdx = alpha.index(char)
+            newIdx = (oldIdx + key) % 26
+            newStr.append(alpha[newIdx])
+        else:
+            newStr.append(char)
+    
+    newStr = "".join(newStr)
+    return newStr
+
+print(caesarCipherEncryptor('where are you', 25))
