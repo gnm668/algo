@@ -69,26 +69,26 @@ def productSum(array, multi=1):
 
 # print(productSum(a))
 
-def threeLargest(array):
-    largest = [None, None, None]
-    for num in array:
-        update(largest, num)
-    return largest
+# def threeLargest(array):
+#     largest = [None, None, None]
+#     for num in array:
+#         update(largest, num)
+#     return largest
 
-def update(largest, num):
-    if largest[2] is None or num > largest[2]:
-        shift(largest, num, 2)
-    elif largest[1] is None or num > largest[1]:
-        shift(largest, num, 1)
-    elif largest[0] is None or num > largest[0]:
-        shift(largest, num, 1)
+# def update(largest, num):
+#     if largest[2] is None or num > largest[2]:
+#         shift(largest, num, 2)
+#     elif largest[1] is None or num > largest[1]:
+#         shift(largest, num, 1)
+#     elif largest[0] is None or num > largest[0]:
+#         shift(largest, num, 1)
 
-def shift(largest, num, idx):
-    for i in range(idx + 1):
-        if i == idx:
-            largest[i] = num
-        else:
-            largest[i] = largest[i + 1]
+# def shift(largest, num, idx):
+#     for i in range(idx + 1):
+#         if i == idx:
+#             largest[i] = num
+#         else:
+#             largest[i] = largest[i + 1]
 
 # a = [10,5,9,10,12]
 
@@ -219,8 +219,30 @@ def nthFib(num):
 
     return lastTwo[1]
 
-print(nthFib(7))
+# print(nthFib(7))
 
+def threeLargest(array):
+    largest = [None, None, None]
 
+    for num in array:
+        update(num, largest)
+    return largest
+
+def update(num, largest):
+    if largest[2] is None or num > largest[2]:
+        shift(num, largest, 2)
+    elif largest[1] is None or num > largest[1]:
+        shift(num, largest, 1)
+    elif largest[0] is None or num > largest[0]:
+        shift(num, largest, 0)
+
+def shift(num, largest, idx):
+    for i in range(idx + 1):
+        if i == idx:
+            largest[i] = num
+        else:
+            largest[i] = largest[i + 1]
+
+print(threeLargest([4,3,343,543,123,5,6,7,1]))
 
 # 0, 1, 1, 2, 3, 5, 8
