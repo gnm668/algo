@@ -197,13 +197,30 @@ def twoSum(array, target):
 # print(twoSum([5,4,3,2,1], 3))
 
 
-def nthFib(num, memo={1: 0, 2: 1}):
-    if num in memo:
-        return memo[num]
+# def nthFib(num, memo={1: 0, 2: 1}):
+    # if num in memo:
+    #     return memo[num]
     
-    memo[num] = nthFib(num - 1) + nthFib(num - 2)
-    return memo[num]
+    # memo[num] = nthFib(num - 1) + nthFib(num - 2)
+    # return memo[num]
 
-print(nthFib(50))
+def nthFib(num):
+    lastTwo = [0,1]
+
+    if num == 0:
+        return lastTwo[0]
+    if num == 1:
+        return lastTwo[1]
+    
+    for n in range(2, num):
+        nextNum = lastTwo[0] + lastTwo[1]
+        lastTwo[0] = lastTwo[1]
+        lastTwo[1] = nextNum
+
+    return lastTwo[1]
+
+print(nthFib(7))
+
+
 
 # 0, 1, 1, 2, 3, 5, 8
