@@ -170,4 +170,30 @@ def caesarCipherEncryptor(string, key):
 
 # print(caesarCipherEncryptor('where are you', 25))
 
+def twoSum(array, target):
+    # difference = {}
+
+    # for num in array:
+    #     diff = target - num
+    #     if num in difference:
+    #         return [diff, num]
+    #     else:
+    #         difference[diff] = True
+    # return []
+
+    array.sort()
+    left = 0 
+    right = len(array) - 1
+    while left < right:
+        pair = array[left] + array[right]
+        if pair > target:
+            right -= 1
+        elif pair < target:
+            left += 1
+        elif pair == target:
+            return [array[left], array[right]]
+    return []
+
+print(twoSum([5,4,3,2,1], 3))
+
 
