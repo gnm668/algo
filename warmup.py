@@ -303,6 +303,10 @@ a = ['hi', 'look']
 
 # print('HELLO'.lower())
 
+a = {'a': 1, 'b': 2}
+
+print(a[1])
+print('a' in a)
 
 
 

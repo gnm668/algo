@@ -679,10 +679,28 @@ x = [75, 105, 120, 75, 90, 135]
 print(maxNonAdjSum(x))
 
 
+# John works at a clothing store. He has a large pile of socks that he must
+# pair by color for sale. Given an array of integers representing the color of 
+# each sock, determine how many pairs of socks with matching colors there are.
 
+# For example, there are
+# socks with colors . There is one pair of color and one of color . There are 
+# three odd socks left, one of each color. The number of pairs is .
 
+def sockMerchant(n, ar):
+    pairCount = 0
+    colorCount = {}
 
+    for color in ar:
+        if color not in colorCount:
+            colorCount[color] = 1
+        else:
+            colorCount[color] += 1
 
+    for key in colorCount:
+        pairCount += (colorCount[key] // 2)
+
+    return pairCount
 
 
 
