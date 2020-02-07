@@ -70,28 +70,60 @@ def countingValleys(n, s):
 # indexes and . She could follow the following two paths:
 #     or . The first path takes jumps while the second takes .
 
+# def jumpingOnClouds(c):
+#     jumps = 0
+#     finished = False
+#     pos = 0
+
+#     while finished is False:
+#         jumpOne = None
+#         jumpTwo = None
+
+#         if pos + 1 < len(c):
+#             jumpOne = pos + 1
+#         if pos + 2 < len(c):
+#             jumpTwo = pos + 2
+
+#         if jumpTwo is not None and c[jumpTwo] == 0:
+#             pos = jumpTwo
+#             jumps += 1
+#         elif jumpOne is not None and c[jumpOne] == 0:
+#             pos = jumpOne
+#             jumps += 1
+
+#         if pos >= len(c) - 1:
+#             finished = True
+
+#     return jumps
+
 def jumpingOnClouds(c):
     jumps = 0
-    finished = False
-    pos = 0
+    idx = 0
 
-    while finished is False:
-        jumpOne = None
-        jumpTwo = None
-
-        if pos + 1 < len(c):
-            jumpOne = pos + 1
-        if pos + 2 < len(c):
-            jumpTwo = pos + 2
-
-        if jumpTwo is not None and c[jumpTwo] == 0:
-            pos = jumpTwo
+    while idx < len(c) - 1:
+        if idx + 2 < len(c) and c[idx+2] == 0:
+            idx += 2
             jumps += 1
-        elif jumpOne is not None and c[jumpOne] == 0:
-            pos = jumpOne
+        else:
+            idx += 1
             jumps += 1
-
-        if pos >= len(c) - 1:
-            finished = True
-
     return jumps
+
+
+def repeatedString(s, n):
+    length = len(s)
+    times = n // length
+    remainder = n % length
+    count = 0
+
+    for char in s:
+        if char == 'a':
+            count += 1
+
+    count = (count * times)
+
+    for i in range(remainder):
+        if s[i] == 'a':
+            count += 1
+
+    return count
