@@ -127,3 +127,9 @@ def repeatedString(s, n):
             count += 1
 
     return count
+
+
+# buttons = document.querySelectorAll("#ember3134 button")
+# for (let i=0; i <= buttons.length; + +i) {
+#     buttons[i].click()
+# }
