@@ -674,9 +674,9 @@ def maxNonAdjSum(array):
 	return second
 
 
-x = [75, 105, 120, 75, 90, 135]
+# x = [75, 105, 120, 75, 90, 135]
 
-print(maxNonAdjSum(x))
+# print(maxNonAdjSum(x))
 
 
 # John works at a clothing store. He has a large pile of socks that he must
@@ -738,6 +738,17 @@ def countingValleys(n, s):
 # a = [1,2,3,4,5]
 # print(a[:2])
 
+class Node():
+	def __init__(self, value):
+		self.value = value
+		self.prev = None
+		self.next = None
 
+# node1 = Node(2)
+# print(node1)
+
+# print(node1.value)
+# print(node1.next)
+# print(node1.prev)
 
 
