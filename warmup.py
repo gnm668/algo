@@ -311,11 +311,8 @@ a = {'a': 1, 'b': 2}
 b = [1,2,3,4]
 # print(b[4])
 
-board = list()
-for i in range(3):
-	board.append(list(' ') * 3)
-board[0][0] = 'x'
-print(board)
+board = {1: ' ', 2: ' ', 3: ' ', 4: ' ', 5: ' ', 6: ' ', 7: ' ', 8: ' ', 9: ' '}
+
 
 
 
