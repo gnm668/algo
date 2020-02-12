@@ -309,7 +309,7 @@ a = {'a': 1, 'b': 2}
 # print('a' in a)
 
 b = [1,2,3,4]
-print(b.index(2))
+print(b[4])
 
 
 
