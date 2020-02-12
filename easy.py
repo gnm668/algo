@@ -243,6 +243,7 @@ def shift(num, largest, idx):
         else:
             largest[i] = largest[i + 1]
 
-print(threeLargest([4,3,343,543,123,5,6,7,1]))
+# print(threeLargest([4,3,343,543,123,5,6,7,1]))
 
 # 0, 1, 1, 2, 3, 5, 8
+

@@ -305,10 +305,11 @@ a = ['hi', 'look']
 
 a = {'a': 1, 'b': 2}
 
-print(a[1])
-print('a' in a)
+# print(a[1])
+# print('a' in a)
 
-
+b = [1,2,3,4]
+print(b.index(2))
 
 
 
