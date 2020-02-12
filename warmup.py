@@ -309,7 +309,13 @@ a = {'a': 1, 'b': 2}
 # print('a' in a)
 
 b = [1,2,3,4]
-print(b[4])
+# print(b[4])
+
+board = list()
+for i in range(3):
+	board.append(list(' ') * 3)
+board[0][0] = 'x'
+print(board)
 
 
 
