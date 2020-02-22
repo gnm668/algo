@@ -398,10 +398,10 @@ def lucasNumber(num, memo = {}):
 	if num == 0: return 2
 	if num == 1: return 1
 	
-	memo[num] = lucasNumber(num - 1) + lucasNumber(num - 2)
+	memo[num] = lucasNumber(num - 1, memo) + lucasNumber(num - 2, memo)
 	return memo[num]
 
-print(lucasNumber(42))
+print(lucasNumber(1000))
 
 
 
