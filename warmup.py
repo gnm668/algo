@@ -278,7 +278,7 @@ def getLongestPalidrome(string, leftIdx, rightIdx):
 # a = ''.join(a)
 # print(a)
 
-a = ['hi', 'look']
+# a = ['hi', 'look']
 # def foo(words):
 # 	return max(words[0], words[1], key= lambda a: len(a))
 
@@ -359,18 +359,37 @@ def twoSum(arr, tar):
 a = [5, 2, 6, 1, 7]
 
 def quickSort(arr):
-	if len(arr) < 1:
-		return []
+	# print(arr)
+	if len(arr) <= 1:
+		return arr
 
 	pivot = arr[0]
-	left = filter(lambda x: x < pivot, arr[1:])
-	right = filter(lambda x: x > pivot, arr[1:])
+	left = [x for x in arr[1:] if x < pivot]
+	right = [x for x in arr[1:] if x >= pivot]
 
 	return quickSort(left) + [pivot] + quickSort(right)
 
-print(quickSort(a))
+
+def quickSort2(array):
+	if len(array) <= 1:
+		return array
+
+	pivot = array[0]
+	left = [x for x in array if x < pivot]
+	middle = [x for x in array if x == pivot]
+	right = [x for x in array if x > pivot]
+	return quickSort2(left) + middle + quickSort2(right)
+
+
+# print(quickSort(a))
+# print(a)
+
+a = [-9, 8, -10, 4, 10, 8, -2, -5, -10, 2, 5, 3, -7, -7, 2, 3, -6, 9]
+
 print(a)
 
+# print(quickSort2(a))
+print(quickSort(a))
 
 
 
