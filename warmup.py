@@ -401,10 +401,18 @@ def lucasNumber(num, memo = {}):
 	memo[num] = lucasNumber(num - 1, memo) + lucasNumber(num - 2, memo)
 	return memo[num]
 
-print(lucasNumber(1000))
+# print(lucasNumber(1000))
 
+def lucasNum(num):
+	table = [2, 1]
 
+	for i in range(2, num):
+		table.append(table[i - 1] + table[i - 2])
 
+	print(table)
+	return table[num - 1]
+
+print(lucasNum(50))
 
 
 
