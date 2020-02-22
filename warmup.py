@@ -328,29 +328,35 @@ def bubbleSort(arr):
 
 def swap(i, j, arr):
 	arr[i], arr[j] = arr[j], arr[i]
-
-a = [5,2,6,1,7]
-t = 12
 	
+
+# def twoSum(arr, tar):
+	# arr.sort()
+	# left = 0
+	# right = len(arr) - 1
+
+	# while left < right:
+	# 	currSum = arr[left] + arr[right]
+	# 	if currSum == tar:
+	# 		return [arr[left], arr[right]]
+	# 	elif currSum > tar:
+	# 		right -= 1
+	# 	else:
+	# 		left += 1
+	# return []
+
+# a = [5, 2, 6, 1, 7]
+# t = 12
 
 def twoSum(arr, tar):
-	arr.sort()
-	left = 0
-	right = len(arr) - 1
-
-	while left < right:
-		currSum = arr[left] + arr[right]
-		if currSum == tar:
-			return [arr[left], arr[right]]
-		elif currSum > tar:
-			right -= 1
-		else:
-			left += 1
+	diffs = {}   
+	for el in arr: 
+		if tar - el in diffs:
+			return [diffs[tar - el], el] 
+		diffs[el] = el
 	return []
 
-	
 
-print(twoSum(a, t))
 
 
 
