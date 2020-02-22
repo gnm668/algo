@@ -318,7 +318,20 @@ a = ['hi', 'look']
 
 a = [5,4,3,2,1]
 
-# def quickSort(arr):
+def bubbleSort(arr):
+	isSort = False
+	while not isSort:
+		isSort = True
+		for i in range(len(arr) - 1):
+			if arr[i] > arr[i + 1]:
+				swap(i, i + 1, arr)
+				isSort = False
+	return arr
+
+def swap(i, j, arr):
+	arr[i], arr[j] = arr[j], arr[i]
+
+print(bubbleSort(a))
 	
 
 
