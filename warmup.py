@@ -386,13 +386,25 @@ def quickSort2(array):
 
 a = [-9, 8, -10, 4, 10, 8, -2, -5, -10, 2, 5, 3, -7, -7, 2, 3, -6, 9]
 
-print(a)
+# print(a)
 
 # print(quickSort2(a))
-print(quickSort(a))
+# print(quickSort(a))
 
+# lucs number sequence start with 2, 1
 
+def lucasNumber(num, memo = {}):
+	if num in memo:
+		return memo[num]
+	if num == 0:
+		return 2
+	if num == 1:
+		return 1
+	
+	memo[num] = lucasNumber(num - 1) + lucasNumber(num - 2)
+	return memo[num]
 
+print(lucasNumber(42))
 
 
 
