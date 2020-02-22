@@ -361,7 +361,7 @@ a = [5, 2, 6, 1, 7]
 def quickSort(arr):
 	if len(arr) < 1:
 		return []
-		
+
 	pivot = arr[0]
 	left = filter(lambda x: x < pivot, arr[1:])
 	right = filter(lambda x: x > pivot, arr[1:])
@@ -369,6 +369,7 @@ def quickSort(arr):
 	return quickSort(left) + [pivot] + quickSort(right)
 
 print(quickSort(a))
+print(a)
 
 
 
