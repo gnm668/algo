@@ -345,7 +345,7 @@ def swap(i, j, arr):
 	# 		left += 1
 	# return []
 
-# a = [5, 2, 6, 1, 7]
+
 # t = 12
 
 def twoSum(arr, tar):
@@ -356,7 +356,19 @@ def twoSum(arr, tar):
 		diffs[el] = el
 	return []
 
+a = [5, 2, 6, 1, 7]
 
+def quickSort(arr):
+	if len(arr) < 1:
+		return []
+		
+	pivot = arr[0]
+	left = filter(lambda x: x < pivot, arr[1:])
+	right = filter(lambda x: x > pivot, arr[1:])
+
+	return quickSort(left) + [pivot] + quickSort(right)
+
+print(quickSort(a))
 
 
 
