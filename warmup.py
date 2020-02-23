@@ -430,21 +430,33 @@ a = [-9, 8, -10, 4, 10, 8, -2, -5, -10, 2, 5, 3, -7, -7, 2, 3, -6, 9]
 
 # print(bubbleSort(test))
 
-test = [5,4,3,2,1]
+# test = [5,4,3,2,1]
 
-def quickSort(arr):
-	if len(arr) <= 1:
-		return arr
+# def quickSort(arr):
+# 	if len(arr) <= 1:
+# 		return arr
 
-	pivot = arr[0]
+# 	pivot = arr[0]
 
-	left = [x for x in arr[1:] if x < pivot]
-	right = [x for x in arr[1:] if x >= pivot]
+# 	left = [x for x in arr[1:] if x < pivot]
+# 	right = [x for x in arr[1:] if x >= pivot]
 
-	return quickSort(left) + [pivot] + quickSort(right)
+# 	return quickSort(left) + [pivot] + quickSort(right)
 
-print(quickSort(test))
+# print(quickSort(test))
 
+def twoSum(arr, tar):
+	diff = {}
+	
+	for el in arr:
+		if tar - el in diff:
+			return [el, diff[tar - el]]
+		diff[el] = el
+	return []
+
+nums = [1,2,3,6]
+
+# print(twoSum(nums, 9))
 
 
 
