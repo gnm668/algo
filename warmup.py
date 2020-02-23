@@ -493,9 +493,17 @@ nums = [1,2,3,6]
 
 # print(lucasNum(3))
 
+def minChange(coins, amount, memo = {}):
+	if amount in memo: return memo[amount]
+	if amount == 0: return 0
+	numCoins = []
+	for coin in coins:
+		if coin <= amount:
+			numCoins.append(minChange(coins, amount - coin, memo) + 1)
+	memo[amount] = min(numCoins)
+	return memo[amount]
 
-
-
+print(minChange([1,5,10,25], 800))
 
 
 
