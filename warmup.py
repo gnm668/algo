@@ -536,6 +536,21 @@ nums = [1,2,3,6]
 # 	memo[num] = lucasNum(num - 1) + lucasNum(num - 2)
 # 	return memo[num]
 
+def lucasNum(num):
+	table = [2, 1]
+
+	if num == 0: return table[0]
+
+	for i in range(1, num):
+		temp = table[1]
+		table[1] = table[0] + table[1]
+		table[0] = temp
+
+	return table[1]
+
+print(lucasNum(40))
+
+
 
 	
 
