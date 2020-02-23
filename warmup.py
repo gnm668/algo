@@ -585,13 +585,22 @@ nums = [1,2,3,6]
 # 	memo[amount] = min(numCoins)
 # 	return memo[amount]
 
-# print(minChange([1,5,10,25], 800))
 
+def minChange(coins, amount):
+	table = [float('inf')] * (amount + 1)
+	table[0] = 0
 
+	for coin in coins:
+		for amt in range(len(table)):
+			qty = 0
+			while qty * coin <= amt:
+				remainder = amount - qty * coin
+				attempt = table[remainder] + qty
+				if attempt < table[amt]: table[amt] = attempt 
+				qty += 1
+	return table[-1]
 
-	
-
-
+print(minChange([1,5,10,25], 800))
 
 
 
