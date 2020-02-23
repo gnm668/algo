@@ -518,19 +518,26 @@ nums = [1,2,3,6]
 # def swap(i, j, li):
 # 	li[i], li[j] = li[j], li[i]
 
-testLi = [5, 4, 3, 2, 2, 3, 4, 5, 6, -10, -10, -1, -3]
+# testLi = [5, 4, 3, 2, 2, 3, 4, 5, 6, -10, -10, -1, -3]
 
-def quickSort(li):
-	if len(li) <= 1:
-		return li
+# def quickSort(li):
+# 	if len(li) <= 1:
+# 		return li
 
-	pivot = li.pop(0)
-	left = [el for el in li if el < pivot]
-	right = [el for el in li if el >= pivot]
+# 	pivot = li.pop(0)
+# 	left = [el for el in li if el < pivot]
+# 	right = [el for el in li if el >= pivot]
 
-	return quickSort(left) + [pivot] + quickSort(right)
+# 	return quickSort(left) + [pivot] + quickSort(right)
 
-print(quickSort(testLi))
+# def lucasNum(num, memo = {0: 2, 1: 1}):
+# 	if num in memo: return memo[num]
+
+# 	memo[num] = lucasNum(num - 1) + lucasNum(num - 2)
+# 	return memo[num]
+
+
+	
 
 
 
