@@ -445,18 +445,34 @@ a = [-9, 8, -10, 4, 10, 8, -2, -5, -10, 2, 5, 3, -7, -7, 2, 3, -6, 9]
 
 # print(quickSort(test))
 
-def twoSum(arr, tar):
-	diff = {}
+# def twoSum(arr, tar):
+# 	diff = {}
 	
-	for el in arr:
-		if tar - el in diff:
-			return [el, diff[tar - el]]
-		diff[el] = el
-	return []
+# 	for el in arr:
+# 		if tar - el in diff:
+# 			return [el, diff[tar - el]]
+# 		diff[el] = el
+# 	return []
 
 nums = [1,2,3,6]
 
 # print(twoSum(nums, 9))
+
+def twoSum(arr, tar):
+	arr.sort()
+	left = 0
+	right = len(arr) - 1
+
+	while left < right:
+		if arr[left] + arr[right] == tar:
+			return [arr[left], arr[right]]
+		elif arr[left] + arr[right] > tar:
+			right -= 1
+		elif arr[left] + arr[right] < tar:
+			left += 1
+	return []
+
+print(twoSum(nums, 9))
 
 
 
