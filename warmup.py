@@ -594,7 +594,7 @@ def minChange(coins, amount):
 		for amt in range(len(table)):
 			qty = 0
 			while qty * coin <= amt:
-				remainder = amount - qty * coin
+				remainder = amt - qty * coin
 				attempt = table[remainder] + qty
 				if attempt < table[amt]: table[amt] = attempt 
 				qty += 1
@@ -602,6 +602,10 @@ def minChange(coins, amount):
 
 print(minChange([1,5,10,25], 800))
 
+# go through coins 
+# go through amts in table [1,2,3...amount] 
+# check remainder of amt - (qty * coin) 
+# check table for cheapest way to find remainder
 
 
 
