@@ -562,8 +562,16 @@ nums = [1,2,3,6]
 # 			left += 1
 # 	return []
 
-def towSum(li)
-print(twoSum([5,4,3,2,1,], 9))
+# def twoSum(li, tar):
+# 	diffs = {}
+
+# 	for el in li:
+# 		if el in diffs:
+# 			return [diffs[el], el]
+# 		diffs[tar - el] = el
+# 	return []
+
+# print(twoSum([5,4,3,2,1,6,5,3,1,5,7,86,4,1,5,7,75,4,3], 161))
 
 
 
