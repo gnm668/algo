@@ -316,18 +316,18 @@ def getLongestPalidrome(string, leftIdx, rightIdx):
 # a = 'hello'
 # print('h' in a)
 
-def bubbleSort(arr):
-	isSort = False
-	while not isSort:
-		isSort = True
-		for i in range(len(arr) - 1):
-			if arr[i] > arr[i + 1]:
-				swap(i, i + 1, arr)
-				isSort = False
-	return arr
+# def bubbleSort(arr):
+# 	isSort = False
+# 	while not isSort:
+# 		isSort = True
+# 		for i in range(len(arr) - 1):
+# 			if arr[i] > arr[i + 1]:
+# 				swap(i, i + 1, arr)
+# 				isSort = False
+# 	return arr
 
-def swap(i, j, arr):
-	arr[i], arr[j] = arr[j], arr[i]
+# def swap(i, j, arr):
+# 	arr[i], arr[j] = arr[j], arr[i]
 	
 
 # def twoSum(arr, tar):
@@ -348,37 +348,37 @@ def swap(i, j, arr):
 
 # t = 12
 
-def twoSum(arr, tar):
-	diffs = {}   
-	for el in arr: 
-		if tar - el in diffs:
-			return [diffs[tar - el], el] 
-		diffs[el] = el
-	return []
+# def twoSum(arr, tar):
+# 	diffs = {}   
+# 	for el in arr: 
+# 		if tar - el in diffs:
+# 			return [diffs[tar - el], el] 
+# 		diffs[el] = el
+# 	return []
 
-a = [5, 2, 6, 1, 7]
+# a = [5, 2, 6, 1, 7]
 
-def quickSort(arr):
-	# print(arr)
-	if len(arr) <= 1:
-		return arr
+# def quickSort(arr):
+# 	# print(arr)
+# 	if len(arr) <= 1:
+# 		return arr
 
-	pivot = arr[0]
-	left = [x for x in arr[1:] if x < pivot]
-	right = [x for x in arr[1:] if x >= pivot]
+# 	pivot = arr[0]
+# 	left = [x for x in arr[1:] if x < pivot]
+# 	right = [x for x in arr[1:] if x >= pivot]
 
-	return quickSort(left) + [pivot] + quickSort(right)
+# 	return quickSort(left) + [pivot] + quickSort(right)
 
 
-def quickSort2(array):
-	if len(array) <= 1:
-		return array
+# def quickSort2(array):
+# 	if len(array) <= 1:
+# 		return array
 
-	pivot = array[0]
-	left = [x for x in array if x < pivot]
-	middle = [x for x in array if x == pivot]
-	right = [x for x in array if x > pivot]
-	return quickSort2(left) + middle + quickSort2(right)
+# 	pivot = array[0]
+# 	left = [x for x in array if x < pivot]
+# 	middle = [x for x in array if x == pivot]
+# 	right = [x for x in array if x > pivot]
+# 	return quickSort2(left) + middle + quickSort2(right)
 
 
 # print(quickSort(a))
@@ -393,26 +393,43 @@ a = [-9, 8, -10, 4, 10, 8, -2, -5, -10, 2, 5, 3, -7, -7, 2, 3, -6, 9]
 
 # lucs number sequence start with 2, 1
 
-def lucasNumber(num, memo = {}):
-	if num in memo: return memo[num]
-	if num == 0: return 2
-	if num == 1: return 1
+# def lucasNumber(num, memo = {}):
+# 	if num in memo: return memo[num]
+# 	if num == 0: return 2
+# 	if num == 1: return 1
 	
-	memo[num] = lucasNumber(num - 1, memo) + lucasNumber(num - 2, memo)
-	return memo[num]
+# 	memo[num] = lucasNumber(num - 1, memo) + lucasNumber(num - 2, memo)
+# 	return memo[num]
 
 # print(lucasNumber(1000))
 
-def lucasNum(num):
-	table = [2, 1]
+# def lucasNum(num):
+# 	table = [2, 1]
 
-	for i in range(2, num):
-		table.append(table[i - 1] + table[i - 2])
+# 	for i in range(2, num):
+# 		table.append(table[i - 1] + table[i - 2])
 
-	print(table)
-	return table[num - 1]
+# 	print(table)
+# 	return table[num - 1]
 
-print(lucasNum(50))
+# print(lucasNum(50))
+
+def bubbleSort(arr):
+	sort = False
+	while not sort:
+		sort = True
+		for i in range(1, len(arr)):
+			if arr[i - 1] > arr[i]:
+				swap(i, i - 1, arr)
+				sort = False
+	return arr
+
+def swap(i, j, arr):
+	arr[i], arr[j] = arr[j], arr[i]
+
+test = [5,4,3,2,1]
+
+print(bubbleSort(test))
 
 
 
