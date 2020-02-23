@@ -414,23 +414,36 @@ a = [-9, 8, -10, 4, 10, 8, -2, -5, -10, 2, 5, 3, -7, -7, 2, 3, -6, 9]
 
 # print(lucasNum(50))
 
-def bubbleSort(arr):
-	sort = False
-	while not sort:
-		sort = True
-		for i in range(1, len(arr)):
-			if arr[i - 1] > arr[i]:
-				swap(i, i - 1, arr)
-				sort = False
-	return arr
+# def bubbleSort(arr):
+# 	sort = False
+# 	while not sort:
+# 		sort = True
+# 		for i in range(1, len(arr)):
+# 			if arr[i - 1] > arr[i]:
+# 				swap(i, i - 1, arr)
+# 				sort = False
+# 	return arr
 
-def swap(i, j, arr):
-	arr[i], arr[j] = arr[j], arr[i]
+# def swap(i, j, arr):
+# 	arr[i], arr[j] = arr[j], arr[i]
+
+
+# print(bubbleSort(test))
 
 test = [5,4,3,2,1]
 
-print(bubbleSort(test))
+def quickSort(arr):
+	if len(arr) <= 1:
+		return arr
 
+	pivot = arr[0]
+
+	left = [x for x in arr[1:] if x < pivot]
+	right = [x for x in arr[1:] if x >= pivot]
+
+	return quickSort(left) + [pivot] + quickSort(right)
+
+print(quickSort(test))
 
 
 
