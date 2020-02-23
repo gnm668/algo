@@ -536,19 +536,34 @@ nums = [1,2,3,6]
 # 	memo[num] = lucasNum(num - 1) + lucasNum(num - 2)
 # 	return memo[num]
 
-def lucasNum(num):
-	table = [2, 1]
+# def lucasNum(num):
+# 	table = [2, 1]
 
-	if num == 0: return table[0]
+# 	if num == 0: return table[0]
 
-	for i in range(1, num):
-		temp = table[1]
-		table[1] = table[0] + table[1]
-		table[0] = temp
+# 	for i in range(1, num):
+# 		temp = table[1]
+# 		table[1] = table[0] + table[1]
+# 		table[0] = temp
 
-	return table[1]
+# 	return table[1]
 
-print(lucasNum(40))
+# def twoSum(li, tar):
+# 	li.sort()
+# 	left = 0
+# 	right = len(li) - 1
+
+# 	while left < right:
+# 		if li[left] + li[right] == tar:
+# 			return [li[left], li[right]]
+# 		elif li[left] + li[right] > tar:
+# 			right -= 1
+# 		elif li[left] + li[right] < tar:
+# 			left += 1
+# 	return []
+
+def towSum(li)
+print(twoSum([5,4,3,2,1,], 9))
 
 
 
