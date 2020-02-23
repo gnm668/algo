@@ -505,22 +505,32 @@ nums = [1,2,3,6]
 
 # print(minChange([1,5,10,25], 800))
 
-def bubbleSort(li):
-	isSort = False
-	while not isSort:
-		isSort = True
-		for i in range(1, len(li)):
-			if li[i - 1] > li[i]:
-				swap(i, i - 1, li)
-				isSort = False
-	return li
+# def bubbleSort(li):
+# 	isSort = False
+# 	while not isSort:
+# 		isSort = True
+# 		for i in range(1, len(li)):
+# 			if li[i - 1] > li[i]:
+# 				swap(i, i - 1, li)
+# 				isSort = False
+# 	return li
 
-def swap(i, j, li):
-	li[i], li[j] = li[j], li[i]
+# def swap(i, j, li):
+# 	li[i], li[j] = li[j], li[i]
 
-testLi = [5,4,3,2,1]
+testLi = [5, 4, 3, 2, 2, 3, 4, 5, 6, -10, -10, -1, -3]
 
-print(bubbleSort(testLi))
+def quickSort(li):
+	if len(li) <= 1:
+		return li
+
+	pivot = li.pop(0)
+	left = [el for el in li if el < pivot]
+	right = [el for el in li if el >= pivot]
+
+	return quickSort(left) + [pivot] + quickSort(right)
+
+print(quickSort(testLi))
 
 
 
