@@ -474,13 +474,24 @@ nums = [1,2,3,6]
 
 # print(twoSum(nums, 9))
 
-def lucasNum(num, memo = {0: 2, 1: 1}):
-	if num in memo: return memo[num]
+# def lucasNum(num, memo = {0: 2, 1: 1}):
+# 	if num in memo: return memo[num]
 
-	memo[num] = lucasNum(num - 1, memo) + lucasNum(num - 2, memo)
-	return memo[num]
+# 	memo[num] = lucasNum(num - 1, memo) + lucasNum(num - 2, memo)
+# 	return memo[num]
 
-print(lucasNum(40))
+# def lucasNum(num):
+# 	table = [2, 1]
+# 	if num == 0: return table[0]
+
+# 	for i in range(1, num):
+# 		temp = table[1]
+# 		table[1] = table[1] + table[0]
+# 		table[0] = temp
+# 	return table[1]
+		
+
+# print(lucasNum(3))
 
 
 
