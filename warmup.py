@@ -458,21 +458,29 @@ nums = [1,2,3,6]
 
 # print(twoSum(nums, 9))
 
-def twoSum(arr, tar):
-	arr.sort()
-	left = 0
-	right = len(arr) - 1
+# def twoSum(arr, tar):
+# 	arr.sort()
+# 	left = 0
+# 	right = len(arr) - 1
 
-	while left < right:
-		if arr[left] + arr[right] == tar:
-			return [arr[left], arr[right]]
-		elif arr[left] + arr[right] > tar:
-			right -= 1
-		elif arr[left] + arr[right] < tar:
-			left += 1
-	return []
+# 	while left < right:
+# 		if arr[left] + arr[right] == tar:
+# 			return [arr[left], arr[right]]
+# 		elif arr[left] + arr[right] > tar:
+# 			right -= 1
+# 		elif arr[left] + arr[right] < tar:
+# 			left += 1
+# 	return []
 
-print(twoSum(nums, 9))
+# print(twoSum(nums, 9))
+
+def lucasNum(num, memo = {0: 2, 1: 1}):
+	if num in memo: return memo[num]
+
+	memo[num] = lucasNum(num - 1, memo) + lucasNum(num - 2, memo)
+	return memo[num]
+
+print(lucasNum(40))
 
 
 
