@@ -61,3 +61,12 @@ g = ['h', 'e', 'l', 'l', 'o']
 print(g.count('l'))
 
 # find is only for strings, count works on both
+
+h = ['car', 'skate', 'boat', 'plane']
+
+for idx, el in enumerate(h):
+    print(el, idx)
+
+for idx in range(len(h)):
+    print(h[idx], idx)
+
