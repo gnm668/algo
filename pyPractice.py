@@ -14,9 +14,19 @@
 #  list.index(ELEMENT)
 #  list.insert(INDEX, ELEMENT)
 #  del list[INDEX]
-# a = ['car', 'boat', 'airplane']
+#  list.pop(INDEX -- DEFAULT -1)
+#  list.remove(ELEMENT)
+a = ['car', 'boat', 'airplane']
 # print(a.index('boat'))
 # a.insert(1, 'skate')
 # print(a)
 # del a[2]
 # print(a)
+# print(a.pop())
+# print(a)
+
+
+b = [1,2,3,4]
+b[0:2] = 'b'
+print(b)
+# interesting slice assignment...
