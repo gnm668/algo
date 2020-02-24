@@ -28,5 +28,14 @@ a = ['car', 'boat', 'airplane']
 
 b = [1,2,3,4]
 b[0:2] = 'b'
-print(b)
+# print(b)
 # interesting slice assignment...
+
+c = [6,4,2,31,10,2]
+# sorted(LIST) will not mutate original list
+# c.sort() will mutate original list
+# print(sorted(c))
+# print(c)
+# c.sort()
+# print(c)
+
