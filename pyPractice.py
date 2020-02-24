@@ -42,16 +42,22 @@ c = [6,4,2,31,10,2]
 d = [5,4,3,2,1]
 # d = d[::-1]
 # d.reverse()
-print(d)
+# print(d)
 
 
 e = ['apple', 'Apple', 'boo', 'Baack', 'BLip']
-e.sort()
-print(sorted(e))
-print(e)
+# e.sort()
+# print(sorted(e))
+# print(e)
 
 # weird sort behavior with caps in strings
 
-d = 'hello'
-print(d.find('o'))
-print(d.count('l'))
+f = 'hello'
+# print(d.find('o'))
+# print(d.count('l'))
+
+g = ['h', 'e', 'l', 'l', 'o']
+# print(g.find('e'))
+print(g.count('l'))
+
+# find is only for strings, count works on both
