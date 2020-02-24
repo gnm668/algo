@@ -43,3 +43,15 @@ d = [5,4,3,2,1]
 # d = d[::-1]
 # d.reverse()
 print(d)
+
+
+e = ['apple', 'Apple', 'boo', 'Baack', 'BLip']
+e.sort()
+print(sorted(e))
+print(e)
+
+# weird sort behavior with caps in strings
+
+d = 'hello'
+print(d.find('o'))
+print(d.count('l'))
