@@ -639,8 +639,19 @@ def lucasNumber(num, memo = {0: 2, 1: 1}):
 	memo[num] = lucasNumber(num - 1) + lucasNumber(num - 2)
 	return memo[num]
 
-print(lucasNumber(40))
+def lucasNum(num):
+	table = [2,1]
 
+	if num == 0: return table[0]
+
+	for i in range(num):
+		temp = table[1]
+		table[1] = table[1] + table[0]
+		table[0] = temp
+	
+	return table[0]
+
+# print(lucasNum(40))
 
 
 
