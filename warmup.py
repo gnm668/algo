@@ -633,6 +633,13 @@ def swap(i, j, arr):
 
 # print(bubbleSort(a))
 			
+def lucasNumber(num, memo = {0: 2, 1: 1}):
+	if num in memo: return memo[num]
+
+	memo[num] = lucasNumber(num - 1) + lucasNumber(num - 2)
+	return memo[num]
+
+print(lucasNumber(40))
 
 
 
