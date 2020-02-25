@@ -600,7 +600,7 @@ def minChange(coins, amount):
 				qty += 1
 	return table[-1]
 
-print(minChange([1,5,10,25], 800))
+# print(minChange([1,5,10,25], 800))
 
 # go through coins 
 # go through amts in table [1,2,3...amount] 
@@ -616,8 +616,23 @@ def quickSort(arr):
 	return quickSort(left) + [pivot] + quickSort(right)
 
 
-a = [5,4,3,2,1, 1, 23, 5, 4, 2, 3, 1]
-print(quickSort(a))
+def bubbleSort(arr):
+	isSort = False
+	while not isSort:
+		isSort = True
+		for i in range(1, len(arr)):
+			if arr[i - 1] > arr[i]:
+				swap(i, i - 1, arr)
+				isSort = False
+	return arr
+
+def swap(i, j, arr):
+	arr[i], arr[j] = arr[j], arr[i]
+
+# a = [3,3,2,2,1,5,6,5,32,23,4,5,2,1,3]
+
+# print(bubbleSort(a))
+			
 
 
 
