@@ -607,9 +607,17 @@ print(minChange([1,5,10,25], 800))
 # check remainder of amt - (qty * coin) 
 # check table for cheapest way to find remainder
 
+def quickSort(arr):
+	if len(arr) <= 1: return arr
+	pivot = arr.pop(0)
+
+	left = [el for el in arr if el < pivot]
+	right = [el for el in arr if el >= pivot]
+	return quickSort(left) + [pivot] + quickSort(right)
 
 
-
+a = [5,4,3,2,1, 1, 23, 5, 4, 2, 3, 1]
+print(quickSort(a))
 
 
 
