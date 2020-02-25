@@ -653,5 +653,30 @@ def lucasNum(num):
 
 # print(lucasNum(40))
 
+# def twoSum(nums, tar):
+# 	diffs = {}
+
+# 	for num in nums:
+# 		if num in diffs:
+# 			return [diffs[num], num]
+# 		diffs[tar - num] = num
+	
+# 	return []
 
 
+
+def twoSum(nums, tar):
+	nums.sort()
+	left = 0 
+	right = len(nums) - 1
+
+	while left < right:
+		if arr[left] + arr[right] == tar:
+			return [arr[left], arr[right]]
+		elif arr[left] + arr[right] > tar:
+			right -= 1
+		else:
+			left += 1
+	return []
+
+print(twoSum([5,4,2,1], 9))
