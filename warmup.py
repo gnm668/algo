@@ -671,9 +671,9 @@ def twoSum(nums, tar):
 	right = len(nums) - 1
 
 	while left < right:
-		if arr[left] + arr[right] == tar:
-			return [arr[left], arr[right]]
-		elif arr[left] + arr[right] > tar:
+		if nums[left] + nums[right] == tar:
+			return [nums[left], nums[right]]
+		elif nums[left] + nums[right] > tar:
 			right -= 1
 		else:
 			left += 1
