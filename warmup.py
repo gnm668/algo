@@ -586,19 +586,19 @@ nums = [1,2,3,6]
 # 	return memo[amount]
 
 
-def minChange(coins, amount):
-	table = [float('inf')] * (amount + 1)
-	table[0] = 0
+# def minChange(coins, amount):
+# 	table = [float('inf')] * (amount + 1)
+# 	table[0] = 0
 
-	for coin in coins:
-		for amt in range(len(table)):
-			qty = 0
-			while qty * coin <= amt:
-				remainder = amt - qty * coin
-				attempt = table[remainder] + qty
-				if attempt < table[amt]: table[amt] = attempt 
-				qty += 1
-	return table[-1]
+# 	for coin in coins:
+# 		for amt in range(len(table)):
+# 			qty = 0
+# 			while qty * coin <= amt:
+# 				remainder = amt - qty * coin
+# 				attempt = table[remainder] + qty
+# 				if attempt < table[amt]: table[amt] = attempt 
+# 				qty += 1
+# 	return table[-1]
 
 # print(minChange([1,5,10,25], 800))
 
@@ -607,49 +607,49 @@ def minChange(coins, amount):
 # check remainder of amt - (qty * coin) 
 # check table for cheapest way to find remainder
 
-def quickSort(arr):
-	if len(arr) <= 1: return arr
-	pivot = arr.pop(0)
+# def quickSort(arr):
+# 	if len(arr) <= 1: return arr
+# 	pivot = arr.pop(0)
 
-	left = [el for el in arr if el < pivot]
-	right = [el for el in arr if el >= pivot]
-	return quickSort(left) + [pivot] + quickSort(right)
+# 	left = [el for el in arr if el < pivot]
+# 	right = [el for el in arr if el >= pivot]
+# 	return quickSort(left) + [pivot] + quickSort(right)
 
 
-def bubbleSort(arr):
-	isSort = False
-	while not isSort:
-		isSort = True
-		for i in range(1, len(arr)):
-			if arr[i - 1] > arr[i]:
-				swap(i, i - 1, arr)
-				isSort = False
-	return arr
+# def bubbleSort(arr):
+# 	isSort = False
+# 	while not isSort:
+# 		isSort = True
+# 		for i in range(1, len(arr)):
+# 			if arr[i - 1] > arr[i]:
+# 				swap(i, i - 1, arr)
+# 				isSort = False
+# 	return arr
 
-def swap(i, j, arr):
-	arr[i], arr[j] = arr[j], arr[i]
+# def swap(i, j, arr):
+# 	arr[i], arr[j] = arr[j], arr[i]
 
 # a = [3,3,2,2,1,5,6,5,32,23,4,5,2,1,3]
 
 # print(bubbleSort(a))
 			
-def lucasNumber(num, memo = {0: 2, 1: 1}):
-	if num in memo: return memo[num]
+# def lucasNumber(num, memo = {0: 2, 1: 1}):
+# 	if num in memo: return memo[num]
 
-	memo[num] = lucasNumber(num - 1) + lucasNumber(num - 2)
-	return memo[num]
+# 	memo[num] = lucasNumber(num - 1) + lucasNumber(num - 2)
+# 	return memo[num]
 
-def lucasNum(num):
-	table = [2,1]
+# def lucasNum(num):
+# 	table = [2,1]
 
-	if num == 0: return table[0]
+# 	if num == 0: return table[0]
 
-	for i in range(num):
-		temp = table[1]
-		table[1] = table[1] + table[0]
-		table[0] = temp
+# 	for i in range(num):
+# 		temp = table[1]
+# 		table[1] = table[1] + table[0]
+# 		table[0] = temp
 	
-	return table[0]
+# 	return table[0]
 
 # print(lucasNum(40))
 
@@ -665,18 +665,40 @@ def lucasNum(num):
 
 
 
-def twoSum(nums, tar):
-	nums.sort()
-	left = 0 
-	right = len(nums) - 1
+# def twoSum(nums, tar):
+# 	nums.sort()
+# 	left = 0 
+# 	right = len(nums) - 1
 
-	while left < right:
-		if nums[left] + nums[right] == tar:
-			return [nums[left], nums[right]]
-		elif nums[left] + nums[right] > tar:
-			right -= 1
-		else:
-			left += 1
-	return []
+# 	while left < right:
+# 		if nums[left] + nums[right] == tar:
+# 			return [nums[left], nums[right]]
+# 		elif nums[left] + nums[right] > tar:
+# 			right -= 1
+# 		else:
+# 			left += 1
+# 	return []
 
-print(twoSum([5,4,2,1], 9))
+# print(twoSum([5,4,2,1], 9))
+
+def quickSort(li):
+	if len(li) == 0: return li
+
+	pivot = li.pop()
+	left = [el for el in li if el < pivot]
+	right = [el for el in li if el >= pivot]
+
+	return quickSort(left) + [pivot] + quickSort(right)
+
+def minChange(coins, amount, memo = {}):
+	if amount == 0: return 0
+	numCoins = []
+
+	for coin in coins:
+		if coin <= amount:
+			numCoins.append(minChange(coins, amount - coin, memo) + 1)
+	
+	memo[amount] = min(numCoins)
+	return memo[amount]
+
+# print(minChange([1,2,5], 10))
