@@ -681,24 +681,49 @@ nums = [1,2,3,6]
 
 # print(twoSum([5,4,2,1], 9))
 
-def quickSort(li):
-	if len(li) == 0: return li
+# def quickSort(li):
+# 	if len(li) == 0: return li
 
-	pivot = li.pop()
-	left = [el for el in li if el < pivot]
-	right = [el for el in li if el >= pivot]
+# 	pivot = li.pop()
+# 	left = [el for el in li if el < pivot]
+# 	right = [el for el in li if el >= pivot]
 
-	return quickSort(left) + [pivot] + quickSort(right)
+# 	return quickSort(left) + [pivot] + quickSort(right)
 
-def minChange(coins, amount, memo = {}):
-	if amount == 0: return 0
-	numCoins = []
+# def minChange(coins, amount, memo = {}):
+# 	if amount == 0: return 0
+# 	numCoins = []
 
-	for coin in coins:
-		if coin <= amount:
-			numCoins.append(minChange(coins, amount - coin, memo) + 1)
+# 	for coin in coins:
+# 		if coin <= amount:
+# 			numCoins.append(minChange(coins, amount - coin, memo) + 1)
 	
-	memo[amount] = min(numCoins)
-	return memo[amount]
+# 	memo[amount] = min(numCoins)
+# 	return memo[amount]
 
 # print(minChange([1,2,5], 10))
+
+def bubbleSort(li):
+	isSort = False
+	while not isSort:
+		isSort = True
+		for i in range(1, len(li)):
+			if li[i - 1] > li[i]:
+				swap(i, i - 1, li)
+				isSort = False
+	return li
+
+def swap(i, j, arr):
+	arr[i], arr[j] = arr[j], arr[i]
+
+test = [4,3,2,1]
+
+# def quickSort(li):
+# 	if len(li) == 0: return li
+# 	pivot = li.pop()
+# 	left = [el for el in li if el < pivot]
+# 	right = [el for el in li if el >= pivot]
+# 	return quickSort(left) + [pivot] + quickSort(right)
+
+# print(quickSort(test))
+
