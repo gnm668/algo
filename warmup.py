@@ -718,12 +718,27 @@ nums = [1,2,3,6]
 
 # test = [4,3,2,1]
 
-def quickSort(li):
-	if len(li) == 0: return li
-	pivot = li.pop()
-	left = [el for el in li if el < pivot]
-	right = [el for el in li if el >= pivot]
-	return quickSort(left) + [pivot] + quickSort(right)
+# def quickSort(li):
+# 	if len(li) == 0: return li
+# 	pivot = li.pop()
+# 	left = [el for el in li if el < pivot]
+# 	right = [el for el in li if el >= pivot]
+# 	return quickSort(left) + [pivot] + quickSort(right)
 
-print(quickSort(test))
+# print(quickSort(test))
+
+
+def minChange(coins, amount, memo = {}):
+	if amount == 0: return 0 
+	numCoins = []
+	for coin in coins:
+		if coin <= amount:
+			numCoins.append(minChange(coins, amount - coin, memo) + 1)
+	
+	memo[amount] = min(numCoins)
+	return memo[amount]
+
+
+print(minChange([1, 2, 5], 10))
+
 
