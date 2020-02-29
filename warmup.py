@@ -792,15 +792,23 @@ nums = [1,2,3,6]
 # 				qty += 1
 # 	return table[-1]
 
-def minChange(coins, amount, memo = {}):
-	if amount == 0: return 0 
-	numCoins = []
-	for coin in coins:
-		if coin <= amount: 
-			numCoins.append(minChange(coins, amount - coin, memo) + 1)
-	memo[amount] = min(numCoins)
-	return memo[amount]
+# def minChange(coins, amount, memo = {}):
+# 	if amount == 0: return 0 
+# 	numCoins = []
+# 	for coin in coins:
+# 		if coin <= amount: 
+# 			numCoins.append(minChange(coins, amount - coin, memo) + 1)
+# 	memo[amount] = min(numCoins)
+# 	return memo[amount]
 
+# def quickSort(li):
+# 	if len(li) == 0: return li
+# 	pivot = li.pop()
+# 	left = [el for el in li if el < pivot]
+# 	right = [el for el in li if el >= pivot]
+# 	return quickSort(left) + [pivot] + quickSort(right)
 
-print(minChange([1, 2, 5], 10))
+# print(quickSort([5,4,3,2,1]))
+
+# print(minChange([1, 2, 5], 10))
 
