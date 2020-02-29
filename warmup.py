@@ -830,6 +830,19 @@ nums = [1,2,3,6]
 # 			numCoins.append(minChange(coins, amount - coin, memo) + 1)
 # 	memo[amount] = min(numCoins)
 # 	return memo[amount]
+
+def minChange(coins, amount):
+	table = [float('inf')] * (amount + 1)
+	table[0] = 0
+	for coin in coins:
+		for amt in range(len(table)):
+			qty = 0
+			while qty * coin <= amt:
+				remainder = amt - (qty * coin)
+				attempt = table[remainder] + qty
+				if attempt < table[amt]: table[amt] = attempt
+				qty += 1
+	return table[-1]
 		
 print(minChange([1, 2, 5], 10))
 
