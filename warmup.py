@@ -810,18 +810,26 @@ nums = [1,2,3,6]
 
 # print(quickSort([5,4,3,2,1]))
 
-def bubbleSort(li):
-	isSort = False
-	while not isSort:
-		isSort = True
-		for i in range(1, len(li)):
-			if li[i - 1] > li[i]:
-				swap(i, i - 1, li)
-				isSort = False
-	return li
+# def bubbleSort(li):
+# 	isSort = False
+# 	while not isSort:
+# 		isSort = True
+# 		for i in range(1, len(li)):
+# 			if li[i - 1] > li[i]:
+# 				swap(i, i - 1, li)
+# 				isSort = False
+# 	return li
 
-print(bubbleSort([5,4,3,2,1]))
+# print(bubbleSort([5,4,3,2,1]))
 
-
-# print(minChange([1, 2, 5], 10))
+# def minChange(coins, amount, memo = {}):
+# 	if amount == 0: return 0
+# 	numCoins = []
+# 	for coin in coins:
+# 		if coin <= amount:
+# 			numCoins.append(minChange(coins, amount - coin, memo) + 1)
+# 	memo[amount] = min(numCoins)
+# 	return memo[amount]
+		
+print(minChange([1, 2, 5], 10))
 
