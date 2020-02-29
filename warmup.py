@@ -810,5 +810,18 @@ nums = [1,2,3,6]
 
 # print(quickSort([5,4,3,2,1]))
 
+def bubbleSort(li):
+	isSort = False
+	while not isSort:
+		isSort = True
+		for i in range(1, len(li)):
+			if li[i - 1] > li[i]:
+				swap(i, i - 1, li)
+				isSort = False
+	return li
+
+print(bubbleSort([5,4,3,2,1]))
+
+
 # print(minChange([1, 2, 5], 10))
 
