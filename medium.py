@@ -391,23 +391,46 @@ def minChange(coins, amount):
 
 # print(smallestDiff([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
 
-def threeSum(li, tar):
-    li.sort()
-    res = []
-    for i in range(len(li) - 2):
-        left = i + 1
-        right = len(li) - 1
-        while left < right:
-            currSum = li[i] + li[left] + li[right]
-            if currSum == tar:
-                res.append([li[i], li[left], li[right]])
-                left += 1
-                right -= 1
-            elif currSum > tar:
-                right -= 1
-            elif currSum < tar:
-                left += 1
-    return res
+# def threeSum(li, tar):
+#     li.sort()
+#     res = []
+#     for i in range(len(li) - 2):
+#         left = i + 1
+#         right = len(li) - 1
+#         while left < right:
+#             currSum = li[i] + li[left] + li[right]
+#             if currSum == tar:
+#                 res.append([li[i], li[left], li[right]])
+#                 left += 1
+#                 right -= 1
+#             elif currSum > tar:
+#                 right -= 1
+#             elif currSum < tar:
+#                 left += 1
+#     return res
 
-print(threeSum([6,2,1,3,5,6,0], 8))
+# print(threeSum([6,2,1,3,5,6,0], 8))
+
+class Node:
+    def __init__(self, name):
+        self.children = []
+        self.name = name
+    
+    def addChild(self, name):
+        self.children.append(Node(name))
+        return self
+
+    def printChildren(self):
+        for child in self.children:
+            print(child.name)
+
+    def bfs(self, array):
+        pass
+
+tree = Node('A')
+tree.addChild('B')
+tree.addChild('C')
+tree.children[0].addChild('D')
+tree.children[0].addChild('E')
+tree.children[1].addChild('F')
 
