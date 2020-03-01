@@ -226,3 +226,19 @@ x = { 1:'a', 2:'b'}
 # a[0] = 100
 # print(a)
 
+
+def minChange(coins, amount):
+    table = [float('inf')] * (amount + 1)
+    table[0] = 0
+
+    for coin in coins:
+        for amt in range(len(table)):
+            qty = 0 
+            while coin * qty <= amt:
+                remainder = amt - (coin * qty)
+                attempt = table[remainder] + qty
+                if attempt < table[amt]: table[amt] = attempt
+                qty += 1
+    return table[-1]
+
+print(minChange([1, 2, 5], 10))
