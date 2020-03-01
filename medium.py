@@ -309,7 +309,7 @@ def minChange(coins, amount):
 
 # print(smallestDifference([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
 
-def threeSome(li, tar):
+def threeSum(li, tar):
     li.sort()
     res = []
     for i in range(len(li) - 2):
@@ -327,4 +327,4 @@ def threeSome(li, tar):
                 left += 1
     return res
 
-print(threeSome([6,2,1,3,5,6,0], 8))
+print(threeSum([6,2,1,3,5,6,0], 8))
