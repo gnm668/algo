@@ -329,26 +329,33 @@ def minChange(coins, amount):
 
 # print(threeSum([6,2,1,3,5,6,0], 8))
 
-def smallestDiff(li1, li2):
-    li1.sort()
-    li2.sort()
-    idx1, idx2 = 0, 0
-    curr, diff = float('inf'), float('inf')
-    pair = []
-    while idx1 < len(li1) and idx2 < len(li2):
-        num1 = li1[idx1]
-        num2 = li2[idx2]
-        if num1 < num2:
-            curr = num2 - num1
-            idx1 += 1
-        elif num1 > num2:
-            curr = num1 - num2
-            idx2 += 1
-        else:
-            return [num1, num2]
-        if curr < diff:
-            diff = curr
-            pair = [num1, num2]
-    return pair       
+# def smallestDiff(li1, li2):
+#     li1.sort()
+#     li2.sort()
+#     idx1, idx2 = 0, 0
+#     curr, diff = float('inf'), float('inf')
+#     pair = []
+#     while idx1 < len(li1) and idx2 < len(li2):
+#         num1 = li1[idx1]
+#         num2 = li2[idx2]
+#         if num1 < num2:
+#             curr = num2 - num1
+#             idx1 += 1
+#         elif num1 > num2:
+#             curr = num1 - num2
+#             idx2 += 1
+#         else:
+#             return [num1, num2]
+#         if curr < diff:
+#             diff = curr
+#             pair = [num1, num2]
+#     return pair       
 
-print(smallestDiff([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
+# print(smallestDiff([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
+
+def lucasNum(num, memo = {0: 2, 1: 1}):
+    if num in memo: return memo[num]
+    memo[num] = lucasNum(num -1) + lucasNum(num - 2)
+    return memo[num]
+
+# print(lucasNum(40))
