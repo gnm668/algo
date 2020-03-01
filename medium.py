@@ -261,7 +261,7 @@ def minChange(coins, amount):
 
 # print(quickSort([5,4,3,2,1]))
 
-# def threeSome(li, tar):
+# def threeSum(li, tar):
 #     li.sort()
 #     results = []
 #     for i in range(len(li) - 2):
@@ -279,7 +279,7 @@ def minChange(coins, amount):
 #                 left += 1
 #     return results
 
-# print(threeSome([6,2,1,3,5,6,0], 8))
+# print(threeSum([6,2,1,3,5,6,0], 8))
 
 # def smallestDifference(li1, li2):
 #     idx1 = 0
