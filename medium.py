@@ -358,11 +358,35 @@ def minChange(coins, amount):
 #     memo[num] = lucasNum(num -1) + lucasNum(num - 2)
 #     return memo[num]
 
-def lucasNum(num):
-    table = [2, 1]
-    for i in range(num - 1):
-        temp = table[1]
-        table[1] = table[1] + table[0]
-        table[0] = temp
-    return table[1]
-print(lucasNum(40))
+# def lucasNum(num):
+#     table = [2, 1]
+#     for i in range(num - 1):
+#         temp = table[1]
+#         table[1] = table[1] + table[0]
+#         table[0] = temp
+#     return table[1]
+# print(lucasNum(40))
+
+def smallestDiff(li1, li2):
+    li1.sort()
+    li2.sort()
+    idx1, idx2 = 0, 0 
+    curr, diff = float('inf'), float('inf')
+    pair = []
+
+    while idx1 < len(li1) and idx2 < len(li2):
+        num1, num2 = li1[idx1], li2[idx2]
+        if num1 > num2:
+            curr = num1 - num2
+            idx2 += 1
+        elif num1 < num2:
+            curr = num2 - num1
+            idx1 += 1
+        else:
+            return [num1, num2]
+        if curr < diff:
+            diff = curr
+            pair = [num1, num2]
+    return pair
+
+print(smallestDiff([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
