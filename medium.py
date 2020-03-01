@@ -250,13 +250,33 @@ def minChange(coins, amount):
 #     memo[amount] = min(numCoins)
 #     return memo[amount]
 
-print(minChange([1, 2, 5], 10))
+# print(minChange([1, 2, 5], 10))
 
-def quickSort(li):
-    if len(li) < 1: return li
-    pivot = li.pop()
-    left = [el for el in li if el <= pivot]
-    right = [el for el in li if el > pivot]
-    return quickSort(left) + [pivot] + quickSort(right)
+# def quickSort(li):
+#     if len(li) < 1: return li
+#     pivot = li.pop()
+#     left = [el for el in li if el <= pivot]
+#     right = [el for el in li if el > pivot]
+#     return quickSort(left) + [pivot] + quickSort(right)
 
-print(quickSort([5,4,3,2,1]))
+# print(quickSort([5,4,3,2,1]))
+
+def threeSome(li, tar):
+    li.sort()
+    results = []
+    for i in range(len(li) - 2):
+        left = i + 1
+        right = len(li) - 1
+        while left < right:
+            currSum = li[i] + li[left] + li[right]
+            if currSum == tar:
+                results.append([li[i], li[left], li[right]])
+                left += 1
+                right -= 1
+            elif currSum > tar:
+                right -= 1
+            elif currSum < tar:
+                left += 1
+    return results
+
+print(threeSome([6,2,1,3,5,6,0], 8))
