@@ -188,18 +188,18 @@ def balancedBrackets(string):
 
 
 
-def quickSort(array):
+# def quickSort(array):
 
-    if len(array) < 2:
-        return array 
+#     if len(array) < 2:
+#         return array 
 
-    pivot = array[0]
-    left = [el for el in array[1:] if el < pivot]
-    right = [el for el in array[1:] if el >= pivot]
-    return quickSort(left) + [pivot] + quickSort(right)
+#     pivot = array[0]
+#     left = [el for el in array[1:] if el < pivot]
+#     right = [el for el in array[1:] if el >= pivot]
+#     return quickSort(left) + [pivot] + quickSort(right)
     
-a = [4, 4,3,2,1]
-b = 'hello'
+# a = [4, 4,3,2,1]
+# b = 'hello'
 
 # print(quickSort(a))
 
@@ -227,27 +227,36 @@ x = { 1:'a', 2:'b'}
 # print(a)
 
 
-# def minChange(coins, amount):
-#     table = [float('inf')] * (amount + 1)
-#     table[0] = 0
+def minChange(coins, amount):
+    table = [float('inf')] * (amount + 1)
+    table[0] = 0
 
-#     for coin in coins:
-#         for amt in range(len(table)):
-#             qty = 0 
-#             while coin * qty <= amt:
-#                 remainder = amt - (coin * qty)
-#                 attempt = table[remainder] + qty
-#                 if attempt < table[amt]: table[amt] = attempt
-#                 qty += 1
-#     return table[-1]
-
-def minChange(coins, amount, memo = {}):
-    if amount == 0: return 0
-    numCoins = []
     for coin in coins:
-        if coin <= amount:
-            numCoins.append(minChange(coins, amount - coin, memo) + 1)
-    memo[amount] = min(numCoins)
-    return memo[amount]
+        for amt in range(len(table)):
+            qty = 0 
+            while coin * qty <= amt:
+                remainder = amt - (coin * qty)
+                attempt = table[remainder] + qty
+                if attempt < table[amt]: table[amt] = attempt
+                qty += 1
+    return table[-1]
+
+# def minChange(coins, amount, memo = {}):
+#     if amount == 0: return 0
+#     numCoins = []
+#     for coin in coins:
+#         if coin <= amount:
+#             numCoins.append(minChange(coins, amount - coin, memo) + 1)
+#     memo[amount] = min(numCoins)
+#     return memo[amount]
 
 print(minChange([1, 2, 5], 10))
+
+def quickSort(li):
+    if len(li) < 1: return li
+    pivot = li.pop()
+    left = [el for el in li if el <= pivot]
+    right = [el for el in li if el > pivot]
+    return quickSort(left) + [pivot] + quickSort(right)
+
+print(quickSort([5,4,3,2,1]))
