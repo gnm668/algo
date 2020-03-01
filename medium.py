@@ -424,8 +424,14 @@ class Node:
         for child in self.children:
             print(child.name)
 
-    def bfs(self, array):
-        pass
+    def bfs(self, array = []):
+        queue = [self]
+        while len(queue) > 0:
+            current = queue.pop(0)
+            array.append(current.name)
+            for child in current.children:
+                queue.append(child)
+        return array
 
 tree = Node('A')
 tree.addChild('B')
@@ -433,4 +439,6 @@ tree.addChild('C')
 tree.children[0].addChild('D')
 tree.children[0].addChild('E')
 tree.children[1].addChild('F')
+
+print(tree.bfs())
 
