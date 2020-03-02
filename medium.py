@@ -509,14 +509,29 @@ x = { 1:'a', 2:'b'}
             
 # print(smallestDiff([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
 
-def minChange(coins, amount, memo = {}):
-    if amount == 0: return 0
-    if amount in memo: return memo[amount]
-    numCoins = []
+# def minChange(coins, amount, memo = {}):
+#     if amount == 0: return 0
+#     if amount in memo: return memo[amount]
+#     numCoins = []
+#     for coin in coins:
+#         if coin <= amount:
+#             numCoins.append(minChange(coins, amount - coin, memo) + 1)
+#     memo[amount] = min(numCoins)
+#     return memo[amount]
+
+def minChange(coins, amount):
+    table = [float('inf')] * (amount + 1)
+    table[0] = 0
     for coin in coins:
-        if coin <= amount:
-            numCoins.append(minChange(coins, amount - coin, memo) + 1)
-    memo[amount] = min(numCoins)
-    return memo[amount]
+        for amt in range(len(table)):
+            qty = 0
+            while qty * coin <= amount:
+                remainder = amount - (qty * coin)
+                attempt = table[remainder] + qty
+                if attempt < table[amt]: table[amt] = attempt
+                qty += 1
+    
+    return table[-1]
+
 
 print(minChange([1, 2, 5], 10))
