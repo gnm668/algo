@@ -855,13 +855,25 @@ nums = [1,2,3,6]
 
 # print(quickSort([5,4,3,2,1]))
 
-def minChange(coins, amount, memo = {0: 0}):
-	if amount in memo: return memo[amount]
-	numCoins = []
-	for coin in coins:
-		if coin <= amount:
-			numCoins.append(minChange(coins, amount - coin, memo) + 1)
-	memo[amount] = min(numCoins)
-	return memo[amount]
+# def minChange(coins, amount, memo = {0: 0}):
+# 	if amount in memo: return memo[amount]
+# 	numCoins = []
+# 	for coin in coins:
+# 		if coin <= amount:
+# 			numCoins.append(minChange(coins, amount - coin, memo) + 1)
+# 	memo[amount] = min(numCoins)
+# 	return memo[amount]
 
+def minChange(coins, amount):
+	table = [float('inf')] * (amount + 1)
+	table[0] = 0
+	for coin in coins:
+		for amt in range(len(table)):
+			qty = 0
+			while qty * coin <= amt:
+				remain = amt - (qty * coin)
+				attempt = table[remain] + qty
+				if table[amt] > attempt: table[amt] = attempt
+				qty += 1
+	return table[-1]
 print(minChange([1, 2, 5], 10))
