@@ -559,29 +559,41 @@ x = { 1:'a', 2:'b'}
 
 # print(smallestDiff([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
 
-class Node:
-    def __init__(self, name):
-        self.name = name
-        self.children = []
+# class Node:
+#     def __init__(self, name):
+#         self.name = name
+#         self.children = []
     
-    def addChild(self, name):
-        self.children.append(Node(name))
-        return self
+#     def addChild(self, name):
+#         self.children.append(Node(name))
+#         return self
     
-    def bfs(self, array):
-        queue = [self]
-        while len(queue) > 0:
-            curr = queue.pop(0)
-            array.append(curr.name)
-            for child in curr.children:
-                queue.append(child)
-        return array
+#     def bfs(self, array):
+#         queue = [self]
+#         while len(queue) > 0:
+#             curr = queue.pop(0)
+#             array.append(curr.name)
+#             for child in curr.children:
+#                 queue.append(child)
+#         return array
 
-tree = Node('A')
-tree.addChild('B')
-tree.addChild('C')
-tree.children[0].addChild('D')
-tree.children[0].addChild('E')
-tree.children[1].addChild('F')
+# tree = Node('A')
+# tree.addChild('B')
+# tree.addChild('C')
+# tree.children[0].addChild('D')
+# tree.children[0].addChild('E')
+# tree.children[1].addChild('F')
 
-print(tree.bfs([]))
+# print(tree.bfs([]))
+
+# def minChange(coins, amount, memo = {}):
+#     if amount in memo: return memo[amount]
+#     if amount == 0: return 0
+#     numCoins = []
+#     for coin in coins:
+#         if coin <= amount:
+#             numCoins.append(minChange(coins, amount - coin, memo) + 1)
+#     memo[amount] = min(numCoins)
+#     return memo[amount]
+
+print(minChange([1, 2, 5], 10))
