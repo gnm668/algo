@@ -921,43 +921,43 @@ nums = [1,2,3,6]
 
 # print(smallestDiff([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
 
-def moveElementToEnd(li, toMove):
-	i = 0
-	j = len(li) - 1
-	while i < j:
-		while i < j and li[j] == toMove:
-			j -= 1
-		if li[i] == toMove:
-			li[i], li[j] = li[j], li[i]
-		i += 1
-	return li
+# def moveElementToEnd(li, toMove):
+# 	i = 0
+# 	j = len(li) - 1
+# 	while i < j:
+# 		while i < j and li[j] == toMove:
+# 			j -= 1
+# 		if li[i] == toMove:
+# 			li[i], li[j] = li[j], li[i]
+# 		i += 1
+# 	return li
 
-print(moveElementToEnd([2,1,2,2,2,4,3,2], 2))
+# print(moveElementToEnd([2,1,2,2,2,4,3,2], 2))
 
 
-class Node:
-    def __init__(self, name):
-        self.name = name
-        self.children = []
+# class Node:
+#     def __init__(self, name):
+#         self.name = name
+#         self.children = []
 
-    def addChild(self, name):
-        self.children.append(Node(name))
-        return self
+#     def addChild(self, name):
+#         self.children.append(Node(name))
+#         return self
 
-    def bfs(self, array):
-		queue = [self]
-		while len(queue):
-			curr = queue.pop(0)
-			array.append(curr.name)
-			for child in curr.children:
-				queue.append(child)
-		return array
+#     def bfs(self, array):
+# 		queue = [self]
+# 		while len(queue):
+# 			curr = queue.pop(0)
+# 			array.append(curr.name)
+# 			for child in curr.children:
+# 				queue.append(child)
+# 		return array
 
-tree = Node('A')
-tree.addChild('B')
-tree.addChild('C')
-tree.children[0].addChild('D')
-tree.children[0].addChild('E')
-tree.children[1].addChild('F')
+# tree = Node('A')
+# tree.addChild('B')
+# tree.addChild('C')
+# tree.children[0].addChild('D')
+# tree.children[0].addChild('E')
+# tree.children[1].addChild('F')
 
-print(tree.bfs([]))
+# print(tree.bfs([]))
