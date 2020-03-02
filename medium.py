@@ -519,19 +519,42 @@ x = { 1:'a', 2:'b'}
 #     memo[amount] = min(numCoins)
 #     return memo[amount]
 
-def minChange(coins, amount):
-    table = [float('inf')] * (amount + 1)
-    table[0] = 0
-    for coin in coins:
-        for amt in range(len(table)):
-            qty = 0
-            while qty * coin <= amount:
-                remainder = amount - (qty * coin)
-                attempt = table[remainder] + qty
-                if attempt < table[amt]: table[amt] = attempt
-                qty += 1
+# def minChange(coins, amount):
+#     table = [float('inf')] * (amount + 1)
+#     table[0] = 0
+#     for coin in coins:
+#         for amt in range(len(table)):
+#             qty = 0
+#             while qty * coin <= amount:
+#                 remainder = amount - (qty * coin)
+#                 attempt = table[remainder] + qty
+#                 if attempt < table[amt]: table[amt] = attempt
+#                 qty += 1
     
-    return table[-1]
+#     return table[-1]
 
 
-print(minChange([1, 2, 5], 10))
+# print(minChange([1, 2, 5], 10))
+
+def smallestDiff(li1, li2):
+    li1.sort()
+    li2.sort()
+    curr, diff = float('inf'), float('inf')
+    idx1, idx2 = 0, 0
+    pair = []
+    while idx1 < len(li1) and idx2 < len(li2):
+        num1, num2 = li1[idx1], li2[idx2]
+        if num1 < num2:
+            curr = num2 - num1
+            idx1 += 1
+        elif num1 > num2:
+            curr = num1 - num2
+            idx2 += 1
+        else:
+            return [num1, num2]
+        if curr < diff:
+            diff = curr
+            pair = [num1, num2]
+    return pair
+
+# print(smallestDiff([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
