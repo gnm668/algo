@@ -864,16 +864,36 @@ nums = [1,2,3,6]
 # 	memo[amount] = min(numCoins)
 # 	return memo[amount]
 
-def minChange(coins, amount):
-	table = [float('inf')] * (amount + 1)
-	table[0] = 0
-	for coin in coins:
-		for amt in range(len(table)):
-			qty = 0
-			while qty * coin <= amt:
-				remain = amt - (qty * coin)
-				attempt = table[remain] + qty
-				if table[amt] > attempt: table[amt] = attempt
-				qty += 1
-	return table[-1]
-print(minChange([1, 2, 5], 10))
+# def minChange(coins, amount):
+# 	table = [float('inf')] * (amount + 1)
+# 	table[0] = 0
+# 	for coin in coins:
+# 		for amt in range(len(table)):
+# 			qty = 0
+# 			while qty * coin <= amt:
+# 				remain = amt - (qty * coin)
+# 				attempt = table[remain] + qty
+# 				if table[amt] > attempt: table[amt] = attempt
+# 				qty += 1
+# 	return table[-1]
+# print(minChange([1, 2, 5], 10))
+
+def threeSum(li, tar):
+	li.sort()
+	res = []
+	for i in range(len(li)):
+		left = i + 1
+		right = len(li) - 1
+		while left < right:
+			currSum = li[i] + li[left] + li[right]
+			if currSum == tar:
+				res.append([li[i], li[left], li[right]])
+				right -= 1
+				left += 1
+			elif currSum > tar:
+				right -= 1
+			elif currSum < tar:
+				left += 1
+	return res
+
+# print(threeSum([6,2,1,3,5,6,0], 8))
