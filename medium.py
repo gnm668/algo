@@ -536,25 +536,52 @@ x = { 1:'a', 2:'b'}
 
 # print(minChange([1, 2, 5], 10))
 
-def smallestDiff(li1, li2):
-    li1.sort()
-    li2.sort()
-    curr, diff = float('inf'), float('inf')
-    idx1, idx2 = 0, 0
-    pair = []
-    while idx1 < len(li1) and idx2 < len(li2):
-        num1, num2 = li1[idx1], li2[idx2]
-        if num1 < num2:
-            curr = num2 - num1
-            idx1 += 1
-        elif num1 > num2:
-            curr = num1 - num2
-            idx2 += 1
-        else:
-            return [num1, num2]
-        if curr < diff:
-            diff = curr
-            pair = [num1, num2]
-    return pair
+# def smallestDiff(li1, li2):
+#     li1.sort()
+#     li2.sort()
+#     curr, diff = float('inf'), float('inf')
+#     idx1, idx2 = 0, 0
+#     pair = []
+#     while idx1 < len(li1) and idx2 < len(li2):
+#         num1, num2 = li1[idx1], li2[idx2]
+#         if num1 < num2:
+#             curr = num2 - num1
+#             idx1 += 1
+#         elif num1 > num2:
+#             curr = num1 - num2
+#             idx2 += 1
+#         else:
+#             return [num1, num2]
+#         if curr < diff:
+#             diff = curr
+#             pair = [num1, num2]
+#     return pair
 
 # print(smallestDiff([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
+
+class Node:
+    def __init__(self, name):
+        self.name = name
+        self.children = []
+    
+    def addChild(self, name):
+        self.children.append(Node(name))
+        return self
+    
+    def bfs(self, array):
+        queue = [self]
+        while len(queue) > 0:
+            curr = queue.pop(0)
+            array.append(curr.name)
+            for child in curr.children:
+                queue.append(child)
+        return array
+
+tree = Node('A')
+tree.addChild('B')
+tree.addChild('C')
+tree.children[0].addChild('D')
+tree.children[0].addChild('E')
+tree.children[1].addChild('F')
+
+print(tree.bfs([]))
