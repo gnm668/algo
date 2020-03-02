@@ -654,15 +654,15 @@ x = { 1:'a', 2:'b'}
 
 # print(smallestDiff([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
 
-def moveElementToEnd(li, toMove):
-    i = 0
-    j = len(li) - 1
-    while i < j:
-        while i < j and li[j] == toMove:
-            j -= 1
-        if li[i] == toMove:
-            li[i], li[j] = li[j], li[i]
-        i += 1
-    return li
+# def moveElementToEnd(li, toMove):
+#     i = 0
+#     j = len(li) - 1
+#     while i < j:
+#         while i < j and li[j] == toMove:
+#             j -= 1
+#         if li[i] == toMove:
+#             li[i], li[j] = li[j], li[i]
+#         i += 1
+#     return li
 
-print(moveElementToEnd([2,1,2,2,2,4,3,2], 2))
+# print(moveElementToEnd([2,1,2,2,2,4,3,2], 2))
