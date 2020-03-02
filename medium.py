@@ -611,22 +611,45 @@ x = { 1:'a', 2:'b'}
 
 # print(minChange([1, 2, 5], 10))
 
-def threeSum(li, tar):
-    li.sort()
-    res = []
-    for i in range(len(li)):
-        left = i + 1
-        right = len(li) - 1
-        while left < right:
-            currSum = li[i] + li[left] + li[right]
-            if currSum == tar:
-                res.append([li[i], li[left], li[right]])
-                right -= 1
-                left += 1
-            elif currSum > tar:
-                right -= 1
-            elif currSum < tar:
-                left += 1
-    return res
+# def threeSum(li, tar):
+#     li.sort()
+#     res = []
+#     for i in range(len(li)):
+#         left = i + 1
+#         right = len(li) - 1
+#         while left < right:
+#             currSum = li[i] + li[left] + li[right]
+#             if currSum == tar:
+#                 res.append([li[i], li[left], li[right]])
+#                 right -= 1
+#                 left += 1
+#             elif currSum > tar:
+#                 right -= 1
+#             elif currSum < tar:
+#                 left += 1
+#     return res
 
-print(threeSum([6,2,1,3,5,6,0], 8))
+# print(threeSum([6,2,1,3,5,6,0], 8))
+
+def smallestDiff(li1, li2):
+    li1.sort()
+    li2.sort()
+    idx1, idx2 = 0, 0
+    diff, curr = float('inf'), float('inf')
+    pair = []
+    while idx1 < len(li1) and idx2 < len(li2):
+        num1, num2 = li1[idx1], li2[idx2]
+        if num1 > num2:
+            curr = num1 - num2
+            idx2 += 1
+        elif num1 < num2:
+            curr = num2 - num1
+            idx1 += 1
+        else:
+            return [num1, num2]
+        if curr < diff:
+            diff = curr
+            pair = [num1, num2]
+    return pair
+
+print(smallestDiff([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
