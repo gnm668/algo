@@ -433,35 +433,54 @@ def minChange(coins, amount):
     #             queue.append(child)
     #     return array
 
-class Node:
+# class Node:
 
-    def __init__(self, name):
-        self.children = []
-        self.name = name
+#     def __init__(self, name):
+#         self.children = []
+#         self.name = name
 
-    def addChild(self, name):
-        self.children.append(Node(name))
-        return self
+#     def addChild(self, name):
+#         self.children.append(Node(name))
+#         return self
 
-    def printChildren(self):
-        for child in self.children:
-            print(child.name)
+#     def printChildren(self):
+#         for child in self.children:
+#             print(child.name)
     
-    def bfs(self, array):
-        queue = [self]
-        while len(queue) > 0:
-            curr = queue.pop(0)
-            array.append(curr.name)
-            for child in curr.children:
-                queue.append(child)
-        return array
+#     def bfs(self, array):
+#         queue = [self]
+#         while len(queue) > 0:
+#             curr = queue.pop(0)
+#             array.append(curr.name)
+#             for child in curr.children:
+#                 queue.append(child)
+#         return array
 
-tree = Node('A')
-tree.addChild('B')
-tree.addChild('C')
-tree.children[0].addChild('D')
-tree.children[0].addChild('E')
-tree.children[1].addChild('F')
+# tree = Node('A')
+# tree.addChild('B')
+# tree.addChild('C')
+# tree.children[0].addChild('D')
+# tree.children[0].addChild('E')
+# tree.children[1].addChild('F')
 
-print(tree.bfs([]))
+# print(tree.bfs([]))
 
+def threeSum(li, tar):
+    li.sort()
+    res = []
+    for i in range(len(li) - 2):
+        left = i + 1
+        right = len(li) - 1
+        while left < right:
+            currSum = li[i] + li[left] + li[right]
+            if currSum == tar:
+                res.append([li[i], li[left], li[right]])
+                left += 1
+                right -= 1
+            elif currSum > tar:
+                right -= 1
+            elif currSum < tar:
+                left += 1
+    return res
+
+print(threeSum([6,2,1,3,5,6,0], 8))
