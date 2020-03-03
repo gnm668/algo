@@ -962,15 +962,26 @@ nums = [1,2,3,6]
 
 # print(tree.bfs([]))
 
-def moveElToEnd(li, toMove):
-	i = 0
-	j = len(li) - 1
-	while i < j:
-		while i < j and li[j] == toMove:
-			j -= 1
-		if li[i] == toMove:
-			li[i], li[j] = li[j], li[i]
-		i += 1
-	return li
+# def moveElToEnd(li, toMove):
+# 	i = 0
+# 	j = len(li) - 1
+# 	while i < j:
+# 		while i < j and li[j] == toMove:
+# 			j -= 1
+# 		if li[i] == toMove:
+# 			li[i], li[j] = li[j], li[i]
+# 		i += 1
+# 	return li
 
-print(moveElToEnd([2,1,2,2,2,4,3,2], 2))
+# print(moveElToEnd([2,1,2,2,2,4,3,2], 2))
+
+# def moveEltoEnd(li, toMove):
+# 	i = 0 
+# 	j = len(li) - 1 # i = 1, j = 5
+# 	while i < j:
+# 		while i < j and li[j] == toMove:
+# 			j -= 1
+# 		if li[i] == toMove
+# 			li[i], li[j] = li[j], li[i]
+# 		i += 1
+# 	return li
