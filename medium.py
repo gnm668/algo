@@ -666,3 +666,15 @@ x = { 1:'a', 2:'b'}
 #     return li
 
 # print(moveElementToEnd([2,1,2,2,2,4,3,2], 2))
+
+def gridSearch(grid, tar):
+    row = 0
+    col = len(grid[0]) - 1
+    while row < grid.length and col >= 0:
+        if grid[row][col] < tar:
+            row += 1
+        elif grid[row][col] > tar:
+            col += 1
+        else:
+            return [row, col]
+    return -1
