@@ -1103,15 +1103,30 @@ nums = [1,2,3,6]
 # 			numCoins.append(minChange(coins, amount - coin) + 1)
 # 	return min(numCoins)
 
-def moveElToEnd(li, toMove):
-	i = 0
-	j = len(li) - 1
-	while i < j:
-		while i < j and li[j] == toMove:
-			j -= 1
-		if li[i] == toMove:
-			li[i], li[j] = li[j], li[i]
-		i += 1
-	return li
+# def moveElToEnd(li, toMove):
+# 	i = 0
+# 	j = len(li) - 1
+# 	while i < j:
+# 		while i < j and li[j] == toMove:
+# 			j -= 1
+# 		if li[i] == toMove:
+# 			li[i], li[j] = li[j], li[i]
+# 		i += 1
+# 	return li
 	
-print(moveElToEnd([2,1,2,2,2,4,3,2], 2))
+# print(moveElToEnd([2,1,2,2,2,4,3,2], 2))
+
+def minChange(coins, amount):
+	table = [float('inf')] * (amount + 1)
+	table[0] = 0
+	for coin in coins:
+		for amt in range(len(table)):
+			qty = 0
+			while qty * coin <= amt:
+				remain = amt - (coin * qty)
+				attempt = table[remain] + qty
+				if attempt < table[amt]: table[amt] = attempt
+				qty += 1
+	return table[-1]
+
+print(minChange([1,2,5], 26))
