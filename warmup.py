@@ -1129,4 +1129,4 @@ def minChange(coins, amount):
 				qty += 1
 	return table[-1]
 
-print(minChange([1,2,5], 26))
+# print(minChange([1,2,5], 26))
