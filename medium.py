@@ -822,19 +822,26 @@
 
 # heaps
 
-def permutations(li):
-    perms = []
-    permsHelp(0, li, perms)
-    return perms
+# def permutations(li):
+#     perms = []
+#     permsHelp(0, li, perms)
+#     return perms
 
-def permsHelp(x, li, perms):
-    if x == len(li) - 1:
-        perms.append(li[:])
-    else:
-        for y in range(x, len(li)):
-            li[x], li[y] = li[y], li[x]
-            permsHelp(x + 1, li, perms)
-            li[x], li[y] = li[y], li[x]
+# def permsHelp(x, li, perms):
+#     if x == len(li) - 1:
+#         perms.append(li[:])
+#     else:
+#         for y in range(x, len(li)):
+#             li[x], li[y] = li[y], li[x]
+#             permsHelp(x + 1, li, perms)
+#             li[x], li[y] = li[y], li[x]
 
-print(permutations([1,2,3]))
+# print(permutations([1,2,3]))
 
+def powerSet(li):
+    res = [[]]
+    for i in range(len(li)):
+        for j in range(len(res)):
+            res.append(res[j] + [li[i]])
+    return res
+print(powerSet([1,2,3]))
