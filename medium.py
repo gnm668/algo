@@ -800,15 +800,22 @@
 
 # print(moveElToEnd([2,1,2,2,2,4,3,2], 2))
 
-def gridSearch(grid, tar):
-    row = 0
-    col = len(grid[0]) - 1
-    while row < len(grid) and col >= 0:
-        if tar > grid[row][col]:
-            col -= 1
-        elif tar < grid[row][col]:
-            row += 1
-        else:
-            return grid[row][col]
-    return -1
-    
+# def gridSearch(grid, tar):
+#     row = 0
+#     col = len(grid[0]) - 1
+#     while row < len(grid) and col >= 0:
+#         if tar > grid[row][col]:
+#             col -= 1
+#         elif tar < grid[row][col]:
+#             row += 1
+#         else:
+#             return grid[row][col]
+#     return -1
+
+def powerSet(li):
+    res = [[]]
+    for i in range(len(li)):
+        for j in range(len(res)):
+            res.append(res[j] + [li[i]])
+    return res
+print(powerSet([1,2,3]))
