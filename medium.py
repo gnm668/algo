@@ -905,18 +905,21 @@
 
 # print(powerSet([1,2,3]))
 
-def perms(li):
-    perms = []
-    permsHelper(0, li, perms)
-    return perms
+# def perms(li):
+#     perms = []
+#     permsHelper(0, li, perms)
+#     return perms
 
-def permsHelper(i, li, perms):
-    if i == len(li) - 1:
-        perms.append(li[:])
-    else:
-        for j in range(i, len(li)):
-            li[i], li[j] = li[j], li[i]
-            permsHelper(i + 1, li, perms)
-            li[i], li[j] = li[j], li[i]
+# def permsHelper(i, li, perms):
+#     if i == len(li) - 1:
+#         perms.append(li[:])
+#     else:
+#         for j in range(i, len(li)):
+#             li[i], li[j] = li[j], li[i]
+#             permsHelper(i + 1, li, perms)
+#             li[i], li[j] = li[j], li[i]
 
-print(perms([8,4,1]))
+# print(perms([8,4,1]))
+
+def minChange(coins, amount):
+    table = [float('inf') for value in range(amount)]

@@ -73,5 +73,7 @@ g = ['h', 'e', 'l', 'l', 'o']
 # ways = [0 for x in range(10)]
 # print(ways)
 
-i = g[:]
-print(i)
+# i = g[:]
+# print(i)
+
+# print([float('inf') for value in range(10)])
