@@ -894,3 +894,13 @@ print(riverSizes([
     [1,0,1,0,1],
     [1,0,1,1,0]
 ]))
+
+
+def powerSet(li):
+    res = [[]]
+    for i in range(len(li)):
+        for j in range(len(res)):
+            res.append(res[j] + [li[i]])
+    return res
+
+print(powerSet([1,2,3]))
