@@ -838,10 +838,59 @@
 
 # print(permutations([1,2,3]))
 
-def powerSet(li):
-    res = [[]]
-    for i in range(len(li)):
-        for j in range(len(res)):
-            res.append(res[j] + [li[i]])
-    return res
-print(powerSet([1,2,3]))
+# def powerSet(li):
+#     res = [[]]
+#     for i in range(len(li)):
+#         for j in range(len(res)):
+#             res.append(res[j] + [li[i]])
+#     return res
+# print(powerSet([1,2,3]))
+
+def riverSizes(grid):
+    sizes = []
+    visited = [[False for x in row] for row in grid]
+    for row in range(len(grid)):
+        for col in range(len(grid[row])):
+            if visited[row][col]:
+                continue
+            traverse(row, col, grid, visited, sizes)
+    return sizes
+
+def traverse(row, col, grid, visited, sizes):
+    size = 0
+    nodesToEx = [[row, col]]
+    while len(nodesToEx):
+        currNode = nodesToEx.pop()
+        row = currNode[0]
+        col = currNode[1]
+        if visited[row][col]:
+            continue
+        visited[row][col] = True
+        if grid[row][col] == 0:
+            continue
+        size += 1
+        unvisited = getUnvisited(row, col, grid, visited)
+        for node in unvisited:
+            nodesToEx.append(node)
+    if size > 0:
+        sizes.append(size)
+
+def getUnvisited(row, col, grid, visited):
+    unvisited = []
+    if row < len(grid) - 1 and not visited[row + 1][col]:
+        unvisited.append([row + 1, col])
+    if row > 0 and not visited[row - 1][col]:
+        unvisited.append([row - 1, col])
+    if col > 0 and not visited[row][col - 1]:
+        unvisited.append([row, col - 1])
+    if col < len(grid[0]) - 1 and not visited[row][col + 1]:
+        unvisited.append([row, col + 1])
+    return unvisited
+
+print(riverSizes([
+    [1,0,0,1,0],
+    [1,0,1,0,0],
+    [0,0,1,0,1],
+    [1,0,1,0,1],
+    [1,0,1,1,0]
+]))
