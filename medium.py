@@ -787,15 +787,28 @@
 #     [1,0,1,1,0]
 # ]))
 
-def moveElToEnd(li, toMove):
-    i = 0
-    j = len(li) - 1
-    while i < j:
-        while i < j and li[j] == toMove:
-            j -= 1
-        if li[i] == toMove:
-            li[i], li[j] = li[j], li[i]
-        i += 1
-    return li
+# def moveElToEnd(li, toMove):
+#     i = 0
+#     j = len(li) - 1
+#     while i < j:
+#         while i < j and li[j] == toMove:
+#             j -= 1
+#         if li[i] == toMove:
+#             li[i], li[j] = li[j], li[i]
+#         i += 1
+#     return li
 
-print(moveElToEnd([2,1,2,2,2,4,3,2], 2))
+# print(moveElToEnd([2,1,2,2,2,4,3,2], 2))
+
+def gridSearch(grid, tar):
+    row = 0
+    col = len(grid[0]) - 1
+    while row < len(grid) and col >= 0:
+        if tar > grid[row][col]:
+            col -= 1
+        elif tar < grid[row][col]:
+            row += 1
+        else:
+            return grid[row][col]
+    return -1
+    
