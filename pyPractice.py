@@ -58,18 +58,20 @@ f = 'hello'
 
 g = ['h', 'e', 'l', 'l', 'o']
 # print(g.find('e'))
-print(g.count('l'))
+# print(g.count('l'))
 
 # find is only for strings, count works on both
 
-h = ['car', 'skate', 'boat', 'plane']
+# h = ['car', 'skate', 'boat', 'plane']
 
-for idx, el in enumerate(h):
-    print(el, idx)
+# for idx, el in enumerate(h):
+#     print(el, idx)
 
-for idx in range(len(h)):
-    print(h[idx], idx)
+# for idx in range(len(h)):
+#     print(h[idx], idx)
 
-ways = [0 for x in range(10)]
-print(ways)
+# ways = [0 for x in range(10)]
+# print(ways)
 
+i = g[:]
+print(i)

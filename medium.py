@@ -812,10 +812,29 @@
 #             return grid[row][col]
 #     return -1
 
-def powerSet(li):
-    res = [[]]
-    for i in range(len(li)):
-        for j in range(len(res)):
-            res.append(res[j] + [li[i]])
-    return res
-print(powerSet([1,2,3]))
+# def powerSet(li):
+#     res = [[]]
+#     for i in range(len(li)):
+#         for j in range(len(res)):
+#             res.append(res[j] + [li[i]])
+#     return res
+# print(powerSet([1,2,3]))
+
+def permutations(li):
+    perms = []
+    permsHelp(0, li, perms)
+    return perms
+
+def permsHelp(i, li, perms):
+    if i == len(li) - 1:
+        perms.append(li[:])
+    else:
+        for j in range(i, len(li)):
+            swap(li, i , j)
+            permsHelp(i + 1, li, perms)
+            swap(li, i, j)
+    
+def swap(li, i, j):
+    li[i], li[j] = li[j], li[i]
+
+print(permutations([1,2,3]))
