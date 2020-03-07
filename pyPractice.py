@@ -70,3 +70,6 @@ for idx, el in enumerate(h):
 for idx in range(len(h)):
     print(h[idx], idx)
 
+ways = [0 for x in range(10)]
+print(ways)
+
