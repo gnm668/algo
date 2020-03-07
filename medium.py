@@ -820,21 +820,21 @@
 #     return res
 # print(powerSet([1,2,3]))
 
+# heaps
+
 def permutations(li):
     perms = []
     permsHelp(0, li, perms)
     return perms
 
-def permsHelp(i, li, perms):
-    if i == len(li) - 1:
+def permsHelp(x, li, perms):
+    if x == len(li) - 1:
         perms.append(li[:])
     else:
-        for j in range(i, len(li)):
-            swap(li, i , j)
-            permsHelp(i + 1, li, perms)
-            swap(li, i, j)
-    
-def swap(li, i, j):
-    li[i], li[j] = li[j], li[i]
+        for y in range(x, len(li)):
+            li[x], li[y] = li[y], li[x]
+            permsHelp(x + 1, li, perms)
+            li[x], li[y] = li[y], li[x]
 
 print(permutations([1,2,3]))
+
