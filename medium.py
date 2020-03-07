@@ -679,31 +679,43 @@ x = { 1:'a', 2:'b'}
 #             return [row, col]
 #     return -1
 
-class MinMaxStack(self):
-    def __init__(self):
-        self.stack = []
-        self.minMaxStack = []
+# class MinMaxStack(self):
+#     def __init__(self):
+#         self.stack = []
+#         self.minMaxStack = []
     
-    def peek(self):
-        return self.stack[-1]
+#     def peek(self):
+#         return self.stack[-1]
 
-    def pop(self):
-        self.minMaxStack.pop()
-        return self.stack.pop()
+#     def pop(self):
+#         self.minMaxStack.pop()
+#         return self.stack.pop()
 
-    def push(self, number):
-        newMinMax = {"min": number, "max": number}
-        if len(self.minMaxstack):
-            lastMinMax = self.minMaxStack[-1]
-            newMinMax["min"] = min(lastMinMax["min"], number)
-            newMinMax["max"] = max(lastMinMax["max"], number)
-        self.minMaxStack.append(newMinMax)
-        self.stack.append(number)
-        return self.stack
+#     def push(self, number):
+#         newMinMax = {"min": number, "max": number}
+#         if len(self.minMaxstack):
+#             lastMinMax = self.minMaxStack[-1]
+#             newMinMax["min"] = min(lastMinMax["min"], number)
+#             newMinMax["max"] = max(lastMinMax["max"], number)
+#         self.minMaxStack.append(newMinMax)
+#         self.stack.append(number)
+#         return self.stack
     
-    def getMin(self):
-        return MinMaxStack[-1]["min"]
+#     def getMin(self):
+#         return MinMaxStack[-1]["min"]
 
-    def getMax(self):
-        return MinMaxStack[-1]["max"]
+#     def getMax(self):
+#         return MinMaxStack[-1]["max"]
 
+def gridSearch(grid, tar):
+    row = 0
+    col = len(grid[0] - 1)
+
+    while row < len(grid) - 1 and col >= 0:
+        if grid[row][col] > tar:
+            col -= 1
+        elif grid[row][col] < tar:
+            row += 1
+        else:
+            return [row, col]
+    return -1
