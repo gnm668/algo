@@ -735,54 +735,67 @@
 
 # print(minChange([1,2,5], 26))
 
-def riverSizes(matrix):
-    sizes = []
-    visited = [[False for value in row] for row in matrix]
-    for row in range(len(matrix)):
-        for col in range(len(matrix[row])):
-            if visited[row][col]:
-                continue
-            findSize(row, col, visited, matrix, sizes)
+# def riverSizes(matrix):
+#     sizes = []
+#     visited = [[False for value in row] for row in matrix]
+#     for row in range(len(matrix)):
+#         for col in range(len(matrix[row])):
+#             if visited[row][col]:
+#                 continue
+#             findSize(row, col, visited, matrix, sizes)
            
-    return sizes
+#     return sizes
 
 
-def findSize(row, col, visited, matrix, sizes):
-    size = 0
-    nodesToEx = [[row, col]]
-    while len(nodesToEx):
-        currNode = nodesToEx.pop()
-        row = currNode[0]
-        col = currNode[1]
-        if visited[row][col]:
-            continue
-        visited[row][col] = True
-        if matrix[row][col] == 0:
-            continue
-        size += 1
-        unvisitedNeighbors = getUnvisited(row, col, visited, matrix)
-        for neighbor in unvisitedNeighbors:
-            nodesToEx.append(neighbor)
-    if size is not None and size > 0:
-        sizes.append(size)
+# def findSize(row, col, visited, matrix, sizes):
+#     size = 0
+#     nodesToEx = [[row, col]]
+#     while len(nodesToEx):
+#         currNode = nodesToEx.pop()
+#         row = currNode[0]
+#         col = currNode[1]
+#         if visited[row][col]:
+#             continue
+#         visited[row][col] = True
+#         if matrix[row][col] == 0:
+#             continue
+#         size += 1
+#         unvisitedNeighbors = getUnvisited(row, col, visited, matrix)
+#         for neighbor in unvisitedNeighbors:
+#             nodesToEx.append(neighbor)
+#     if size is not None and size > 0:
+#         sizes.append(size)
 
 
-def getUnvisited(row, col, visited, matrix):
-    unvisitedNeighbors = []
-    if row > 0 and not visited[row - 1][col]:
-        unvisitedNeighbors.append([row - 1, col])
-    if row < len(matrix) - 1 and not visited[row + 1][col]:
-        unvisitedNeighbors.append([row + 1, col])
-    if col > 0 and not visited[row][col - 1]:
-        unvisitedNeighbors.append([row, col - 1])
-    if col < len(matrix[0]) - 1 and not visited[row][col + 1]:
-        unvisitedNeighbors.append([row, col + 1])
-    return unvisitedNeighbors
+# def getUnvisited(row, col, visited, matrix):
+#     unvisitedNeighbors = []
+#     if row > 0 and not visited[row - 1][col]:
+#         unvisitedNeighbors.append([row - 1, col])
+#     if row < len(matrix) - 1 and not visited[row + 1][col]:
+#         unvisitedNeighbors.append([row + 1, col])
+#     if col > 0 and not visited[row][col - 1]:
+#         unvisitedNeighbors.append([row, col - 1])
+#     if col < len(matrix[0]) - 1 and not visited[row][col + 1]:
+#         unvisitedNeighbors.append([row, col + 1])
+#     return unvisitedNeighbors
 
-print(riverSizes([
-    [1,0,0,1,0],
-    [1,0,1,0,0],
-    [0,0,1,0,1],
-    [1,0,1,0,1],
-    [1,0,1,1,0]
-]))
+# print(riverSizes([
+#     [1,0,0,1,0],
+#     [1,0,1,0,0],
+#     [0,0,1,0,1],
+#     [1,0,1,0,1],
+#     [1,0,1,1,0]
+# ]))
+
+def moveElToEnd(li, toMove):
+    i = 0
+    j = len(li) - 1
+    while i < j:
+        while i < j and li[j] == toMove:
+            j -= 1
+        if li[i] == toMove:
+            li[i], li[j] = li[j], li[i]
+        i += 1
+    return li
+
+print(moveElToEnd([2,1,2,2,2,4,3,2], 2))
