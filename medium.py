@@ -740,12 +740,10 @@ def riverSizes(matrix):
     visited = [[False for value in row] for row in matrix]
     for row in range(len(matrix)):
         for col in range(len(matrix[row])):
-            if matrix[row][col] == 1:
-                size = findSize(row, col, visited, matrix, sizes)
-                if size:
-                    sizes.append(size)
-            elif [row, col] in visited:
+            if visited[row][col]:
                 continue
+            findSize(row, col, visited, matrix, sizes)
+           
     return sizes
 
 
@@ -765,19 +763,19 @@ def findSize(row, col, visited, matrix, sizes):
         unvisitedNeighbors = getUnvisited(row, col, visited, matrix)
         for neighbor in unvisitedNeighbors:
             nodesToEx.append(neighbor)
-        if size > 0:
-            sizes.append(size)
+    if size is not None and size > 0:
+        sizes.append(size)
 
 
 def getUnvisited(row, col, visited, matrix):
     unvisitedNeighbors = []
-    if row > 0 and visited[row - 1][col]:
+    if row > 0 and not visited[row - 1][col]:
         unvisitedNeighbors.append([row - 1, col])
-    elif row < len(matrix) - 1 and visited[row + 1][col]:
+    if row < len(matrix) - 1 and not visited[row + 1][col]:
         unvisitedNeighbors.append([row + 1, col])
-    elif col > 0 and visited[row][col - 1]:
+    if col > 0 and not visited[row][col - 1]:
         unvisitedNeighbors.append([row, col - 1])
-    elif col < len(matrix[0]) - 1 and visited[row][col + 1]:
+    if col < len(matrix[0]) - 1 and not visited[row][col + 1]:
         unvisitedNeighbors.append([row, col + 1])
     return unvisitedNeighbors
 
