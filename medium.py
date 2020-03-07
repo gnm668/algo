@@ -5,18 +5,18 @@
 # 	            return [row, col]
 # 	return [-1, -1]
 
-def searchInSortedMatrix(matrix, target):
-    row = 0
-    col = len(matrix[0]) - 1
+# def searchInSortedMatrix(matrix, target):
+#     row = 0
+#     col = len(matrix[0]) - 1
 
-    while row < len(matrix) and col >= 0:
-        if matrix[row][col] > target:
-            col -= 1
-        elif matrix[    row][col] < target:
-            row += 1
-        else:
-            return [row, col]
-    return [-1, -1]
+#     while row < len(matrix) and col >= 0:
+#         if matrix[row][col] > target:
+#             col -= 1
+#         elif matrix[    row][col] < target:
+#             row += 1
+#         else:
+#             return [row, col]
+#     return [-1, -1]
 
     # If sorted check possible coparisons
     # O(n + m) Time
@@ -64,34 +64,34 @@ def searchInSortedMatrix(matrix, target):
     #                 right -= 1
     #     return results
 
-def smallestDifference(arrayOne, arrayTwo):
-    idxOne = 0
-    idxTwo = 0
-    arrayOne.sort()
-    arrayTwo.sort()
-    diff = float('inf')
-    curr = float('inf')
-    pair = []
+# def smallestDifference(arrayOne, arrayTwo):
+#     idxOne = 0
+#     idxTwo = 0
+#     arrayOne.sort()
+#     arrayTwo.sort()
+#     diff = float('inf')
+#     curr = float('inf')
+#     pair = []
 
-    while idxOne < len(arrayOne) and idxTwo < len(arrayTwo):
-        firstNum = arrayOne[idxOne]
-        secondNum = arrayTwo[idxTwo]
+#     while idxOne < len(arrayOne) and idxTwo < len(arrayTwo):
+#         firstNum = arrayOne[idxOne]
+#         secondNum = arrayTwo[idxTwo]
 
-        if firstNum < secondNum:
-            curr = secondNum - firstNum
-            idxOne += 1
-        elif firstNum > secondNum:
-            curr = firstNum - secondNum
-            idxTwo +=1
-        else:
-            return [firstNum, secondNum]
-        if diff > curr:
-            diff = curr
-        pair =[firstNum, secondNum]
+#         if firstNum < secondNum:
+#             curr = secondNum - firstNum
+#             idxOne += 1
+#         elif firstNum > secondNum:
+#             curr = firstNum - secondNum
+#             idxTwo +=1
+#         else:
+#             return [firstNum, secondNum]
+#         if diff > curr:
+#             diff = curr
+#         pair =[firstNum, secondNum]
 
-    return pair
+#     return pair
 
-x = {1: None, 2: 2, 3: 3}
+# x = {1: None, 2: 2, 3: 3}
 # print(x.values())
 
 
@@ -112,21 +112,21 @@ x = {1: None, 2: 2, 3: 3}
 
 # Below has better space complexity but same time complexity
 
-def hasSingleCycle(array):
-    visitedCount = 0
-    currentPos = 0
+# def hasSingleCycle(array):
+#     visitedCount = 0
+#     currentPos = 0
 
-    while visitedCount < len(array):
-        if visitedCount > 0 and currentPos == 0:
-            return False
-        visitedCount += 1
-        currentPos = getNextPos(currentPos, array)
-    return currentPos == 0
+#     while visitedCount < len(array):
+#         if visitedCount > 0 and currentPos == 0:
+#             return False
+#         visitedCount += 1
+#         currentPos = getNextPos(currentPos, array)
+#     return currentPos == 0
 
-def getNextPos(currentPos, array):
-    move = array[currentPos]
-    nextPos = (currentPos + move) % len(array)
-    return nextPos if nextPos >= 0 else nextPos + len(array)
+# def getNextPos(currentPos, array):
+#     move = array[currentPos]
+#     nextPos = (currentPos + move) % len(array)
+#     return nextPos if nextPos >= 0 else nextPos + len(array)
 
 # def balancedBrackets(string):
 #     opening = '({['
@@ -152,23 +152,23 @@ def getNextPos(currentPos, array):
 # 	else:
 # 		return False
 
-def balancedBrackets(string):
-    opening = '({['
-    closing = ')}]'
-    matching = {')':'(', '}':'{', ']':'[' }
-    stack = []
+# def balancedBrackets(string):
+#     opening = '({['
+#     closing = ')}]'
+#     matching = {')':'(', '}':'{', ']':'[' }
+#     stack = []
 
-    for char in string:
-        if char in opening:
-            stack.append(char)
-        elif char in closing:
-            if len(stack) == 0:
-                return False
-            elif stack[-1] == matching[char]:
-                stack.pop()
-            else:
-                return False
-    return len(stack) == 0
+#     for char in string:
+#         if char in opening:
+#             stack.append(char)
+#         elif char in closing:
+#             if len(stack) == 0:
+#                 return False
+#             elif stack[-1] == matching[char]:
+#                 stack.pop()
+#             else:
+#                 return False
+#     return len(stack) == 0
 
 
 # class Solution:
@@ -221,7 +221,7 @@ def balancedBrackets(string):
 # print([el for el in a if el % 2 == 0])
 # print(b)
 
-x = { 1:'a', 2:'b'}
+# x = { 1:'a', 2:'b'}
 # print(a[:])
 # a[0] = 100
 # print(a)
@@ -707,15 +707,84 @@ x = { 1:'a', 2:'b'}
 #     def getMax(self):
 #         return MinMaxStack[-1]["max"]
 
-def gridSearch(grid, tar):
-    row = 0
-    col = len(grid[0] - 1)
+# def gridSearch(grid, tar):
+#     row = 0
+#     col = len(grid[0] - 1)
 
-    while row < len(grid) - 1 and col >= 0:
-        if grid[row][col] > tar:
-            col -= 1
-        elif grid[row][col] < tar:
-            row += 1
-        else:
-            return [row, col]
-    return -1
+#     while row < len(grid) - 1 and col >= 0:
+#         if grid[row][col] > tar:
+#             col -= 1
+#         elif grid[row][col] < tar:
+#             row += 1
+#         else:
+#             return [row, col]
+#     return -1
+
+# def minChange(coins, amount):
+#     table = [float('inf')] * (amount + 1)
+#     table[0] = 0
+#     for coin in coins:
+#         for amt in range(len(table)):
+#             qty = 0
+#             while qty * coin <= amt:
+#                 remain = amt - (qty * coin)
+#                 attempt = table[remain] + qty
+#                 if attempt < table[amt]: table[amt] = attempt
+#                 qty += 1
+#     return table[-1]
+
+# print(minChange([1,2,5], 26))
+
+def riverSizes(matrix):
+    sizes = []
+    visited = []
+    for row in range(len(matrix)):
+        for col in range(len(matrix[row])):
+            if matrix[row][col] == 1:
+                size = findSize(row, col, visited, matrix, sizes)
+                if size:
+                    sizes.append(size)
+            elif [row, col] in visited:
+                continue
+    return sizes
+
+
+def findSize(row, col, visited, matrix, sizes):
+    size = 0
+    nodesToEx = [[row, col]]
+    while len(nodesToEx):
+        currNode = nodesToEx.pop()
+        row = currNode[0]
+        col = currNode[1]
+        if currNode in visited:
+            continue
+        visited.append(currNode)
+        if matrix[row][col] == 0:
+            continue
+        size += 1
+        unvistedNeighbors = getUnvisited(row, col, visited, matrix)
+        for neighbor in unvistedNeighbors:
+            nodesToEx.append(neighbor)
+        if size > 0:
+            sizes.append(size)
+
+
+def getUnvisited(row, col, visited, matrix):
+    unvistedNeighbors = []
+    if row > 0 and [row - 1, col] not in visited:
+        unvistedNeighbors.append([row - 1, col])
+    elif row < len(matrix) - 1 and [row + 1, col] not in visited:
+        unvistedNeighbors.append([row + 1, col])
+    elif col > 0 and [row, col - 1] not in visited:
+        unvistedNeighbors.append([row, col - 1])
+    elif col < len(matrix[0]) - 1 and [row, col + 1] not in visited:
+        unvistedNeighbors.append([row, col + 1])
+    return unvistedNeighbors
+
+print(riverSizes([
+    [1,0,0,1,0],
+    [1,0,1,0,0],
+    [0,0,1,0,1],
+    [1,0,1,0,1],
+    [1,0,1,1,0]
+]))
