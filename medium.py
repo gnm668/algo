@@ -995,20 +995,20 @@
 #     def getMax(self):
 #         return self.minMax[-1]["max"]
 
-class LinkedList:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
+# class LinkedList:
+#     def __init__(self, value):
+#         self.value = value
+#         self.next = None
     
-def removeKthNode(head, k):
-    first = head
-    second = head
-    for i in range(k):
-        second = second.next
-    if second is None:
-        first.value = first.next.value
-        first.next = first.next.next
-    while second.next is not None:
-        first = first.next
-        second = second.next
-    first.next = first.next.next
+# def removeKthNode(head, k):
+#     first = head
+#     second = head
+#     for i in range(k):
+#         second = second.next
+#     if second is None:
+#         first.value = first.next.value
+#         first.next = first.next.next
+#     while second.next is not None:
+#         first = first.next
+#         second = second.next
+#     first.next = first.next.next
