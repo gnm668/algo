@@ -946,3 +946,24 @@
 #     return memo[amount]
 
 # print(minChange([1,4,6,10], 24))
+
+def threeSum(li, tar):
+    li.sort()
+    res = []
+    for i in range(len(li)):
+        left = i + 1
+        right = len(li) - 1
+        while left < right:
+            currSum = li[i] + li[right] + li[left]
+            if currSum < tar:
+                left += 1
+            elif currSum > tar:
+                right -= 1
+            else:
+                res.append([li[i], li[left], li[right]])
+                right -= 1
+                left += 1
+
+    return res
+
+print(threeSum([0,1,2,3,4,4,5,6,7], 8))
