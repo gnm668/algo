@@ -935,3 +935,14 @@
 #     return table[-1]
 
 # print(minChange([1,4,6,10], 24))
+
+# def minChange(coins, amount, memo = {0: 0}):
+#     if amount in memo: return memo[amount]
+#     numCoins = []
+#     for coin in coins:
+#         if coin <= amount:
+#             numCoins.append(minChange(coins, amount - coin, memo) + 1)
+#     memo[amount] = min(numCoins)
+#     return memo[amount]
+
+# print(minChange([1,4,6,10], 24))
