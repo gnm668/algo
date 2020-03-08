@@ -921,5 +921,17 @@
 
 # print(perms([8,4,1]))
 
-def minChange(coins, amount):
-    table = [float('inf') for value in range(amount)]
+# def minChange(coins, amount):
+#     table = [float('inf') for value in range(amount + 1)]
+#     table[0] = 0
+#     for coin in coins:
+#         for amt in range(len(table)):
+#             qty = 0
+#             while qty * coin <= amt:
+#                 remain = amt - (qty * coin)
+#                 attempt = table[remain] + qty
+#                 if attempt < table[amt]: table[amt] = attempt
+#                 qty += 1
+#     return table[-1]
+
+# print(minChange([1,4,6,10], 24))
