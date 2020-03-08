@@ -947,23 +947,52 @@
 
 # print(minChange([1,4,6,10], 24))
 
-def threeSum(li, tar):
-    li.sort()
-    res = []
-    for i in range(len(li)):
-        left = i + 1
-        right = len(li) - 1
-        while left < right:
-            currSum = li[i] + li[right] + li[left]
-            if currSum < tar:
-                left += 1
-            elif currSum > tar:
-                right -= 1
-            else:
-                res.append([li[i], li[left], li[right]])
-                right -= 1
-                left += 1
+# def threeSum(li, tar):
+#     li.sort()
+#     res = []
+#     for i in range(len(li)):
+#         left = i + 1
+#         right = len(li) - 1
+#         while left < right:
+#             currSum = li[i] + li[right] + li[left]
+#             if currSum < tar:
+#                 left += 1
+#             elif currSum > tar:
+#                 right -= 1
+#             else:
+#                 res.append([li[i], li[left], li[right]])
+#                 right -= 1
+#                 left += 1
 
-    return res
+#     return res
 
-print(threeSum([0,1,2,3,4,4,5,6,7], 8))
+# print(threeSum([0,1,2,3,4,4,5,6,7], 8))
+
+class MinMaxStack:
+    def __init__(self):
+        self.stack = []
+        self.minMax = []
+    
+    def peek(self):
+        return self.stack[-1]
+    
+    def pop(self):
+        self.minMax.pop()
+        return self.stack.pop()
+    
+    def push(self, number):
+        newMinMax = {"min": number, "max": number}
+        if len(self.minMax):
+            lastMinMax = self.minMax[-1]
+            newMinMax["min"] = min(number, lastMinMax[0])
+            newMinMax["max"] = max(number, lastMinMax[1])
+        self.minMax.append(newMinMax)
+        return self.stack.append(number)
+    
+    def getMin(self):
+        return self.minMax[-1]["min"]
+
+    def getMax(self):
+        return self.minMax[-1]["max"]
+
+        
