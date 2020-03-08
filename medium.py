@@ -968,31 +968,47 @@
 
 # print(threeSum([0,1,2,3,4,4,5,6,7], 8))
 
-class MinMaxStack:
-    def __init__(self):
-        self.stack = []
-        self.minMax = []
+# class MinMaxStack:
+#     def __init__(self):
+#         self.stack = []
+#         self.minMax = []
     
-    def peek(self):
-        return self.stack[-1]
+#     def peek(self):
+#         return self.stack[-1]
     
-    def pop(self):
-        self.minMax.pop()
-        return self.stack.pop()
+#     def pop(self):
+#         self.minMax.pop()
+#         return self.stack.pop()
     
-    def push(self, number):
-        newMinMax = {"min": number, "max": number}
-        if len(self.minMax):
-            lastMinMax = self.minMax[-1]
-            newMinMax["min"] = min(number, lastMinMax[0])
-            newMinMax["max"] = max(number, lastMinMax[1])
-        self.minMax.append(newMinMax)
-        return self.stack.append(number)
+#     def push(self, number):
+#         newMinMax = {"min": number, "max": number}
+#         if len(self.minMax):
+#             lastMinMax = self.minMax[-1]
+#             newMinMax["min"] = min(number, lastMinMax[0])
+#             newMinMax["max"] = max(number, lastMinMax[1])
+#         self.minMax.append(newMinMax)
+#         return self.stack.append(number)
     
-    def getMin(self):
-        return self.minMax[-1]["min"]
+#     def getMin(self):
+#         return self.minMax[-1]["min"]
 
-    def getMax(self):
-        return self.minMax[-1]["max"]
+#     def getMax(self):
+#         return self.minMax[-1]["max"]
 
-        
+class LinkedList:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+    
+def removeKthNode(head, k):
+    first = head
+    second = head
+    for i in range(k):
+        second = second.next
+    if second is None:
+        first.value = first.next.value
+        first.next = first.next.next
+    while second.next is not None:
+        first = first.next
+        second = second.next
+    first.next = first.next.next
