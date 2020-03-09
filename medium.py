@@ -1013,11 +1013,27 @@
 #         second = second.next
 #     first.next = first.next.next
 
-def powerset(li):
-    res = [[]]
-    for i in range(len(li)):
-        for j in range(len(res)):
-            res.append(res[j] + [li[i]])
-    return res
+# def powerset(li):
+#     res = [[]]
+#     for i in range(len(li)):
+#         for j in range(len(res)):
+#             res.append(res[j] + [li[i]])
+#     return res
 
-print(powerset([1,2,3]))
+# print(powerset([1,2,3]))
+
+def perms(li):
+    perms = []
+    permHelp(0, li, perms)
+    return perms
+
+def permHelp(i, li, perms):
+    if i == len(li) - 1:
+        perms.append(li[:])
+    else:
+        for j in range(i, len(li)):
+            li[i], li[j] = li[j], li[i]
+            permHelp(i + 1, li, perms)
+            li[i], li[j] = li[j], li[i]
+    
+print(perms([10, 34, 4]))
