@@ -1012,3 +1012,12 @@
 #         first = first.next
 #         second = second.next
 #     first.next = first.next.next
+
+def powerset(li):
+    res = [[]]
+    for i in range(len(li)):
+        for j in range(len(res)):
+            res.append(res[j] + [li[i]])
+    return res
+
+print(powerset([1,2,3]))
