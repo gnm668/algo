@@ -1062,15 +1062,20 @@
 # print(lessThanCount([8, 4, 2, 1, 4, 7, 6]))
 
 
+# def findDigits(li) -> int:
+#     evens = 0
+#     for num in li:
+#         count = 0
+#         for i in range(5):
+#             if num >= 10 ** i:
+#                 count += 1
+#         if count % 2 == 0:
+#             evens += 1
+#     return evens
+
+import math
 def findDigits(li) -> int:
-    evens = 0
-    for num in li:
-        count = 0
-        for i in range(5):
-            if num >= 10 ** i:
-                count += 1
-        if count % 2 == 0:
-            evens += 1
-    return evens
+    digits = [int(math.log10(num)) % 2 for num in li]
+    return sum(digits)
 
 print(findDigits([13,3432,432,23,541,1,23]))
