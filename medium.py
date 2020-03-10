@@ -1049,14 +1049,28 @@
 
 # print(lessThanCount([8, 4, 2, 1, 4, 7, 6]))
 
-def lessThanCount(li):
-    smallerNums = []
-    for i in range(len(li)):
-        count = 0
-        for j in range(len(li)):
-            if li[i] > li[j]:
-                count += 1
-        smallerNums.append(count)
-    return smallerNums
+# def lessThanCount(li):
+#     smallerNums = []
+#     for i in range(len(li)):
+#         count = 0
+#         for j in range(len(li)):
+#             if li[i] > li[j]:
+#                 count += 1
+#         smallerNums.append(count)
+#     return smallerNums
 
-print(lessThanCount([8, 4, 2, 1, 4, 7, 6]))
+# print(lessThanCount([8, 4, 2, 1, 4, 7, 6]))
+
+
+def findDigits(li) -> int:
+    evens = 0
+    for num in li:
+        count = 0
+        for i in range(5):
+            if num >= 10 ** i:
+                count += 1
+        if count % 2 == 0:
+            evens += 1
+    return evens
+
+print(findDigits([13,3432,432,23,541,1,23]))
