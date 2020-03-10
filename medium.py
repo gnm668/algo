@@ -1022,18 +1022,29 @@
 
 # print(powerset([1,2,3]))
 
-def perms(li):
-    perms = []
-    permHelp(0, li, perms)
-    return perms
+# def perms(li):
+#     perms = []
+#     permHelp(0, li, perms)
+#     return perms
 
-def permHelp(i, li, perms):
-    if i == len(li) - 1:
-        perms.append(li[:])
-    else:
-        for j in range(i, len(li)):
-            li[i], li[j] = li[j], li[i]
-            permHelp(i + 1, li, perms)
-            li[i], li[j] = li[j], li[i]
+# def permHelp(i, li, perms):
+#     if i == len(li) - 1:
+#         perms.append(li[:])
+#     else:
+#         for j in range(i, len(li)):
+#             li[i], li[j] = li[j], li[i]
+#             permHelp(i + 1, li, perms)
+#             li[i], li[j] = li[j], li[i]
     
-print(perms([10, 34, 4]))
+# print(perms([10, 34, 4]))
+
+def lessThanCount(li):          #[8, 4, 2, 1, 4, 7, 6]
+    count = [0 for x in range(102)] #count[9] = 7 count[8] = 6 count[7] = 5 count[5] = 4 count[3] = 2 count[2] = 1 
+    for num in li:
+        count[num + 1] += 1
+    for i in range(1, 102):
+        count[i] += count[i - 1]
+    return [count[num] for num in li]
+
+
+print(lessThanCount([8, 4, 2, 1, 4, 7, 6]))
