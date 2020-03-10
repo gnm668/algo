@@ -1038,13 +1038,25 @@
     
 # print(perms([10, 34, 4]))
 
-def lessThanCount(li):          #[8, 4, 2, 1, 4, 7, 6]
-    count = [0 for x in range(102)] #count[9] = 7 count[8] = 6 count[7] = 5 count[5] = 4 count[3] = 2 count[2] = 1 
-    for num in li:
-        count[num + 1] += 1
-    for i in range(1, 102):
-        count[i] += count[i - 1]
-    return [count[num] for num in li]
+# def lessThanCount(li):          #[8, 4, 2, 1, 4, 7, 6]
+#     count = [0 for x in range(102)] #count[9] = 7 count[8] = 6 count[7] = 5 count[5] = 4 count[3] = 2 count[2] = 1 
+#     for num in li:
+#         count[num + 1] += 1
+#     for i in range(1, 102):
+#         count[i] += count[i - 1]
+#     return [count[num] for num in li]
 
+
+# print(lessThanCount([8, 4, 2, 1, 4, 7, 6]))
+
+def lessThanCount(li):
+    smallerNums = []
+    for i in range(len(li)):
+        count = 0
+        for j in range(len(li)):
+            if li[i] > li[j]:
+                count += 1
+        smallerNums.append(count)
+    return smallerNums
 
 print(lessThanCount([8, 4, 2, 1, 4, 7, 6]))
