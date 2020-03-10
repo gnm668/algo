@@ -1078,12 +1078,15 @@
 #     digits = [int(math.log10(num)) % 2 for num in li]
 #     return sum(digits)
 
-def findDigits(li):
-    count = 0
-    for num in li:
-        if (num > 9 and num < 100) or (num > 999 and num < 10000):
-            count += 1
+# def findDigits(li):
+#     count = 0
+#     for num in li:
+#         if (num > 9 and num < 100) or (num > 999 and num < 10000):
+#             count += 1
 
-    return count
+#     return count
+
+def findDigits(li):
+    return len([num for num in li if len(str(num)) % 2 == 0])
 
 print(findDigits([13,3432,432,23,541,1,23]))
