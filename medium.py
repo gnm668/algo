@@ -1086,7 +1086,21 @@
 
 #     return count
 
-def findDigits(li):
-    return len([num for num in li if len(str(num)) % 2 == 0])
+# def findDigits(li):
+#     return len([num for num in li if len(str(num)) % 2 == 0])
 
-print(findDigits([13,3432,432,23,541,1,23]))
+# print(findDigits([13,3432,432,23,541,1,23]))
+
+
+def moveElToEnd(li, toMove):
+    right = 0
+    left = len(li) - 1
+    while right < left:
+        while right < left and li[left] == toMove:
+            left -= 1
+        if li[right] == toMove:
+            li[right], li[left] = li[left], li[right]
+        right += 1
+    return li
+
+print(moveElToEnd([2,3,4,5,2,34,5,3,4,2,2,2,3,4,2,2,3,2], 2))
