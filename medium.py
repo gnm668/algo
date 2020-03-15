@@ -1106,17 +1106,26 @@
 # print(moveElToEnd([2,3,4,5,2,34,5,3,4,2,2,2,3,4,2,2,3,2], 2))
 
 
-def perms(li):
-    perms = []
-    permHelp(0, li, perms)
-    return perms
+# def perms(li):
+#     perms = []
+#     permHelp(0, li, perms)
+#     return perms
 
-def permHelp(i, li, perms):
-    if len(li) - 1 == i: 
-        perms.append(li[:])
-    for j in range(i, len(li)):
-        li[i], li[j] = li[j], li[i]
-        permHelp(i + 1, li, perms)
-        li[i], li[j] = li[i], li[j]
+# def permHelp(i, li, perms):
+#     if len(li) - 1 == i: 
+#         perms.append(li[:])
+#     for j in range(i, len(li)):
+#         li[i], li[j] = li[j], li[i]
+#         permHelp(i + 1, li, perms)
+#         li[i], li[j] = li[i], li[j]
 
-print(perms([3,2,1]))
+# print(perms([3,2,1]))
+
+def powerSet(li):
+    res = [[]]
+    for i in range(len(li)):
+        for j in range(len(res)):
+            res.append(res[j] + [li[i]])
+    return res
+
+print(powerSet([1,2,3]))
