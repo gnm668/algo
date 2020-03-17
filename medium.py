@@ -12,7 +12,7 @@
 #     while row < len(matrix) and col >= 0:
 #         if matrix[row][col] > target:
 #             col -= 1
-#         elif matrix[    row][col] < target:
+#         elif matrix[row][col] < target:
 #             row += 1
 #         else:
 #             return [row, col]
@@ -1174,23 +1174,52 @@
 
 # print(minChange([2,5,7], 25))
 
-def threeSum(li, tar):
-    res = []
-    li.sort()
+# def threeSum(li, tar):
+#     res = []
+#     li.sort()
 
-    for i in range(len(li)):
-        left = i + 1
-        right = len(li) - 1
-        while left < right:
-            currSum = li[i] + li[left] + li[right]
-            if currSum == tar:
-                res.append([li[i], li[left], li[right]])
-                right -= 1
-                left += 1
-            elif currSum < tar:
-                left += 1
-            else:
-                right -= 1
-    return res
+#     for i in range(len(li)):
+#         left = i + 1
+#         right = len(li) - 1
+#         while left < right:
+#             currSum = li[i] + li[left] + li[right]
+#             if currSum == tar:
+#                 res.append([li[i], li[left], li[right]])
+#                 right -= 1
+#                 left += 1
+#             elif currSum < tar:
+#                 left += 1
+#             else:
+#                 right -= 1
+#     return res
 
-print(threeSum([2,4,5,7,3,0,1,6], 8))
+# print(threeSum([2,4,5,7,3,0,1,6], 8))
+
+# def searchInMatrix(grid, tar):
+#     row = 0
+#     col = len(grid[0]) - 1
+
+#     while row < len(grid) and col >= 0:
+#         if grid[row][col] > tar:
+#             col -= 1
+#         elif grid[row][col] < tar:
+#             row += 1
+#         else:
+#             return [row, col]
+
+#     return -1
+
+# row1 = [1,4,7,12,15,1000]
+# row2 = [2,5,10,14,25,1001]
+# row3 = [3,6,11,17,35,1002]
+
+# row1.sort()
+# row2.sort()
+# row3.sort()
+
+# grid = []
+# grid.append(row1)
+# grid.append(row2)
+# grid.append(row3)
+# print(grid)
+# print(searchInMatrix(grid, 25))
