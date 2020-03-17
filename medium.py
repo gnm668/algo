@@ -1130,18 +1130,31 @@
 
 # print(powerSet([1,2,3]))
 
-def permutations(li):
-    perms = []
-    permsHelper(0, li, perms)
-    return perms
+# def permutations(li):
+#     perms = []
+#     permsHelper(0, li, perms)
+#     return perms
 
-def permsHelper(i, li, perms):
-    if len(li) - 1 == i:
-        perms.append(li[:])
-    else:
-        for j in range(len(li)):
-            li[i], li[j] = li[j], li[i]
-            permsHelper(i + 1, li, perms)
-            li[i], li[j] = li[j], li[i]
+# def permsHelper(i, li, perms):
+#     if len(li) - 1 == i:
+#         perms.append(li[:])
+#     else:
+#         for j in range(len(li)):
+#             li[i], li[j] = li[j], li[i]
+#             permsHelper(i + 1, li, perms)
+#             li[i], li[j] = li[j], li[i]
 
-print(permutations([1,2,3]))
+# print(permutations([1,2,3]))
+
+def minChange(coins, amount, memo = {0: 0}):
+    if amount in memo: return memo[amount]
+    numCoins = []
+
+    for coin in coins:
+        if coin <= amount:
+            numCoins.append(minChange(coins, amount - coin, memo) + 1)
+    
+    memo[amount] = min(numCoins)
+    return memo[amount]
+
+print(minChange([1,2], 9))
