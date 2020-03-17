@@ -1121,11 +1121,27 @@
 
 # print(perms([3,2,1]))
 
-def powerSet(li):
-    res = [[]]
-    for i in range(len(li)):
-        for j in range(len(res)):
-            res.append(res[j] + [li[i]])
-    return res
+# def powerSet(li):
+#     res = [[]]
+#     for i in range(len(li)):
+#         for j in range(len(res)):
+#             res.append(res[j] + [li[i]])
+#     return res
 
-print(powerSet([1,2,3]))
+# print(powerSet([1,2,3]))
+
+def permutations(li):
+    perms = []
+    permsHelper(0, li, perms)
+    return perms
+
+def permsHelper(i, li, perms):
+    if len(li) - 1 == i:
+        perms.append(li[:])
+    else:
+        for j in range(len(li)):
+            li[i], li[j] = li[j], li[i]
+            permsHelper(i + 1, li, perms)
+            li[i], li[j] = li[j], li[i]
+
+print(permutations([1,2,3]))
