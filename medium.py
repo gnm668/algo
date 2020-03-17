@@ -1157,20 +1157,40 @@
 #     memo[amount] = min(numCoins)
 #     return memo[amount]
 
-def minChange(coins, amount):
-    table = [float("inf") for x in range(amount + 1)]
-    table[0] = 0
+# def minChange(coins, amount):
+#     table = [float("inf") for x in range(amount + 1)]
+#     table[0] = 0
 
-    for coin in coins:
-        for amt in range(len(table)):
-            qty = 0
-            while qty * coin <= amt:
-                diff = amt - qty * coin
-                attempt = qty + table[diff]
-                if attempt < table[amt]: table[amt] = attempt
-                qty += 1
+#     for coin in coins:
+#         for amt in range(len(table)):
+#             qty = 0
+#             while qty * coin <= amt:
+#                 diff = amt - qty * coin
+#                 attempt = qty + table[diff]
+#                 if attempt < table[amt]: table[amt] = attempt
+#                 qty += 1
     
-    return table[-1]
+#     return table[-1]
 
-print(minChange([2,5,7], 25))
+# print(minChange([2,5,7], 25))
 
+def threeSum(li, tar):
+    res = []
+    li.sort()
+
+    for i in range(len(li)):
+        left = i + 1
+        right = len(li) - 1
+        while left < right:
+            currSum = li[i] + li[left] + li[right]
+            if currSum == tar:
+                res.append([li[i], li[left], li[right]])
+                right -= 1
+                left += 1
+            elif currSum < tar:
+                left += 1
+            else:
+                right -= 1
+    return res
+
+print(threeSum([2,4,5,7,3,0,1,6], 8))
