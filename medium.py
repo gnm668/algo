@@ -1223,3 +1223,24 @@
 # grid.append(row3)
 # print(grid)
 # print(searchInMatrix(grid, 25))
+
+def three_sum(li, tar):
+    li.sort()
+    res = []
+    for i in range(len(li) - 2):
+        left = i + 1
+        right = len(li) - 1
+        while left < right:
+            curr_sum = li[i] + li[left] + li[right]
+            if curr_sum == tar:
+                res.append([li[i], li[left], li[right]])
+                right -= 1
+                left += 1
+            elif curr_sum > tar:
+                right -= 1
+            else:
+                left += 1
+    
+    return res
+
+print(three_sum([5,4,3,4,2,1,0], 8))
