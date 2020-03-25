@@ -77,3 +77,66 @@ g = ['h', 'e', 'l', 'l', 'o']
 # print(i)
 
 # print([float('inf') for value in range(10)])
+
+
+def check_sudoku(grid):
+    results = []
+    
+    results.append(check_col(grid))
+    results.append(check_row(grid))
+    
+    if False in results: 
+        return False
+    else:
+        return True
+    
+def check_col(grid):
+    for i in range(len(grid[0])):
+        counter = {}
+        for j in range(len(grid)):
+            value = grid[j][i]
+
+            if value not in range(1,len(grid) + 1): return False
+
+            if value in counter:
+                counter[value] += 1
+            else:
+                counter[value] = 1
+    
+        print(counter)
+        for value in list(counter.values()):
+            if value > 1:
+                return False
+    return True
+            
+def check_row(grid):
+    for i in range(len(grid)):
+        counter = {}
+        for j in range(len(grid[0])):
+            value = grid[i][j]
+            
+            if value not in range(1,len(grid) + 1): return False
+
+            if value in counter:
+                counter[value] += 1
+            else:
+                counter[value] = 1
+
+        # print(counter)
+        for value in list(counter.values()):
+            if value > 1:
+                return False
+    return True
+
+
+correct = [[1,2,3],
+            [2,3,1],
+            [3,1,2]]
+
+incorrect2 = [[1,2,3,4],
+             [2,3,1,4],
+             [4,1,2,3],
+             [3,4,1,2]]
+
+    
+print(check_sudoku(incorrect2))
