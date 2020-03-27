@@ -160,4 +160,26 @@ def check_sudoku(square):
             if row[n] not in check_list:
                 return False
             check_list.remove(row[n])
-    return True
+    return 
+    
+def three_sum(li, tar):
+    li.sort()
+    res = []
+    
+    for i in range(len(li)):
+        left = i + 1
+        right = len(li) - 1
+        while left < right:
+            curr_sum = li[i] + li[left] + li[right]
+            if curr_sum == tar:
+                res.append([li[i], li[left], li[right]])
+                left += 1
+                right -= 1 
+            elif curr_sum > tar:
+                right -= 1
+            else:
+                left += 1
+    return res
+
+print(three_sum([0,1,2,3,4,4,5], 8))
+
