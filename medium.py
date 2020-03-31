@@ -1316,16 +1316,29 @@
 
 # print(three_sum([0,1,2,3,4,4,5], 8))
 
-def search_sorted_matrix(matrix, tar):
-    i = 0
-    j = len(matrix[0]) - 1
+# def search_sorted_matrix(matrix, tar):
+#     i = 0
+#     j = len(matrix[0]) - 1
 
-    while i > len(matrix) - 1 and j > 0:
-        if matrix[i][j] == tar:
-            return [i, j]
-        elif matrix[i][j] > tar:
-            j -= 1
-        elif matrix[i][j] < tar:
-            i += 1
+#     while i > len(matrix) - 1 and j > 0:
+#         if matrix[i][j] == tar:
+#             return [i, j]
+#         elif matrix[i][j] > tar:
+#             j -= 1
+#         elif matrix[i][j] < tar:
+#             i += 1
     
-    return -1
+#     return -1
+
+def min_change(coins, amount, memo = {0: 0}):
+    if amount in memo: return memo[amount]
+    num_coins = []
+
+    for coin in coins:
+        if coin <= amount:
+            num_coins.append(min_change(coins, amount - coin, memo) + 1)
+    
+    memo[amount] = min(num_coins)
+    return memo[amount]
+
+print(min_change([1,2,3,4,5], 15))
