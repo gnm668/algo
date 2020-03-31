@@ -1296,22 +1296,36 @@
 
 # print(smallestDiff([1,2,3,4,1000], [100, 200, 300, 1001]))
 
-def three_sum(li, tar):
-    li.sort()
-    res = []
-    for i in range(len(li)):
-        left = i + 1
-        right = len(li) - 1
-        while left < right:
-            curr_sum = li[i] + li[left] + li[right]
-            if curr_sum == tar:
-                res.append([li[i], li[left], li[right]])
-                right -= 1 
-                left += 1
-            elif curr_sum > tar:
-                right -= 1
-            elif curr_sum < tar:
-                left += 1
-    return res
+# def three_sum(li, tar):
+#     li.sort()
+#     res = []
+#     for i in range(len(li)):
+#         left = i + 1
+#         right = len(li) - 1
+#         while left < right:
+#             curr_sum = li[i] + li[left] + li[right]
+#             if curr_sum == tar:
+#                 res.append([li[i], li[left], li[right]])
+#                 right -= 1 
+#                 left += 1
+#             elif curr_sum > tar:
+#                 right -= 1
+#             elif curr_sum < tar:
+#                 left += 1
+#     return res
 
-print(three_sum([0,1,2,3,4,4,5], 8))
+# print(three_sum([0,1,2,3,4,4,5], 8))
+
+def search_sorted_matrix(matrix, tar):
+    i = 0
+    j = len(matrix[0]) - 1
+
+    while i > len(matrix) - 1 and j > 0:
+        if matrix[i][j] == tar:
+            return [i, j]
+        elif matrix[i][j] > tar:
+            j -= 1
+        elif matrix[i][j] < tar:
+            i += 1
+    
+    return -1
