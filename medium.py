@@ -1330,15 +1330,28 @@
     
 #     return -1
 
-def min_change(coins, amount, memo = {0: 0}):
-    if amount in memo: return memo[amount]
-    num_coins = []
+# def min_change(coins, amount, memo = {0: 0}):
+#     if amount in memo: return memo[amount]
+#     num_coins = []
 
-    for coin in coins:
-        if coin <= amount:
-            num_coins.append(min_change(coins, amount - coin, memo) + 1)
+#     for coin in coins:
+#         if coin <= amount:
+#             num_coins.append(min_change(coins, amount - coin, memo) + 1)
     
-    memo[amount] = min(num_coins)
-    return memo[amount]
+#     memo[amount] = min(num_coins)
+#     return memo[amount]
 
-print(min_change([1,2,3,4,5], 15))
+def min_change(coins, amount):
+    table = [float("inf") for x in range(amount + 1)]
+    table[0] = 0
+    for coin in coins:
+        for amt in range(len(table)):
+            qty = 0
+            while qty * coin <= amt:
+                remainder = amt - qty * coin
+                attempt = table[remainder] + qty
+                if attempt < table[amt]: table[amt] = attempt
+                qty += 1
+
+    return table[-1]
+print(min_change([1,2,3,4], 15))
