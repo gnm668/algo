@@ -184,26 +184,40 @@ def check_sudoku(square):
 # print(three_sum([0,1,2,3,4,4,5], 8))
 
 
-def smallest_diff(li1, li2):
-    li1.sort()
-    li2.sort()
-    idx1, idx2 = 0, 0
-    diff, curr = float("inf"), float("inf")
-    pair = []
+# def smallest_diff(li1, li2):
+#     li1.sort()
+#     li2.sort()
+#     idx1, idx2 = 0, 0
+#     diff, curr = float("inf"), float("inf")
+#     pair = []
     
-    while idx1 < len(li1) and idx2 < len(li2):
-        num1, num2 = li1[idx1], li2[idx2]
-        if num1 > num2:
-            curr = num1 - num2
-            idx2 += 1
-        elif num1 < num2:
-            curr = num2 - num1
-            idx1 += 1
-        else:
-            return [num1, num2]
-        if curr < diff:
-            diff = curr
-            pair = [num1, num2]
-    return pair
+#     while idx1 < len(li1) and idx2 < len(li2):
+#         num1, num2 = li1[idx1], li2[idx2]
+#         if num1 > num2:
+#             curr = num1 - num2
+#             idx2 += 1
+#         elif num1 < num2:
+#             curr = num2 - num1
+#             idx1 += 1
+#         else:
+#             return [num1, num2]
+#         if curr < diff:
+#             diff = curr
+#             pair = [num1, num2]
+#     return pair
     
-print(smallest_diff([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
+# print(smallest_diff([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
+
+
+def min_change(coins, amount, memo = {0: 0}):
+    if amount in memo: return memo[amount]
+    num_coins = []
+
+    for coin in coins:
+        if coin <= amount:
+            num_coins.append(min_change(coins, amount - coin, memo) + 1)
+    
+    memo[amount] = min(num_coins)
+    return memo[amount]
+
+print(min_change([1,2,3,4,5], 8))
