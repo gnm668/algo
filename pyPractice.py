@@ -209,15 +209,36 @@ def check_sudoku(square):
 # print(smallest_diff([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
 
 
-def min_change(coins, amount, memo = {0: 0}):
-    if amount in memo: return memo[amount]
-    num_coins = []
+# def min_change(coins, amount, memo = {0: 0}):
+#     if amount in memo: return memo[amount]
+#     num_coins = []
 
-    for coin in coins:
-        if coin <= amount:
-            num_coins.append(min_change(coins, amount - coin, memo) + 1)
+#     for coin in coins:
+#         if coin <= amount:
+#             num_coins.append(min_change(coins, amount - coin, memo) + 1)
     
-    memo[amount] = min(num_coins)
-    return memo[amount]
+#     memo[amount] = min(num_coins)
+#     return memo[amount]
 
-print(min_change([1,2,3,4,5], 8))
+# print(min_change([1,2,3,4,5], 8))
+
+def threeSum(li, tar):
+    li.sort()
+    res = []
+
+    for i in range(len(li)):
+        left = i + 1
+        right = len(li) - 1
+        while left < right:
+            currSum = li[i] + li[left] + li[right]
+            if currSum == tar:
+                res.append([li[i], li[left], li[right]])
+                left += 1
+                right -= 1
+            elif currSum < tar:
+                left += 1
+            elif currSum > tar:
+                right -= 1
+    return res
+
+print(threeSum([0,1,2,3,4,5], 8))

@@ -85,7 +85,7 @@ def productSum(array, multi=1):
 
 # def shift(largest, num, idx):
 #     for i in range(idx + 1):
-#         if i == idx:
+#         if i == idx:∑
 #             largest[i] = num
 #         else:
 #             largest[i] = largest[i + 1]
