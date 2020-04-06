@@ -1356,9 +1356,26 @@
 #     return table[-1]
 # print(min_change([1,2,3,4], 15))
 
-def quickSort(li):
-    if len(li) < 1: return li
-    pivot = li.pop()
-    left = [el for el in li if el <= pivot]
-    right = [el for el in li if el > pivot]
-    return quickSort(left) + [pivot] + quickSort(right)
+# def quickSort(li):
+#     if len(li) < 1: return li
+#     pivot = li.pop()
+#     left = [el for el in li if el <= pivot]
+#     right = [el for el in li if el > pivot]
+#     return quickSort(left) + [pivot] + quickSort(right)
+
+def minChange(coins, amount):
+    table = [float("inf") for x in range(amount + 1)]
+    table[0] = 0
+
+    for coin in coins:
+        for amt in range(len(table)):
+            qty = 0
+            while qty * coin <= amt:
+                remainder = amt - qty * coin
+                attempt = qty + table[remainder]
+                if attempt < table[amt]: table[amt] = attempt
+                qty += 1 
+            
+    return table[-1]
+
+print(minChange([1,2,3], 20))
