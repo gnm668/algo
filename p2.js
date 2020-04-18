@@ -219,3 +219,51 @@ console.log(checkLock(5, 2, 45, 1))
 console.log(checkLock(1, 2, 45, 1))
 console.log(checkLock(5, 2, 45, 10))
 
+// With Object
+var canIGet = function(item, money) {
+  
+  appleStore = {"MacBook Pro" : 1299, "MacBook Air" : 999, "Mac Pro" : 2499, "Apple Sticker" : 1}
+  
+  if (appleStore[item] <= money) {
+    return true;
+  } else {
+    return false;
+  };
+};
+
+// Without Object
+var canIGet = function(item, money) {
+  if (item == "MacBook Pro" && money >= 1299) {
+    return true;
+  } else if (item == "MacBook Air" && money >= 999) {
+    return true;
+  } else if (item == "Mac Pro" && money >= 2499) {
+    return true;
+  } else if (item == "Apple Sticker" && money >= 1) {
+    return true;
+  } else {
+    return false;
+  };
+};
+
+// So I made a mistake, and when they test the function, they specifically pass the item and 
+// money into the function in that order so I switched item and money.
+
+// Also it's a case sensitive thing again, you typed "Macbook Air" but it's testing with "MacBook Air", 
+// the "B" is capitalized
+
+// I tested for the item name first, but it should work either way in your if statement because it's an 
+// "and" statement, not an "or" statement
+
+// var canIGet = function(money, item) {
+//     if (money >= 1299 && item == "Macbook Pro") {
+//       return true;
+//     } else if (money >= 999 && item == "Macbook Air") {
+//       return true;
+//     } else if (money >= 2499 && item == "Mac Pro") {
+//       return true;
+//     } else if (money >= 1 && item == "Apple Sticker") {
+//       return true;
+//     }
+//   return false;
+// };
